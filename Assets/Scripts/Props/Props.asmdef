@@ -1,0 +1,16 @@
+{
+    "name": "Props",
+    "rootNamespace": "",
+    "references": [
+        "GUID:45f1ac7bd271a554b8058d8a819e97fe"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

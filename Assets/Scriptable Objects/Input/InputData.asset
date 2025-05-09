@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08dc3dfbff21d0468744f4b265ea1a3, type: 3}
+  m_Name: InputData
+  m_EditorClassIdentifier: 
+  entries:
+  - name: Forward
+    keyCode: 119
+  - name: Backward
+    keyCode: 115
+  - name: Left
+    keyCode: 97
+  - name: Right
+    keyCode: 100
+  - name: Lean Left
+    keyCode: 113
+  - name: Lean Right
+    keyCode: 101
+  - name: Jump
+    keyCode: 32
+  - name: Sprint
+    keyCode: 304
+  - name: Crouch
+    keyCode: 99
+  - name: Interact
+    keyCode: 102

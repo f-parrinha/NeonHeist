@@ -1,0 +1,45 @@
+using Core.Common.Interfaces;
+using UnityEngine;
+
+namespace Core.Controllers
+{
+    public class CursorController : MonoBehaviour, IRefreshable
+    {
+        [SerializeField] private bool startEnabled = false;
+
+        public bool IsEnabled { get; private set; }
+
+
+        private void Awake()
+        {
+            IsEnabled = startEnabled;
+        }
+
+        private void Start()
+        {
+            Refresh();
+        }
+
+
+        public void SetEnabled(bool enabled) 
+        {
+            IsEnabled = enabled;
+            Refresh();
+        }
+
+
+        public void Refresh()
+        {
+            if (IsEnabled)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+        }
+    }
+}
