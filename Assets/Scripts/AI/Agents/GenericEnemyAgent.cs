@@ -17,12 +17,9 @@ namespace AI.Agents
     [RequireComponent(typeof(AIVision))]
     [RequireComponent(typeof(CharacterHealth))]
     [RequireComponent(typeof(CharacterVoices))]
-    public abstract class AIAgent : MonoBehaviour, IInitializable, ICleanable
+    public abstract class GenericEnemyAgent : MonoBehaviour, IInitializable, ICleanable
     {    
-        private TickTimer errorDetector;
         private TickTask actionDecisionTask;
-        private Vector3 lastPos;
-        private bool started;
 
         protected AIMovement movement;
         protected AIAnimations animations;
@@ -32,8 +29,6 @@ namespace AI.Agents
         protected Goal goal;
 
         [SerializeField][Range(100, 2000)] private int refreshRate = 500;
-        [SerializeField] private float randomMoveMinRadius = 10f;
-        [SerializeField] private float randomMoveMaxRadius = 20f;
 
         public AIMovement Movement => movement == null ? GetComponent <AIMovement>() : movement;
         public AIAnimations Animations => animations == null ? GetComponent<AIAnimations>() : animations;
@@ -45,37 +40,31 @@ namespace AI.Agents
         public float CurrentSpeed { get; private set; }
 
 
-
         private void Start()
         {
+            // Get components
             movement = GetComponent<AIMovement>();
             animations = GetComponent<AIAnimations>();
             vision = GetComponent<AIVision>();
             health = GetComponent<CharacterHealth>();
             voices = GetComponent<CharacterVoices>();
 
+            // Setup event handlers
             health.AddOnDeathHandler(OnDeathHandler);
             vision.AddOnTargetFoundHandler(OnTargetFoundHandler);
             vision.AddOnTargetLostHandler(OnTargetLostHandler);
 
-            lastPos = transform.position;
+            // setup state variables 
             State = AIState.Calm;
+            goal = new Goal(this);
+            goal.Set(transform.position);
 
-            errorDetector = new TickTimer(1000);
+            // Setup tasks
             actionDecisionTask = new TickTask(refreshRate, OnActionDecision);
             actionDecisionTask.Start();
 
-            goal = new Goal(this);
-
+            
             Initialize();
-        }
-
-        private void Update()
-        {
-            CurrentSpeed = (transform.position - lastPos).magnitude / Time.deltaTime;
-
-            // Keep at last!
-            lastPos = transform.position;
         }
 
 
@@ -93,6 +82,7 @@ namespace AI.Agents
 
 
         public abstract void Initialize();
+
         protected abstract void CalmAction();
         protected abstract void DangerAction();
         protected abstract void OnTargetFoundHandler(object sender, OnTargetFoundArgs args);
@@ -102,24 +92,9 @@ namespace AI.Agents
             CleanUp();
         }
 
-
-        protected void DefaultCalmAction()
-        {
-            bool detectedError = errorDetector.IsFinished && CurrentSpeed == 0;
-            if (!goal.Evaluate() && started && !detectedError) return;
-
-            var radius = Random.Range(randomMoveMinRadius, randomMoveMaxRadius);
-            var nextPos = movement.CreateRandomPosition(radius);
-
-            errorDetector.Restart();
-            goal.Set(nextPos);
-            movement.MoveTo(nextPos, AIMoveState.Walk);
-            started = true;
-        }
-
         protected void StopActionDecisionTask()
         {
-            actionDecisionTask.Pause();
+            actionDecisionTask.Stop();
         }
 
         protected void ResumeActionDecisionTask()

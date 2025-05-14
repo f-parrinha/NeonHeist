@@ -10,12 +10,12 @@ namespace AI.Controllers
         public const string DEATH_ANIM = "Death";
 
         private Animator animator;
-        private AIAgent agent;
+        private GenericEnemyAgent agent;
 
         private void Start()
         {
             animator = GetComponent<Animator>();
-            agent = GetComponent<AIAgent>();
+            agent = GetComponent<GenericEnemyAgent>();
 
             agent.Health.AddOnDeathHandler((object sender, EventArgs args) => PlayDeathAnimation(1f));
         }
