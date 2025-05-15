@@ -1,4 +1,4 @@
-using AI.Common;
+using AI.Goals;
 using AI.Controllers;
 using AI.Enums;
 using AI.Events;
@@ -37,7 +37,6 @@ namespace AI.Agents
         public CharacterVoices Voices => health == null ? GetComponent<CharacterVoices>() : voices;
         public AIState State { get; protected set; }
         public bool IsInitialized { get; protected set; }
-        public float CurrentSpeed { get; private set; }
 
 
         private void Start()
@@ -56,8 +55,7 @@ namespace AI.Agents
 
             // setup state variables 
             State = AIState.Calm;
-            goal = new Goal(this);
-            goal.Set(transform.position);
+            goal = new StartGoal(this);
 
             // Setup tasks
             actionDecisionTask = new TickTask(refreshRate, OnActionDecision);

@@ -178,7 +178,7 @@ namespace Player
                 float relDist = SpringHeight - hit.distance;
                 float stiffness = relDist * springStiffness;
                 float damping = relVel * (UseDamping ? springDamping : 0f);
-                rb.AddForce(Vector3.up * (stiffness - damping));
+                rb.AddForce(rb.mass * Vector3.up * (stiffness - damping));
             }
             else
             {

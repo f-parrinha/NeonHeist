@@ -22,7 +22,7 @@ namespace AI.Controllers
 
         private void Update()
         {
-            animator.SetFloat("Speed", agent.CurrentSpeed);
+            animator.SetFloat("Speed", agent.Movement.CurrentSpeed);
         }
 
         public void PlayDeathAnimation(float fade)
