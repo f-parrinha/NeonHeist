@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: 56fd86b76fc74d24d83522069f5deb9b
-AssetOrigin:
-  serializedVersion: 1
-  productId: 154271
-  packageName: Human Basic Motions FREE
-  packageVersion: 2.4
-  assetPath: Assets/Asset Store/Human Animations/Animations/Male/Idles/HumanM@Idle01.fbx
-  uploadId: 756439
+guid: 2cd8a02952a106e4397b35c0b498d281
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -23,6 +16,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -39,8 +34,8 @@ ModelImporter:
     clipAnimations:
     - serializedVersion: 16
       name: HumanM@Idle01
-      takeName: HumanM@Idle01
-      internalID: -2576967968662016515
+      takeName: Untitled
+      internalID: 3094330708855449807
       firstFrame: 0
       lastFrame: 81
       wrapMode: 0
@@ -55,9 +50,9 @@ ModelImporter:
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
-      keepOriginalPositionY: 0
+      keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
-      heightFromFeet: 1
+      heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
@@ -958,7 +953,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 2faa610713d3b3c439473daa55e8c60a, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 2faa610713d3b3c439473daa55e8c60a,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
@@ -970,3 +966,10 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 165785
+  packageName: Human Melee Animations FREE
+  packageVersion: 2.0.1
+  assetPath: Assets/Asset Store/Human Animations/Animations/Male/Idles/HumanM@Idle01.fbx
+  uploadId: 756483

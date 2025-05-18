@@ -21,5 +21,10 @@ namespace AI.Goals
         {
             return Arrived = Distance < MIN_DISTANCE_TO_GOAL;
         }
+
+        public bool Evaluate(float minDistance)
+        {
+            return Arrived = Distance < minDistance;
+        }
     }
 }

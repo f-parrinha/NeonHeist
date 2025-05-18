@@ -49,6 +49,34 @@ namespace AI.Controllers
         }
 
         /// <summary>
+        /// Moves the AI agent to a given point 
+        /// </summary>
+        /// <param name="pos"> position to move to </param>
+        /// <param name="moveState"> state of the current AI agent </param>
+        public void MoveTo(Vector3 pos, AIMoveState moveState)
+        {
+            if (!navMeshAgent.isActiveAndEnabled)
+            {
+                Log.Warning(this, "MoveTo", "NavMeshAgent is not active or enabled");
+                return;
+            }
+
+            navMeshAgent.speed = SpeedByMoveState(moveState);
+            if (!navMeshAgent.SetDestination(pos))
+            {
+                Log.Warning(this, "MoveTo", "SetDestination was called for an impossible position!");
+            }
+        }
+
+        public void Stop()
+        {
+            if (navMeshAgent.isActiveAndEnabled)
+            {
+                navMeshAgent.isStopped = true;
+            }
+        }
+
+        /// <summary>
         /// Creates a new random position given an origin point and a search radius. Only points that are in the NavMesh are valid. 
         /// <para> Retries POINT_SEARCH_RETRY times to improve the probability of finding a new valid random point. </para>
         /// </summary>
@@ -80,27 +108,6 @@ namespace AI.Controllers
         public Vector3 CreateRandomPosition(float range)
         {
             return CreateRandomPosition(range, transform.position);
-        }
-
-
-        /// <summary>
-        /// Moves the AI agent to a given point 
-        /// </summary>
-        /// <param name="pos"> position to move to </param>
-        /// <param name="moveState"> state of the current AI agent </param>
-        public void MoveTo(Vector3 pos, AIMoveState moveState)
-        {
-            if (!navMeshAgent.isActiveAndEnabled)
-            {
-                Log.Warning(this, "MoveTo", "NavMeshAgent is not active or enabled");
-                return;
-            }
-
-            navMeshAgent.speed = SpeedByMoveState(moveState);
-            if (!navMeshAgent.SetDestination(pos))
-            {
-                Log.Warning(this, "MoveTo", "SetDestination was called for an impossible position!");
-            }
         }
 
         /// <summary>
