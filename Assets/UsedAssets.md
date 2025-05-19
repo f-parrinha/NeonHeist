@@ -7,3 +7,5 @@
 - Easy FPS: https://assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/easy-fps-73776#content
 - Stylized Sci-Fi Pistol: https://assetstore.unity.com/packages/3d/props/weapons/stylized-sci-fi-battle-pistol-286349
 - Particle Pack: https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325
+- Small Sound Kit: https://assetstore.unity.com/packages/audio/sound-fx/small-sound-kit-300582
+- Weapons Of Choice FREE: https://assetstore.unity.com/packages/audio/sound-fx/weapons/weapons-of-choice-free-101807
