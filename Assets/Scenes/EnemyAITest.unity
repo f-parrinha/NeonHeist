@@ -151,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e342dc4761035114d83a6c7a7104a57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickSounds: []
+  pickSounds:
+  - {fileID: 8300000, guid: fabe60b849e36bf438c91e349af0b616, type: 3}
   quantity: 50
   type: 1
 --- !u!65 &54832232
@@ -977,6 +978,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 47.157, y: 44.3, z: 35.584}
+--- !u!1 &410937145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410937146}
+  m_Layer: 0
+  m_Name: Ambience Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410937146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410937145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.37, y: 0.25, z: -10.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457496917
 GameObject:
   m_ObjectHideFlags: 1
@@ -1831,7 +1863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80c82e02f48ffe44fb638526afde585b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickSounds: []
+  pickSounds:
+  - {fileID: 8300000, guid: 266e3a4e35691ea41bb8adf077f7f735, type: 3}
   healFactor: 50
 --- !u!65 &1190807153
 BoxCollider:
@@ -2224,7 +2257,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6995630317655717908, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995630317655717908, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      propertyPath: hRecoilRecovery
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995630317655717908, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      propertyPath: vRecoilRecovery
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7583021127958080035, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
       propertyPath: field of view
@@ -3053,6 +3094,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8341736181267308140, guid: 0628f71d189c6e34fa79a516024e24af, type: 3}
+      propertyPath: 'pickSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9158afb6966d445db9caf1dccf7acbcc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3068,6 +3113,7 @@ SceneRoots:
   - {fileID: 1398617802}
   - {fileID: 1390469778}
   - {fileID: 401083703}
+  - {fileID: 410937146}
   - {fileID: 1248371054}
   - {fileID: 457496919}
   - {fileID: 1457478484}

@@ -15846,7 +15846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 76de4dcb2dfb1cb498d5754bafeed48f, type: 2}
-  gunShotSound: {fileID: 0}
+  gunShotSound: {fileID: 8300000, guid: 92d35fe1c59bbd14eaee9e3d3b54cea7, type: 3}
   muzzleFlash: {fileID: 4293910584615135486}
   bulletTracer: {fileID: 2821142144904417053}
 --- !u!4 &4566068841663064994 stripped

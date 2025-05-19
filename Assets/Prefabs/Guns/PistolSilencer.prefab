@@ -147,5 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efa0c5e1172c994c9a19262e58085c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickSounds: []
+  pickSounds:
+  - {fileID: 0}
   gunData: {fileID: 11400000, guid: 76de4dcb2dfb1cb498d5754bafeed48f, type: 2}

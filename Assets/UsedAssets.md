@@ -9,3 +9,7 @@
 - Particle Pack: https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325
 - Small Sound Kit: https://assetstore.unity.com/packages/audio/sound-fx/small-sound-kit-300582
 - Weapons Of Choice FREE: https://assetstore.unity.com/packages/audio/sound-fx/weapons/weapons-of-choice-free-101807
+- Voices Essentials: https://assetstore.unity.com/packages/audio/sound-fx/voices/voices-essentials-214441
+- Radio Soldier Announcer Audio: https://assetstore.unity.com/packages/audio/sound-fx/voices/radio-soldier-announcer-audio-pack-283337
+- Sci-fi Guns SFX Pack: https://assetstore.unity.com/packages/audio/sound-fx/sci-fi-guns-sfx-pack-181144
+- Regular Impact Sounds - Sound Effects: https://assetstore.unity.com/packages/audio/sound-fx/regular-impact-sounds-sound-effects-278024
