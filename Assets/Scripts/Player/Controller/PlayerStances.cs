@@ -63,7 +63,7 @@ namespace Player.Controller
 
         private void AddToggleCrouch()
         {
-            if (InputSystem.Instance.KeyUp(InputKeys.CROUCH))
+            if (InputSystem.Instance.KeyDown(InputKeys.CROUCH))
             {
                 SetStance(Stance == CharacterStances.Crouch ? CharacterStances.Stand : CharacterStances.Crouch);
             }
