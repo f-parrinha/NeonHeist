@@ -5,4 +5,5 @@
 - Human Melee Animations FREE: https://assetstore.unity.com/packages/3d/animations/human-melee-animations-free-165785?srsltid=AfmBOop-BdQDSsrfRJ1vWdBEIDrHzMMt4isnayrdiSq9Yyt4LTeCj-Wi
 - FPS Icons Pack: https://assetstore.unity.com/packages/2d/gui/icons/fps-icons-pack-45240
 - Easy FPS: https://assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/easy-fps-73776#content
--Stylized Sci-Fi Pistol: https://assetstore.unity.com/packages/3d/props/weapons/stylized-sci-fi-battle-pistol-286349
+- Stylized Sci-Fi Pistol: https://assetstore.unity.com/packages/3d/props/weapons/stylized-sci-fi-battle-pistol-286349
+- Particle Pack: https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325
