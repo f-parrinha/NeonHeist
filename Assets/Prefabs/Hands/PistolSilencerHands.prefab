@@ -14968,7 +14968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 6cae2f82a0a62ff4ab9be3eeeda19688, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.364
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 6cae2f82a0a62ff4ab9be3eeeda19688, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15749,7 +15749,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.65
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15849,6 +15849,8 @@ MonoBehaviour:
   gunShotSound: {fileID: 8300000, guid: 92d35fe1c59bbd14eaee9e3d3b54cea7, type: 3}
   muzzleFlash: {fileID: 4293910584615135486}
   bulletTracer: {fileID: 2821142144904417053}
+  idlePos: {x: -0.088, y: -1.432, z: -0.5}
+  zoomPos: {x: -0.1667, y: -1.357, z: -0.44}
 --- !u!4 &4566068841663064994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 6cae2f82a0a62ff4ab9be3eeeda19688, type: 3}

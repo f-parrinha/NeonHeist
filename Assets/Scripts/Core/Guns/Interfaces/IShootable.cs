@@ -7,6 +7,8 @@ namespace Core.Guns.Interfaces
         public const float OFFSET_RESIZER = 30;
 
         GunData GunData { get; }
+        float ShotOffset { get; }
+
         void Shoot();
     }
 }

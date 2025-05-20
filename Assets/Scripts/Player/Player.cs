@@ -1,5 +1,6 @@
 using Character;
 using Core.Common.Queue;
+using Core.Utilities;
 using Player.Cameras;
 using Player.Controller;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Player
         private PlayerStances pStances;
         private PlayerInteraction pInteraction;
         private PlayerLeaning pLeaning;
+        private PlayerGunController pGunController;
         private CharacterAmmo pCharacterAmmo;
         private CharacterHealth pCharacterHealth;
 
@@ -35,6 +37,7 @@ namespace Player
         public PlayerStances Stances { get => pStances = pStances != null ? pStances : GetComponent<PlayerStances>(); }
         public PlayerInteraction Interaction { get => pInteraction = pInteraction != null ? pInteraction : GetComponent<PlayerInteraction>(); }
         public PlayerLeaning Leaning { get => pLeaning = pLeaning != null ? pLeaning : GetComponent<PlayerLeaning>(); }
+        public PlayerGunController GunController { get => pGunController = pGunController != null ? pGunController : GetComponent<PlayerGunController>(); }
         public CharacterAmmo Ammo { get => pCharacterAmmo = pCharacterAmmo != null ? pCharacterAmmo : GetComponent<CharacterAmmo>(); }
         public CharacterHealth Health { get => pCharacterHealth = pCharacterHealth != null ? pCharacterHealth : GetComponent<CharacterHealth>(); }
 

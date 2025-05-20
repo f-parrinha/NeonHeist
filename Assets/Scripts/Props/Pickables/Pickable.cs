@@ -9,6 +9,7 @@ namespace Props.Pickables
         protected const float AUDIO_SOURCE_DESTROY_TIME = 3.0f;
         protected const float PITCH_INTERVAL = 0.2f;
 
+        [SerializeField] private float volume = 0.5f;
         [SerializeField] private AudioClip[] pickSounds;
 
         public abstract void Interact(Transform interactor);
@@ -17,6 +18,7 @@ namespace Props.Pickables
         {
             if (pickSounds.Length == 0) return;
 
+            source.volume = volume;
             source.pitch = 1 + Random.Range(-PITCH_INTERVAL, PITCH_INTERVAL);
             source.PlayOneShot(pickSounds[Random.Range(0, pickSounds.Length)]);
         }

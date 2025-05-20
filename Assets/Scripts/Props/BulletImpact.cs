@@ -1,4 +1,5 @@
 using Core.Props.Interfaces.Pools;
+using Core.Utilities;
 using Core.Utilities.Timing;
 using UnityEngine;
 
@@ -12,8 +13,9 @@ namespace Props
         private AudioSource source;
 
         [SerializeField] private ParticleSystem particle;
+        [SerializeField] private AudioClip[] impactSounds;
+        [SerializeField] private float pitchInterval = 0.1f;
         [SerializeField] private float parentResetTimer;
-        [SerializeField] private AudioClip impactSound;
 
         public float ParentResetTimer => parentResetTimer;
         public Transform Transform => transform;
@@ -26,7 +28,6 @@ namespace Props
             
             // Get required components
             source = GetComponent<AudioSource>();
-            source.clip = impactSound;
         }
 
         public void SetParent(Transform parent)
@@ -43,6 +44,15 @@ namespace Props
         public void Restart()
         {
             particle.Play();
+            PlayImpactSound();
+        }
+
+        public void PlayImpactSound()
+        {
+            if (impactSounds == null || impactSounds.Length == 0) return;
+
+            source.clip = impactSounds[Random.Range(0, impactSounds.Length)];
+            source.pitch = AudioUtils.BASE_PITCH + Random.Range(-pitchInterval, pitchInterval);
             source.Play();
         }
     }

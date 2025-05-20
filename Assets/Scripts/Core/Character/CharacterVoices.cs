@@ -16,7 +16,6 @@ namespace Character
         [SerializeField] private float pitch = 1f;
         [SerializeField] private AudioClip[] damageVoices;
         [SerializeField] private AudioClip[] healVoices;
-        [SerializeField] private AudioClip[] modifierVoices;
 
         private CharacterHealth charLife;
         private CharacterStats charStats;
@@ -49,15 +48,6 @@ namespace Character
                 int index = Random.Range(0, healVoices.Length);
                 AudioSource.pitch = pitch + Random.Range(-pitchInterval, pitchInterval);
                 AudioSource.PlayOneShot(healVoices[index]);
-            });
-
-            charStats.AddOnSpeedModifiedHandler((object sender, OnSpeedModifiedArgs args) =>
-            {
-                if (modifierVoices.Length == 0) return;
-
-                int index = Random.Range(0, modifierVoices.Length);
-                AudioSource.pitch = pitch + Random.Range(-pitchInterval, pitchInterval);
-                AudioSource.PlayOneShot(modifierVoices[index]);
             });
         }
 

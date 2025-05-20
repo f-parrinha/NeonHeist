@@ -23,6 +23,8 @@ namespace Player.Controller
 
 
         public IShootable Gun => handsGun;
+        public bool IsZooming { get; set; }
+
 
         private void Start()
         {
@@ -32,6 +34,7 @@ namespace Player.Controller
         private void Update()
         {
             AddShootControl();
+            AddZoomControl();
         }
 
         public bool AddGun(IShootable shootable)
@@ -52,12 +55,39 @@ namespace Player.Controller
             return true;
         }
 
+        public void Zoom()
+        {
+            handsGun.Zoom();
+            animatorController.Zoom();
+            IsZooming = true;
+        }
+
+        public void Unzoom()
+        {
+            handsGun.Unzoom();
+            animatorController.Unzoom();
+            IsZooming = false;
+        }
+
         private void AddShootControl()
         {
             if (InputSystem.Instance.MouseDown(0) && handsGun != null)
             {
                 GunData gunData = handsGun.GunData;
                 handsGun.Shoot();
+            }
+        }
+
+        private void AddZoomControl()
+        {
+            if (handsGun == null) return;
+            if (InputSystem.Instance.Mouse(1))
+            {
+                Zoom();
+            }
+            else
+            {
+                Unzoom();
             }
         }
 
@@ -77,5 +107,6 @@ namespace Player.Controller
 
         public void AddOnGunChangeHandler(EventHandler<OnGunChangeArgs> handler) => onGunChange += handler;
         protected void RaiseOnGunChange(IShootable shootable) => onGunChange?.Invoke(this, new OnGunChangeArgs { NewGun = shootable });
+
     }
 }
