@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace Player.Controller 
 {
+    /// <summary>
+    /// Class <c> HandsAnimatorController </c> handles the generic animator in the hands slot object, applying the same
+    ///     animations for all kinds of weapons used by the player. Mainly for moving, jumping, landing, and other types of movement related animations
+    /// </summary>
     public class HandsAnimatorController : MonoBehaviour, IZoomable
     {
         [SerializeField] private Player player;
