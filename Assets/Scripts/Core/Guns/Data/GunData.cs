@@ -14,6 +14,7 @@ namespace Core.Guns.Data
         [SerializeField] private float verticalRecoil = 1f;
         [SerializeField] private float horizontalRecoil = 2f;
         [SerializeField] private float offset = 2f;
+        [SerializeField] private float zoomSpeed = 5f;
         [SerializeField] private int rateOfFireRPM = 500;
         [SerializeField] private GameObject pickable;
         [SerializeField] private GameObject handsObject;
@@ -40,6 +41,7 @@ namespace Core.Guns.Data
         public float HorizontalRecoil => horizontalRecoil;
         public float Offset => offset;
         public float RateOfFireRPM => rateOfFireRPM;
+        public float ZoomSpeed => zoomSpeed;
         public int RateOfFireMILLI => TimeUtils.FracToMilli(60f / rateOfFireRPM);
         public GameObject Pickable => pickable;
         public GameObject HandsObject => handsObject;

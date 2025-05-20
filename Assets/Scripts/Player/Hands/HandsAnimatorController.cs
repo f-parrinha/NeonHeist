@@ -1,9 +1,10 @@
+using Core.Common.Interfaces;
 using Core.UserInput;
 using UnityEngine;
 
 namespace Player.Controller 
 {
-    public class HandsAnimatorController : MonoBehaviour
+    public class HandsAnimatorController : MonoBehaviour, IZoomable
     {
         [SerializeField] private Player player;
         [SerializeField] private float maxAnimSpeed = 2f;
@@ -11,6 +12,7 @@ namespace Player.Controller
         private PlayerPhysics pPhysics;
         private PlayerMovement pMovement;
         public Animator Animator { get; private set; }
+        public bool IsZooming { get; private set; }
 
         private void Start()
         {
@@ -27,6 +29,7 @@ namespace Player.Controller
             bool isGrounded = pPhysics.IsGrounded;
             Animator.SetBool("IsGrounded", pPhysics.IsGrounded);
             Animator.SetBool("IsMoving", isMoving);
+            Animator.SetBool("IsZooming", IsZooming);
 
 
             if (InputSystem.Instance.IsMoving)
@@ -46,6 +49,16 @@ namespace Player.Controller
         public void PlayHolsterPut(float fade)
         {
             Animator.CrossFade("HolsterPut", fade);
+        }
+
+        public void Zoom()
+        {
+            IsZooming = true;
+        }
+
+        public void Unzoom()
+        {
+            IsZooming = false;
         }
     }
 }

@@ -8,14 +8,13 @@ using UnityEngine;
 namespace AI.Agents
 {
     /// <summary>
-    /// TODO: Continuous investigation on all targets - right it only investigates the closest one
+    /// TODO: Continuous investigation on all targets - right now, it only investigates the closest one
     /// </summary>
     public class SecurityGuardAgent : GenericEnemyAgent
     {
         private const float CLOSE_DISTANCE_POINT = 3f;
 
         private Vector3 initPos;
-        private float dangerLevel;
 
         // When the AI decides do to go to a close distance point, it does not wait in that position
         private float lastGoalPosDistance;
@@ -33,7 +32,6 @@ namespace AI.Agents
             initPos = transform.position;
             lastGoalPos = initPos;
             lastGoalPosDistance = 0;
-            dangerLevel = 0;
 
             // Setup vision to scan enemies
             Faction[] factionsArray = enemyFactions.ToArray();
