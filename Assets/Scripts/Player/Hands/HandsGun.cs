@@ -10,9 +10,14 @@ using Core.Common.Finders.Pools;
 using Core.Utilities.Timing;
 using Core.UserInput;
 using Core.Common.Interfaces;
+using Player.Hands;
 
 namespace Player.Controller
 {
+    /// <summary>
+    /// Class <c> HandsGun </c> defines the main components associated to the model of the player's hands, while holding guns. 
+    ///     It handles shooting (for shotguns, semi-auto and full-auto) and zooming.
+    /// </summary>
     [RequireComponent(typeof(AudioSource))]
     public class HandsGun : MonoBehaviour, IShootable, IZoomable
     {
@@ -27,6 +32,7 @@ namespace Player.Controller
         [SerializeField] private AudioClip gunShotSound;
         [SerializeField] private ParticleSystem muzzleFlash;
         [SerializeField] private ParticleSystem bulletTracer;
+        [SerializeField] private HandsRecoil handsRecoil;
         [SerializeField] private Vector3 idlePos;
         [SerializeField] private Vector3 zoomPos;
 
@@ -54,8 +60,9 @@ namespace Player.Controller
 
             audioSource = GetComponent<AudioSource>();
 
+            // Set State
+            handsRecoil.SetHandsGun(this);
             bulletImpactPoolFinder = new BulletImpactPoolFinder();
-
             shootTimer = gunData.GunType == GunType.Rifle ? 
                 new TickTimer(gunData.RateOfFireMILLI, () => UponAutoFire()) :
                 new TickTimer(gunData.RateOfFireMILLI);
@@ -114,6 +121,7 @@ namespace Player.Controller
             muzzleFlash.Play();
             charAmmo.RemoveOne(gunData.GunType);
             pCamera.Recoil.AddRecoil(gunData.VerticalRecoil, gunData.HorizontalRecoil);
+            handsRecoil.AddRecoil();
 
             for (int i = 0; i < count; i++)
             {

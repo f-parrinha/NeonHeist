@@ -1,17 +1,20 @@
 using Character;
 using Core.Common.Queue;
-using Core.Utilities;
 using Player.Cameras;
 using Player.Controller;
 using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// Class <c> Player </c> is the base class for the player gameObject. Contains generic methods and access to its main components
+    /// </summary>
     [RequireComponent(typeof(PlayerMovement))]
     [RequireComponent(typeof(PlayerPhysics))]
     [RequireComponent(typeof(PlayerStances))]
     [RequireComponent(typeof(PlayerInteraction))]
-    [RequireComponent (typeof(PlayerLeaning))]
+    [RequireComponent(typeof(PlayerLeaning))]
+    [RequireComponent(typeof(PlayerGunController))]
     [RequireComponent(typeof(CharacterHealth))]
     public class Player : MonoBehaviour
     {

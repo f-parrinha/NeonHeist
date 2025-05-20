@@ -1,10 +1,13 @@
 using Core.Common.Queue;
 using Core.UserInput;
-using Player.Controller;
 using UnityEngine;
 
 namespace Player.Controller
 {
+    /// <summary>
+    /// Class <c> HandsSway </c> creates a procedural animation, that gives the effect of "handling" the gun. 
+    ///     Rotates and moves the player's hands according to its motion
+    /// </summary>
     public class HandsSway : MonoBehaviour
     {
         private const float RotToPosRescaler = 0.02f;
