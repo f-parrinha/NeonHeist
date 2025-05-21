@@ -82,7 +82,8 @@ namespace Player.Controller
         {
             var x = InputSystem.Instance.MoveAxis.x;
             var factor = pPhysics.Speed / pMovement.MoveSpeed;
-            var rotationMoveSway = pPhysics.IsGrounded ? factor * moveSway * new Vector3(0, x, -2 * x) : Vector3.zero;
+            var zoomFactor = player.GunController.IsZooming ? this.zoomFactor : 1f;
+            var rotationMoveSway = pPhysics.IsGrounded ? zoomFactor * factor * moveSway * new Vector3(0, x, -2 * x) : Vector3.zero;
 
             currentRotationMoveSway = Vector3.Lerp(currentRotationMoveSway, rotationMoveSway, moveSwaySpeed * Time.deltaTime);
             return currentRotationMoveSway;
