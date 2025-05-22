@@ -4,7 +4,6 @@ using Core.Common.Interfaces.Info;
 using Core.UserInput;
 using Core.Utilities;
 using Player.Cameras;
-using System.Security.Cryptography;
 using UnityEngine;
 
 namespace Player.Controller
