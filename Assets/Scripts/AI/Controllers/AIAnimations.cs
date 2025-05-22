@@ -2,17 +2,18 @@ using AI.Agents;
 using Core.Utilities;
 using System;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace AI.Controllers
 {
     [RequireComponent(typeof(Animator))]
     public class AIAnimations : MonoBehaviour
     {
-        private const string DEATH_ANIM = "Death";
-        private const string ATTACK_ANIM = "Attack";
-        private const string COMBAT_IDLE_ANIM = "Combat Idle";
-        private const int COMBAT_LAYER = 1;
-        private const int BASE_LAYER = 0;
+        public const string DEATH_ANIM = "Death";
+        public const string ATTACK_ANIM = "Attack";
+        public const string COMBAT_IDLE_ANIM = "Combat Idle";
+        public const int COMBAT_LAYER = 1;
+        public const int BASE_LAYER = 0;
 
         private Animator animator;
         private GenericEnemyAgent agent;
@@ -59,6 +60,13 @@ namespace AI.Controllers
             }
         }
 
+
+        public bool IsAnimationPlaying(int layer, string animationName)
+        {
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(layer);
+            int animHash = Animator.StringToHash(animationName);
+            return stateInfo.shortNameHash == animHash && stateInfo.normalizedTime < 1f;
+        }
 
         private void RefreshLayerWeights()
         {
