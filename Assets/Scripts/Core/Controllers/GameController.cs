@@ -6,14 +6,8 @@ namespace Core.Controllers
 {
     public class GameController : MonoBehaviour
     {
-        PauseControllerFinder pauseControllerFinder;
 
         [SerializeField] private UIController UIController;
-
-        private void Start()
-        {
-            pauseControllerFinder = new PauseControllerFinder();
-        }
 
         public void Win()
         {
@@ -23,17 +17,6 @@ namespace Core.Controllers
         public void Lose()
         {
             UIController.DeathMenu.Open();
-        }
-
-        public void Quit()
-        {
-            Application.Quit();
-        }
-
-        public void Restart()
-        {
-            pauseControllerFinder.Find().ResetPause();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

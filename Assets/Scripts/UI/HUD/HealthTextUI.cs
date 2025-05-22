@@ -4,7 +4,7 @@ using Core.Health.Events;
 using UI.Components;
 using UnityEngine;
 
-namespace UI
+namespace UI.HUD
 {
     public class HealthTextUI : TextDisplayerUI, IInitializable
     {
@@ -24,8 +24,8 @@ namespace UI
             if (IsInitialized) return;
 
             SetText(healthHolder.Health.ToString("0"));
-            healthHolder.AddOnDamageHandler((object sender, OnHealthChangeArgs args) => SetText(args.NewHealth.ToString("0")));
-            healthHolder.AddOnHealHandler((object sender, OnHealthChangeArgs args) => SetText(args.NewHealth.ToString("0")));
+            healthHolder.AddOnDamageHandler((sender, args) => SetText(args.NewHealth.ToString("0")));
+            healthHolder.AddOnHealHandler((sender, args) => SetText(args.NewHealth.ToString("0")));
             IsInitialized = true;
         }
     }

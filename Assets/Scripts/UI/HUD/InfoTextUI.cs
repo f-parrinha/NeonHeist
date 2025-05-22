@@ -2,7 +2,7 @@ using Core.Common.Interfaces.Info;
 using TMPro;
 using UnityEngine;
 
-namespace UI
+namespace UI.HUD
 {
     public class InfoTextUI : MonoBehaviour, IInfoDisplayable
     {

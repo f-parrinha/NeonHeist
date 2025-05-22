@@ -6,7 +6,7 @@ using Core.Utilities;
 using UI.Components;
 using UnityEngine;
 
-namespace UI
+namespace UI.HUD
 {
     public class AmmoTextUI : TextDisplayerUI, IInitializable
     {
@@ -28,7 +28,7 @@ namespace UI
         {
             if (IsInitialized) return;
 
-            if (!ammoHolderObject.TryGetComponent<IAmmoHolder>(out ammoHolder))
+            if (!ammoHolderObject.TryGetComponent(out ammoHolder))
             {
                 Log.Warning(this, "Initialize", "AmmoHolderObject is not an IAmmoHolder");
                 return;
@@ -37,7 +37,7 @@ namespace UI
 
             SetText(ammoHolder.GetByAmmoType(ammoType).ToString("0"));
 
-            ammoHolder.AddOnAmmoChangeHandler((object sender, OnAmmoChangeArgs args) => 
+            ammoHolder.AddOnAmmoChangeHandler((sender, args) => 
             {
                 if (args.AmmoType != ammoType) return; // Not really needed but ok
 

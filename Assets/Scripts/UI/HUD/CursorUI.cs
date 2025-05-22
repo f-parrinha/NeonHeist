@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.HUD
 {
     public class CursorUI : MonoBehaviour, IInitializable, IRefreshable
     {
@@ -44,7 +44,7 @@ namespace UI
 
 
             // Check for small errors
-            if (!gunHolderObject.TryGetComponent<IGunHolder>(out gunHolder)) 
+            if (!gunHolderObject.TryGetComponent(out gunHolder)) 
             {
                 Log.Warning(this, methodName, "GunHolderObject is not IGunHolder");
                 return;

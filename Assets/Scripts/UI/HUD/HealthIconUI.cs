@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace UI
+namespace UI.HUD
 {
 
     public class HealthIconUI : MonoBehaviour, IInitializable, IRefreshable
@@ -36,8 +36,8 @@ namespace UI
 
             sprite = GetComponent<Image>();
 
-            healthHolder.AddOnDamageHandler((object sender, OnHealthChangeArgs args) => Refresh());
-            healthHolder.AddOnHealHandler((object sender, OnHealthChangeArgs args) => Refresh());
+            healthHolder.AddOnDamageHandler((sender, args) => Refresh());
+            healthHolder.AddOnHealHandler((sender, args) => Refresh());
             IsInitialized = true;
         }
 

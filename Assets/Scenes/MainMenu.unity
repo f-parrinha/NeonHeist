@@ -496,7 +496,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 562165940}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8537358163478138497}
+        m_TargetAssemblyTypeName: UI.MainMenu.SceneController, Core
+        m_MethodName: ChangeLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &562165940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2027,6 +2039,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2110436885}
   m_CullTransparentMesh: 1
+--- !u!1001 &8537358163478138496
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1729558539488586909, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461698794962708396, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+      propertyPath: m_Name
+      value: SceneController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+--- !u!114 &8537358163478138497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1792837319003067325, guid: d0f55ecd61f3ea947a051b55679a7f12, type: 3}
+  m_PrefabInstance: {fileID: 8537358163478138496}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029b21f0012fe60458c636102ba89d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2035,3 +2115,4 @@ SceneRoots:
   - {fileID: 1248842815}
   - {fileID: 727671257}
   - {fileID: 1835892696}
+  - {fileID: 8537358163478138496}
