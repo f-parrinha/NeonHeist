@@ -13,3 +13,4 @@
 - Radio Soldier Announcer Audio: https://assetstore.unity.com/packages/audio/sound-fx/voices/radio-soldier-announcer-audio-pack-283337
 - Sci-fi Guns SFX Pack: https://assetstore.unity.com/packages/audio/sound-fx/sci-fi-guns-sfx-pack-181144
 - Regular Impact Sounds - Sound Effects: https://assetstore.unity.com/packages/audio/sound-fx/regular-impact-sounds-sound-effects-278024
+- Selected U3D Japanese Font: https://assetstore.unity.com/packages/2d/fonts/selected-u3d-japanese-font-337

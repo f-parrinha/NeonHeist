@@ -209,7 +209,7 @@ namespace Player
                 var slideDir = groundNormal;
                 slideDir.y = -slideDir.y;
 
-                rb.AddForce(slideDir * slideForce);
+                rb.AddForce(rb.mass * slideDir * slideForce);
             }
         }
 
