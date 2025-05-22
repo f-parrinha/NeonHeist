@@ -19,7 +19,7 @@ namespace UI.Menus
 
         public void Open(int idx)
         {
-            if (idx < 0 ||  idx > subMenus.Length)
+            if (idx < 0 ||  idx > subMenus.Length - 1)
             {
                 Log.Warning(this, "Open", "Tried to open a SubMenu with an invalid index");
                 return;
