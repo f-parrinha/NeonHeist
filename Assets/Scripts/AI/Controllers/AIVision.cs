@@ -88,6 +88,7 @@ namespace AI.Controllers
                 float angle = Vector3.Angle(head.forward, dir);
 
                 // Extract SimAgent and faction
+                Debug.DrawRay(head.position, dir * distance, Color.red, 2f);
                 bool canSee = Physics.Raycast(head.position, dir, out var hit, distance);
                 bool isSimAgent = hit.collider.TryGetComponent(out SimulationAgent agent);
                 if (!canSee || !isSimAgent || angle >= fieldOfView || !scanFactionFilter.Contains(agent.Faction)) continue;

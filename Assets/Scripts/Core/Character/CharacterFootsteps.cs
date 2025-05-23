@@ -18,6 +18,9 @@ namespace Core.Character
         [SerializeField] private float frequency = 1f;
         [SerializeField] private float referenceSpeed = 3.5f;
         [SerializeField] private float speedBoost = 1.0f;
+        [Header("Ground Checking")]
+        [SerializeField] private float groundCheckHeightOffset = 0f;
+        [SerializeField] private float groundCheckDistance = 1f;
 
         private void Start()
         {
@@ -54,8 +57,11 @@ namespace Core.Character
         {
             if (footstepSounds == null || footstepSounds.Length == 0) return;
 
-            source.pitch = 1f + Random.Range(-PITCH_INTERVAL, PITCH_INTERVAL);
-            source.PlayOneShot(footstepSounds[Random.Range(0,footstepSounds.Length)]);
+            if (Physics.Raycast(transform.position + Vector3.up * groundCheckHeightOffset, Vector3.down, groundCheckDistance))
+            {
+                source.pitch = 1f + Random.Range(-PITCH_INTERVAL, PITCH_INTERVAL);
+                source.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Length)]);
+            }
         }
 
         private float CalculateTimeMax()
