@@ -16,12 +16,11 @@ namespace UI.Menus
 
         private InteractionButtonUI currentButton;
         private InteractionButtonUI[] buttons;
-        private float idxFactor;
+        private int idx;
 
         [SerializeField] private InteractionButtonUI buttonPrefab;
         [SerializeField] private float sensitivity = 0.5f;
         public bool IsOpened => gameObject.activeSelf;
-        public int IndexInt => (int) idxFactor;
 
         public MultiInteractable Interactioner { get; private set; }
 
@@ -49,7 +48,7 @@ namespace UI.Menus
         {
             if (gameObject.activeSelf) return;
 
-            idxFactor = 0;
+            idx = 0;
             Refresh();
             gameObject.SetActive(true);
         }
@@ -79,7 +78,7 @@ namespace UI.Menus
             currentButton.Disable();
 
             // Get new button
-            currentButton = buttons[IndexInt];
+            currentButton = buttons[idx];
 
             // Make new one active
             currentButton.Enable();
@@ -92,8 +91,8 @@ namespace UI.Menus
             
             // increase idx factor and make it wrap around like a circular array
             int max = buttons.Length;
-            idxFactor += mouseScroll;
-            idxFactor = Mathf.Clamp(idxFactor, 0, max - 0.1f);
+            idx += mouseScroll < 0 ? 1 : -1;
+            idx = Mathf.Clamp(idx, 0, buttons.Length - 1);
             Refresh();
         }
 
@@ -101,7 +100,7 @@ namespace UI.Menus
         {
             if (IsOpened && InputSystem.Instance.KeyDown(InputKeys.INTERACT))
             {
-                Interactioner.Interact(IndexInt, interactor);
+                Interactioner.Interact(idx, interactor);
             }
         }
 

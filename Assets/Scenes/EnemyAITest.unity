@@ -1219,6 +1219,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5968152842611921502, guid: 15f9b8b71475b29459a2bcec8d91f2d4, type: 3}
+      propertyPath: cursorObject
+      value: 
+      objectReference: {fileID: 1909699813}
+    - target: {fileID: 5968152842611921502, guid: 15f9b8b71475b29459a2bcec8d91f2d4, type: 3}
       propertyPath: interactionMenuObject
       value: 
       objectReference: {fileID: 1998988818}
@@ -1243,25 +1247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1f0e295abda364cabcbbbfcb9b8674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &727138032 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1402071342182704070, guid: 1bab18a43309f0e46a948a6d46f36e2c, type: 3}
-  m_PrefabInstance: {fileID: 8266611924471873836}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &727138036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727138032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197a92610ff60a84b83a44d0578dd693, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inactiveAlpha: 0.2
-  activeAlpha: 1
 --- !u!1 &730453501 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1099974823909867691, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
@@ -2872,6 +2857,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877998197}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1909699813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5736120819056438385, guid: d23b812d1049bf342a7fd60ee800c6ea, type: 3}
+  m_PrefabInstance: {fileID: 2823933824767898917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1998988818 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1163233873140906322, guid: 1bab18a43309f0e46a948a6d46f36e2c, type: 3}
@@ -3418,10 +3408,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractionMenuUI
       objectReference: {fileID: 0}
-    - target: {fileID: 1402071342182704070, guid: 1bab18a43309f0e46a948a6d46f36e2c, type: 3}
-      propertyPath: m_Name
-      value: InteractionButtonUI
-      objectReference: {fileID: 0}
     - target: {fileID: 3910871028326671429, guid: 1bab18a43309f0e46a948a6d46f36e2c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3518,18 +3504,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9043844457925279644, guid: 1bab18a43309f0e46a948a6d46f36e2c, type: 3}
-      propertyPath: buttonPrefab
-      value: 
-      objectReference: {fileID: 187380022198157230, guid: 7d3a7c02e64aa5245a5fadf9673fe1c5, type: 3}
-    m_RemovedComponents:
-    - {fileID: 4733878619680708122, guid: 1bab18a43309f0e46a948a6d46f36e2c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1402071342182704070, guid: 1bab18a43309f0e46a948a6d46f36e2c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 727138036}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bab18a43309f0e46a948a6d46f36e2c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
