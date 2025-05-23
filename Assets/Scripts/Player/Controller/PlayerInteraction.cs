@@ -1,6 +1,8 @@
 using Core.Common.Finders.UI;
 using Core.Common.Interfaces;
 using Core.Common.Interfaces.Info;
+using Core.Controllers;
+using Core.Interactions;
 using Core.UserInput;
 using Core.Utilities;
 using Player.Cameras;
@@ -13,6 +15,7 @@ namespace Player.Controller
     {
         private PlayerCamera pCamera;
         private InfoTextUIFinder infoTextFinder;
+        private UIControllerFinder uiControllerFinder;
 
         [SerializeField] private float scannerDistance = 2f;
 
@@ -22,6 +25,7 @@ namespace Player.Controller
             pCamera = player.Camera;
 
             infoTextFinder = new InfoTextUIFinder();
+            uiControllerFinder = new UIControllerFinder();
         }
 
         private void Update()
@@ -29,7 +33,7 @@ namespace Player.Controller
             var obj = ScanObject();
 
             DisplayInfo(obj);
-            AddInteractionControl(obj);
+            //AddInteractionControl(obj);
         }
 
         private void AddInteractionControl(GameObject obj)
@@ -57,16 +61,20 @@ namespace Player.Controller
 
         private void DisplayInfo(GameObject obj)
         {
-            IInfoDisplayable displayable = infoTextFinder.Find();
+            UIController uiController = uiControllerFinder.Find();
+            IOpenable interactionMenu = uiController.InteractionMenu;
+            if (interactionMenu is not IInteractionerHolder interactionerHolder) return;
 
-
-            if (obj == null || !obj.TryGetComponent<IInfoHolder>(out var info))
+            if (obj == null || !obj.TryGetComponent<MultiInteractable>(out var interactioner))
             {
-                displayable.Display(string.Empty);
+                interactionMenu.Close();
+                uiController.Cursor.Enable();
                 return;
             }
 
-            displayable.Display(info.GetInfo());
+            interactionerHolder.SetInteractioner(interactioner);
+            interactionMenu.Open();
+            uiController.Cursor.Disable();
         }
     }
 }
