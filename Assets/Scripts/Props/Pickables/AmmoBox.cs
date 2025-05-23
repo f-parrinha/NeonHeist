@@ -1,6 +1,7 @@
 using Core.Guns.Enums;
 using Core.Guns.Interfaces;
 using Core.Health.Interfaces;
+using Core.Interactions;
 using Core.Utilities;
 using UnityEngine;
 
@@ -11,10 +12,18 @@ namespace Props.Pickables
         [SerializeField] private int quantity = 50;
         [SerializeField] private GunType type;
 
-
-        public override void Interact(Transform interactor)
+        public override void Initialize()
         {
-            interactor.TryGetComponent<IAmmoHolder>(out var ammoHolder);
+            if (IsInitialized) return;
+
+            SetInteractions(new Interaction("Pick Up", UponPickUp));
+
+            IsInitialized = true;
+        }
+
+        private void UponPickUp(Transform actor)
+        {
+            actor.TryGetComponent<IAmmoHolder>(out var ammoHolder);
 
             if (ammoHolder == null) return;
 

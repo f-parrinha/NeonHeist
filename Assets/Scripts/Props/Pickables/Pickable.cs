@@ -1,10 +1,11 @@
+using Core.Interactions;
 using Core.Common.Interfaces;
 using Core.Common.Interfaces.Info;
 using UnityEngine;
 
 namespace Props.Pickables
 {
-    public abstract class Pickable : MonoBehaviour, IInteractable, IInfoHolder
+    public abstract class Pickable : MultiInteractable, IInfoHolder, IInitializable
     {
         protected const float AUDIO_SOURCE_DESTROY_TIME = 3.0f;
         protected const float PITCH_INTERVAL = 0.2f;
@@ -12,7 +13,14 @@ namespace Props.Pickables
         [SerializeField] private float volume = 0.5f;
         [SerializeField] private AudioClip[] pickSounds;
 
-        public abstract void Interact(Transform interactor);
+        public bool IsInitialized { get; protected set; }
+
+        private void Start()
+        {
+            Initialize();
+        }
+
+        public abstract void Initialize();
 
         protected void PlayRandomSound(AudioSource source)
         {
@@ -27,5 +35,6 @@ namespace Props.Pickables
         {
             return "Pick Up";
         }
+
     }
 }

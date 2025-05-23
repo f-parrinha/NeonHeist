@@ -10,12 +10,13 @@ namespace Player.Hands
     /// </summary>
     public class HandsRecoil : MonoBehaviour
     {
-        private const float RECOIL_RESIZER = 30f;
+        private const float PULLBACK_RECOIL_RESIZER = 30f;
 
         [SerializeField] private float resetSpeed = 5f;
         [SerializeField] private float springDamping = 3f;
         [SerializeField] private float springRestitution = 250f;
         [SerializeField] private float springSmoothness = 20f;
+        [SerializeField] private float springResizer = 1f;
 
         private Spring spring;
         private HandsGun handsGun;
@@ -43,12 +44,16 @@ namespace Player.Hands
         {
             if (handsGun == null) return;
 
-            float recoil = handsGun.GunData.VerticalRecoil;
-            Vector3 pivotPos = transform.localPosition;
-            pivotPos.z -= recoil / RECOIL_RESIZER;
+            float vRecoil = handsGun.GunData.VerticalRecoil;
+            float hRecoil = handsGun.GunData.HorizontalRecoil;
 
+            // Add pullback
+            Vector3 pivotPos = transform.localPosition;
+            pivotPos.z -= vRecoil / PULLBACK_RECOIL_RESIZER;
+
+            // Animate
             transform.localPosition = pivotPos;
-            spring.AddSpringAction(-Vector3.right * recoil);
+            spring.AddSpringAction(springResizer * (- Vector3.right * vRecoil + Vector3.up * Random.Range(-hRecoil, hRecoil)));
         }
     }
 }

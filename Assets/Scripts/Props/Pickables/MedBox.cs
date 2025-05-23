@@ -1,4 +1,5 @@
 using Core.Health.Interfaces;
+using Core.Interactions;
 using Core.Utilities;
 using UnityEngine;
 
@@ -8,8 +9,17 @@ namespace Props.Pickables
     {
         [SerializeField] private float healFactor = 50f;
 
+        public override void Initialize()
+        {
+            if (IsInitialized) return;
 
-        public override void Interact(Transform interactor)
+            SetInteractions(new Interaction("Pick Up", UponPickUp));
+
+            IsInitialized = true;
+        }
+
+
+        private void UponPickUp(Transform interactor)
         {
             interactor.TryGetComponent<IHealthHolder>(out var healthHolder);
 

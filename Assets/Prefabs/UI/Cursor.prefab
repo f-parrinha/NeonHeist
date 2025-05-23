@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6471680707435221860}
-  - component: {fileID: 2778714135538564348}
+  - component: {fileID: 8538619010688044438}
   m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
@@ -263,7 +263,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2778714135538564348
+--- !u!114 &8538619010688044438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2393730063271199629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a871d6745c1c25408bdd51f1dad0fe1, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b0b4e4b047539547a49537bce53d040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   noGunCursor: {fileID: 2270496097506277176}
