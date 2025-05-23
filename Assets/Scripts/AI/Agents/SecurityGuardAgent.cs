@@ -17,6 +17,7 @@ namespace AI.Agents
     public class SecurityGuardAgent : GenericEnemyAgent
     {
         private const float CLOSE_DISTANCE_POINT = 3f;
+        private const float HIT_SOUND_VOLUME = 0.5f;
 
         private Vector3 initPos;
 
@@ -41,6 +42,7 @@ namespace AI.Agents
         [SerializeField] private float damage = 20f;
         [Header("Sound Settings")]
         [SerializeField][Range(0f, 1f)] private float calmSoundProbability = 0.2f;
+        [SerializeField] private AudioClip[] attackHitSounds;
 
         public override void Initialize()
         {
@@ -211,10 +213,15 @@ namespace AI.Agents
 
             if (Physics.SphereCast(transform.position, attackRadius, dir, out var hit, attackDistance))
             {
+                if (attackHitSounds.Length > 0)
+                {
+                    var audioSource = AudioUtils.CreateAudio(hit.point, attackHitSounds[Random.Range(0, attackHitSounds.Length)]);
+                    audioSource.volume = HIT_SOUND_VOLUME;
+                }
+
                 if (hit.collider.TryGetComponent<IHealthHolder>(out var healthHolder))
                 {
                     healthHolder.Damage(damage);
-                    // AudioUtils.CreateAudio(hit.point);
                 }
             }
         }

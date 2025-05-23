@@ -14,8 +14,7 @@ namespace Props.Pickables
         {
             if (IsInitialized) return;
 
-            SetInteractions(new Interaction("Pick Up", UponPickUp), 
-                new Interaction("test", (var) => { }));
+            SetInteractions(new Interaction("Pick Up", UponPickUp));
 
             IsInitialized = true;
         }

@@ -3484,9 +3484,61 @@ PrefabInstance:
       value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: attackVoices.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 0aadd833bb2d5c6459071cec3b57b6fc, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bab2beee4e54b6b4884ba37eee560014, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 479575cc89c3733419221428dae636ad, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a043f0917c61774d94c1a6331f30f9c, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ed46ddcc4f7dd549b61957f22cc624d, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: dfd9240fb951bf6498605be9a417b5de, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 93e2375703cfc9445b94007a531cd9f7, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f38cfc057803284a8ce039fd8f26215, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[8]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 33b254c7c6a9bd544942d22f9324246a, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[9]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b1b0134244e36784b9a6d58c192d76c9, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
       propertyPath: calmVoiceMinWaitTimeOffset
       value: 2000
       objectReference: {fileID: 0}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[10]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f7e6e74bdab7f44489dd30d3593b115b, type: 3}
+    - target: {fileID: 1602535478250505348, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: 'attackVoices.Array.data[11]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 171f04d3f87ca6140a6520d5fb2ef9f7, type: 3}
     - target: {fileID: 2309524175601779954, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
       propertyPath: m_WarningMessage
       value: 
@@ -3496,8 +3548,12 @@ PrefabInstance:
       value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4505252259659780789, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: detectionFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4505252259659780789, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
       propertyPath: alertDetectionFactor
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4505252259659780789, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
       propertyPath: calmSoundProbability
@@ -3546,6 +3602,10 @@ PrefabInstance:
     - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
       propertyPath: m_Name
       value: Security Robot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
