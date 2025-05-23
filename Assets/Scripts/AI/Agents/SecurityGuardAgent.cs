@@ -39,6 +39,8 @@ namespace AI.Agents
         [SerializeField] private float attackDistance = 0.5f;
         [SerializeField] private Transform attackStartPivot;
         [SerializeField] private float damage = 20f;
+        [Header("Sound Settings")]
+        [SerializeField][Range(0f, 1f)] private float calmSoundProbability = 0.2f;
 
         public override void Initialize()
         {
@@ -67,11 +69,18 @@ namespace AI.Agents
             // State transition on detection
             if (closestTarget != null && closestTarget.DetectionLevel >= 50)
             {
+                voices.PlayAlertVoice();
                 State = AIState.Alert;
                 currentTarget = closestTarget;
                 movement.MoveTo(currentTarget.Position, AIMoveState.Walk);
                 goal = new PositionGoal(this, currentTarget.Position);
                 return;
+            }
+
+            // Play calm sound
+            if (Random.Range(0,1f) < calmSoundProbability)
+            {
+                Voices.PlayCalmVoice();
             }
 
             // Main goal execution
@@ -105,6 +114,7 @@ namespace AI.Agents
             // State transition on detection
             if (closestTarget != null && closestTarget.DetectionLevel >= 100)
             {
+                Voices.PlayDangerVoice();
                 currentTarget = closestTarget;
                 State = AIState.Danger;
                 movement.MoveTo(currentTarget.Position, AIMoveState.Run);

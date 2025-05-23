@@ -15,20 +15,17 @@ namespace Character
         [SerializeField] private float pitchInterval = 0.1f;
         [SerializeField] private float pitch = 1f;
         [SerializeField] private AudioClip[] damageVoices;
-        [SerializeField] private AudioClip[] healVoices;
 
         private CharacterHealth charLife;
-        private CharacterStats charStats;
 
-        public AudioSource AudioSource { get; private set; }
+        public AudioSource Source { get; private set; }
 
         void Start()
         {
-            AudioSource = GetComponent<AudioSource>();
-            AudioSource.pitch = pitch;
+            Source = GetComponent<AudioSource>();
+            Source.pitch = pitch;
 
             charLife = GetComponent<CharacterHealth>();
-            charStats = GetComponent<CharacterStats>();
 
 
             // Setup event handlers
@@ -37,24 +34,21 @@ namespace Character
                 if (damageVoices.Length == 0) return;
 
                 int index = Random.Range(0, damageVoices.Length);
-                AudioSource.pitch = pitch + Random.Range(-pitchInterval, pitchInterval);
-                AudioSource.PlayOneShot(damageVoices[index]);
-            });
-
-            charLife.AddOnHealHandler((object sender, OnHealthChangeArgs args) =>
-            {
-                if (healVoices.Length == 0) return;
-
-                int index = Random.Range(0, healVoices.Length);
-                AudioSource.pitch = pitch + Random.Range(-pitchInterval, pitchInterval);
-                AudioSource.PlayOneShot(healVoices[index]);
+                PlaySound(damageVoices[index]);
             });
         }
 
 
         public void CleanUp()
         {
-            AudioSource.Stop();
+            Source.Stop();
+        }
+
+        protected void PlaySound(AudioClip sound)
+        {
+            Source.pitch = pitch + Random.Range(-pitchInterval, pitchInterval);
+            Source.clip = sound;
+            Source.Play();
         }
     }
 }

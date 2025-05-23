@@ -3114,17 +3114,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2455902737801521737, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
-      propertyPath: m_Data.m_ConstrainedAxes.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2455902737801521737, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
-      propertyPath: m_Data.m_ConstrainedAxes.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2455902737801521737, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
-      propertyPath: m_Data.m_ConstrainedAxes.z
-      value: 0
+    - target: {fileID: 2309524175601779954, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'Spine1'\n\tTransform 'Neck'\n\tTransform
+        'Spine2'\n\tTransform 'Hips'\n\tTransform 'Spine1'\n\tTransform 'Neck'\n\tTransform
+        'Spine2'\n\tTransform 'Hips'\n\tTransform 'Spine1'\n\tTransform 'Neck'\n\tand
+        more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
       propertyPath: m_LocalPosition.x
