@@ -30,8 +30,7 @@ namespace AI.Agents
         protected AIVoices voices;
         protected Goal goal;
 
-        [SerializeField][Range(100, 2000)] private int refreshRate = 500;
-
+        [SerializeField][Range(100, 2000)] protected int refreshRate = 500;
         [SerializeField] protected List<Faction> enemyFactions;
         [SerializeField] protected List<Faction> friendlyFactions;
         [SerializeField] protected float detectionFactor = 10f;
@@ -130,8 +129,7 @@ namespace AI.Agents
                 return null;
             }
 
-
-            target.Detect(detectBoost, vision.VisionRange);
+            target.Detect(detectBoost * ((float) refreshRate / 1000), vision.VisionRange);
             return target;
         }
 

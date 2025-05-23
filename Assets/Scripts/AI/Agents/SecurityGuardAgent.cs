@@ -16,6 +16,9 @@ namespace AI.Agents
     /// </summary>
     public class SecurityGuardAgent : GenericEnemyAgent
     {
+        public const float TO_ALERT_THRESHOLD = 40f;
+        public const float TO_DANGER_THRESHOLD = 100f;
+
         private const float CLOSE_DISTANCE_POINT = 3f;
         private const float HIT_SOUND_VOLUME = 0.5f;
 
@@ -69,7 +72,7 @@ namespace AI.Agents
             InvestigateTarget(closestTarget, detectionFactor);
 
             // State transition on detection
-            if (closestTarget != null && closestTarget.DetectionLevel >= 50)
+            if (closestTarget != null && closestTarget.DetectionLevel >= TO_ALERT_THRESHOLD)
             {
                 voices.PlayAlertVoice();
                 State = AIState.Alert;
@@ -114,7 +117,7 @@ namespace AI.Agents
             InvestigateTarget(closestTarget, alertDetectionFactor);
 
             // State transition on detection
-            if (closestTarget != null && closestTarget.DetectionLevel >= 100)
+            if (closestTarget != null && closestTarget.DetectionLevel >= TO_DANGER_THRESHOLD)
             {
                 Voices.PlayDangerVoice();
                 currentTarget = closestTarget;
