@@ -1,5 +1,4 @@
 using Core.Common.Interfaces;
-using Core.Guns.Data;
 using Core.Guns.Events;
 using Core.Guns.Interfaces;
 using Core.Utilities;
@@ -9,7 +8,7 @@ using UnityEngine.UI;
 
 namespace UI.HUD
 {
-    public class CursorUI : MonoBehaviour, IInitializable, IRefreshable
+    public class CursorUI : MonoBehaviour, IInitializable, IRefreshable, IEnableable
     {
         [SerializeField] private RectTransform noGunCursor;
         [SerializeField] private RectTransform gunCursor;
@@ -20,7 +19,7 @@ namespace UI.HUD
         private float currentZoomOpacity;
 
         public bool IsInitialized { get; private set; }
-
+        public bool IsEnabled => gameObject.activeSelf;
 
         private void Start()
         {
@@ -40,16 +39,12 @@ namespace UI.HUD
         {
             if (IsInitialized) return;
 
-            string methodName = "Initialize";
-
-
             // Check for small errors
             if (!gunHolderObject.TryGetComponent(out gunHolder)) 
             {
-                Log.Warning(this, methodName, "GunHolderObject is not IGunHolder");
+                Log.Warning(this, "Initialize", "GunHolderObject is not IGunHolder");
                 return;
             }
-
 
             // Set state
             cursorsImages = new List<Image>();
@@ -59,6 +54,25 @@ namespace UI.HUD
             Refresh();
             LoadCursorsImages();
             IsInitialized = true;
+        }
+
+        public void OnEnable()
+        {
+            Refresh();
+        }
+
+        public void Enable()
+        {
+            if (IsEnabled) return;
+
+            gameObject.SetActive(true);
+        }
+
+        public void Disable()
+        {
+            if (!IsEnabled) return;
+
+            gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -80,7 +94,7 @@ namespace UI.HUD
 
         public void Refresh()
         {
-            if (gunHolder.Gun == null)
+            if (gunHolder == null || gunHolder.Gun == null)
             {
                 noGunCursor.gameObject.SetActive(true);
                 gunCursor.gameObject.SetActive(false);
@@ -89,6 +103,7 @@ namespace UI.HUD
 
             noGunCursor.gameObject.SetActive(false);
             gunCursor.gameObject.SetActive(true);
+            RefreshSize();
         }
 
 
@@ -105,7 +120,7 @@ namespace UI.HUD
 
         private void RefreshSize()
         {
-            if (gunHolder.Gun == null) return;
+            if (gunHolder == null || gunHolder.Gun == null) return;
 
             float offset = gunHolder.Gun.ShotOffset;
             gunCursor.sizeDelta = new Vector2(offset, offset) * IShootable.OFFSET_RESIZER;

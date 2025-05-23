@@ -2,19 +2,18 @@ using UnityEngine;
 
 namespace Core.Character
 {
-    [RequireComponent(typeof(AudioSource))]
     [RequireComponent(typeof(CharacterStats))]
     public class CharacterFootsteps : MonoBehaviour
     {
-        private const float MIN_SPEED = 0.1f;
+        private const float MIN_SPEED = 0.05f;
         private const float PITCH_INTERVAL = 0.05f;
 
-        private AudioSource source;
         private Vector3 latePos;
         private float currentSpeed;
         private float time;
         private float timeMax;
 
+        [SerializeField] private AudioSource source;
         [SerializeField] private AudioClip[] footstepSounds;
         [SerializeField] private float frequency = 1f;
         [SerializeField] private float referenceSpeed = 3.5f;
@@ -22,8 +21,6 @@ namespace Core.Character
 
         private void Start()
         {
-            source = GetComponent<AudioSource>();
-
             // Set state
             timeMax = CalculateTimeMax();
             time = 0;
@@ -31,7 +28,7 @@ namespace Core.Character
 
         private void Update()
         {
-            currentSpeed = (transform.position - latePos).magnitude;
+            currentSpeed = (transform.position - latePos).magnitude / Time.deltaTime;
 
             Evaluate();
 
@@ -63,8 +60,9 @@ namespace Core.Character
 
         private float CalculateTimeMax()
         {
-            float speedFactor = currentSpeed / referenceSpeed;
-            return 1 / frequency * speedFactor * speedBoost;
+            float speedFactor = currentSpeed == 0 ? 1 : (currentSpeed / referenceSpeed);
+            float speedFactorRebalanced = Mathf.Pow(speedFactor, speedBoost);
+            return 1 / (frequency * speedFactorRebalanced);
         }
     }
 }

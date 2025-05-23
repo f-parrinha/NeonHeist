@@ -24,6 +24,7 @@ namespace AI.Controllers
         private Transform lookAtTarget;
 
         [Header("General Settings")]
+        [SerializeField] private Transform head;
         [SerializeField][Range(100, 2000)] private int refreshRate = 500;
         [SerializeField] private float visionRange = 10f;
         [SerializeField] private float fieldOfView = 130f;
@@ -82,12 +83,12 @@ namespace AI.Controllers
             // Refresh already scanned targets and add new ones
             foreach (var target in allTargets)
             {
-                Vector3 dir = (target.transform.position - transform.position).normalized;
-                float distance = Vector3.Distance(transform.position, target.transform.position);
-                float angle = Vector3.Angle(transform.forward, dir);
+                Vector3 dir = (target.transform.position - head.position).normalized;
+                float distance = Vector3.Distance(head.position, target.transform.position);
+                float angle = Vector3.Angle(head.forward, dir);
 
                 // Extract SimAgent and faction
-                bool canSee = Physics.Raycast(transform.position, dir, out var hit, distance);
+                bool canSee = Physics.Raycast(head.position, dir, out var hit, distance);
                 bool isSimAgent = hit.collider.TryGetComponent(out SimulationAgent agent);
                 if (!canSee || !isSimAgent || angle >= fieldOfView || !scanFactionFilter.Contains(agent.Faction)) continue;
 

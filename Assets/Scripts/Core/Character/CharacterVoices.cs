@@ -1,5 +1,4 @@
 using Core.Character;
-using Core.Character.Events;
 using Core.Common.Interfaces;
 using Core.Health.Events;
 using UnityEngine;
@@ -20,7 +19,7 @@ namespace Character
 
         public AudioSource Source { get; private set; }
 
-        void Start()
+        protected virtual void Start()
         {
             Source = GetComponent<AudioSource>();
             Source.pitch = pitch;

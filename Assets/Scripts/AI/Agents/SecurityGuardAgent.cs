@@ -78,7 +78,7 @@ namespace AI.Agents
             }
 
             // Play calm sound
-            if (Random.Range(0,1f) < calmSoundProbability)
+            if (Random.Range(0, 1f) < calmSoundProbability)
             {
                 Voices.PlayCalmVoice();
             }
@@ -143,6 +143,7 @@ namespace AI.Agents
             if (goal.Evaluate() && !animations.IsAnimationPlaying(AIAnimations.COMBAT_LAYER, AIAnimations.ATTACK_ANIM))
             {
                 animations.PlayAttackAnimation(0.1f);
+                voices.PlayAttackVoice();
 
                 // Setup damage collider for melee weapon
                 attackTask?.Stop();
@@ -213,6 +214,7 @@ namespace AI.Agents
                 if (hit.collider.TryGetComponent<IHealthHolder>(out var healthHolder))
                 {
                     healthHolder.Damage(damage);
+                    // AudioUtils.CreateAudio(hit.point);
                 }
             }
         }
