@@ -16,8 +16,8 @@ namespace AI.Agents
     [RequireComponent(typeof(AIMovement))]
     [RequireComponent(typeof(AIAnimations))]
     [RequireComponent(typeof(AIVision))]
+    [RequireComponent(typeof(AIVoices))]
     [RequireComponent(typeof(CharacterHealth))]
-    [RequireComponent(typeof(CharacterVoices))]
     public abstract class GenericEnemyAgent : SimulationAgent, IInitializable, ICleanable
     {    
         private TickTask actionDecisionTask;
@@ -27,11 +27,10 @@ namespace AI.Agents
         protected AIVision vision;
         protected SimulationAgent agent;
         protected CharacterHealth health;
-        protected CharacterVoices voices;
+        protected AIVoices voices;
         protected Goal goal;
 
-        [SerializeField][Range(100, 2000)] private int refreshRate = 500;
-
+        [SerializeField][Range(100, 2000)] protected int refreshRate = 500;
         [SerializeField] protected List<Faction> enemyFactions;
         [SerializeField] protected List<Faction> friendlyFactions;
         [SerializeField] protected float detectionFactor = 10f;
@@ -41,7 +40,7 @@ namespace AI.Agents
         public AIAnimations Animations => animations == null ? GetComponent<AIAnimations>() : animations;
         public AIVision Vision => vision == null ? GetComponent<AIVision>() : vision;
         public CharacterHealth Health => health == null ? GetComponent<CharacterHealth>() : health;
-        public CharacterVoices Voices => health == null ? GetComponent<CharacterVoices>() : voices;
+        public AIVoices Voices => health == null ? GetComponent<AIVoices>() : voices;
         public AIState State { get; protected set; }
         public bool IsInitialized { get; protected set; }
 
@@ -53,7 +52,7 @@ namespace AI.Agents
             animations = GetComponent<AIAnimations>();
             vision = GetComponent<AIVision>();
             health = GetComponent<CharacterHealth>();
-            voices = GetComponent<CharacterVoices>();
+            voices = GetComponent<AIVoices>();
 
             // Setup event handlers
             health.AddOnDeathHandler(OnDeathHandler);
@@ -130,8 +129,7 @@ namespace AI.Agents
                 return null;
             }
 
-
-            target.Detect(detectBoost, vision.VisionRange);
+            target.Detect(detectBoost * ((float) refreshRate / 1000), vision.VisionRange);
             return target;
         }
 

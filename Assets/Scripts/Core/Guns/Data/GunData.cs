@@ -26,6 +26,7 @@ namespace Core.Guns.Data
             if (handsObject == null)
             {
                 Log.Warning(this, "OnEnable", "No hands object was provided");
+                return;
             }
 
             handsObject.TryGetComponent<IShootable>(out shootable);

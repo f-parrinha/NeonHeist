@@ -4,8 +4,6 @@ using Core.UserInput;
 using UI.Components;
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.UI;
-using Codice.Client.BaseCommands;
 
 namespace UI.Menus
 {

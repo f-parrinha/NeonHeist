@@ -1,5 +1,6 @@
 using Core.Common.Interfaces;
 using Core.Utilities;
+using Core.Utilities.Timing;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace Core.Interactions
         private Interaction[] interactions;
 
         public int InteractionsCount => interactions == null ? 0 : interactions.Length;
-
+ 
         private void Start()
         {
             interactions = new Interaction[0];
