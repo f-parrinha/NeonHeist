@@ -30,6 +30,7 @@ namespace Player
         private PlayerGunController pGunController;
         private CharacterAmmo pCharacterAmmo;
         private CharacterHealth pCharacterHealth;
+        private CharacterVoices pCharacterVoices;
 
         private Vector3Queue rotQueue;
         private Vector3 startRotation;
@@ -43,6 +44,7 @@ namespace Player
         public PlayerGunController GunController { get => pGunController = pGunController != null ? pGunController : GetComponent<PlayerGunController>(); }
         public CharacterAmmo Ammo { get => pCharacterAmmo = pCharacterAmmo != null ? pCharacterAmmo : GetComponent<CharacterAmmo>(); }
         public CharacterHealth Health { get => pCharacterHealth = pCharacterHealth != null ? pCharacterHealth : GetComponent<CharacterHealth>(); }
+        public CharacterVoices Voices { get => pCharacterVoices = pCharacterVoices != null ? pCharacterVoices : GetComponent<CharacterVoices>(); }
 
 
         private void OnValidate()
@@ -54,6 +56,8 @@ namespace Player
         {
             rotQueue = new Vector3Queue();
             startRotation = transform.rotation.eulerAngles;
+
+            Health.AddOnDamageHandler((sender, args) => Voices.PlayDamageVoice());
         }
 
         private void LateUpdate()

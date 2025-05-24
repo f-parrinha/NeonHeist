@@ -30,7 +30,7 @@ namespace AI.Common
         {
             if (canDoCalmVoice)
             {
-                PlayRandom(calmVoices);
+                PlayRandomSound(calmVoices);
                 canDoCalmVoice = false;
                 canDoCalmVoiceTimer.Start();
             }
@@ -38,24 +38,17 @@ namespace AI.Common
 
         public void PlayAlertVoice()
         {
-            PlayRandom(alertVoices);
+            PlayRandomSound(alertVoices);
         }
 
         public void PlayDangerVoice()
         {
-            PlayRandom(dangerVoices);
+            PlayRandomSound(dangerVoices);
         }
 
         public void PlayAttackVoice()
         {
-            PlayRandom(attackVoices);
-        }
-
-        private void PlayRandom(AudioClip[] voices)
-        {
-            if (voices.Length == 0) return;
-
-            PlaySound(voices[Random.Range(0, voices.Length)]);
+            PlayRandomSound(attackVoices);
         }
 
         private void ResetCanDoCalmVoiceTimer()

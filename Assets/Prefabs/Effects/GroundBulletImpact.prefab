@@ -4688,7 +4688,7 @@ GameObject:
   - component: {fileID: 3257342005142305836}
   - component: {fileID: 182139740598113920}
   m_Layer: 0
-  m_Name: BulletImpact
+  m_Name: GroundBulletImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9629,7 +9629,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
