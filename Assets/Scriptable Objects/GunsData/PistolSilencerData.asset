@@ -18,7 +18,7 @@ MonoBehaviour:
   horizontalRecoil: 1
   offset: 1
   zoomSpeed: 10
-  impactForce: 250
+  impactForce: 500
   rateOfFireRPM: 500
   pickable: {fileID: 21018533785295962, guid: 0628f71d189c6e34fa79a516024e24af, type: 3}
   handsObject: {fileID: 4566068841662773122, guid: 9aadc08e336d9a044971f8d4e0011da5, type: 3}
