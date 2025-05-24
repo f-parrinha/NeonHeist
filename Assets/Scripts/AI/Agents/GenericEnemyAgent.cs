@@ -10,6 +10,8 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using AI.Common;
+using Core.Character;
+using Core.Health.Events;
 
 namespace AI.Agents
 {
@@ -18,6 +20,9 @@ namespace AI.Agents
     [RequireComponent(typeof(AIVision))]
     [RequireComponent(typeof(AIVoices))]
     [RequireComponent(typeof(CharacterHealth))]
+    [RequireComponent(typeof(CharacterStats))]
+    [RequireComponent(typeof(CharacterFootsteps))]
+    [RequireComponent(typeof(RagdollController))]
     public abstract class GenericEnemyAgent : SimulationAgent, IInitializable, ICleanable
     {    
         private TickTask actionDecisionTask;
@@ -25,22 +30,28 @@ namespace AI.Agents
         protected AIMovement movement;
         protected AIAnimations animations;
         protected AIVision vision;
-        protected SimulationAgent agent;
-        protected CharacterHealth health;
         protected AIVoices voices;
+        protected CharacterHealth health;
+        protected CharacterStats stats;
+        protected CharacterFootsteps footsteps;
+        protected RagdollController ragdoll;
+
         protected Goal goal;
+
 
         [SerializeField][Range(100, 2000)] protected int refreshRate = 500;
         [SerializeField] protected List<Faction> enemyFactions;
         [SerializeField] protected List<Faction> friendlyFactions;
         [SerializeField] protected float detectionFactor = 10f;
 
-
-        public AIMovement Movement => movement == null ? GetComponent <AIMovement>() : movement;
-        public AIAnimations Animations => animations == null ? GetComponent<AIAnimations>() : animations;
-        public AIVision Vision => vision == null ? GetComponent<AIVision>() : vision;
-        public CharacterHealth Health => health == null ? GetComponent<CharacterHealth>() : health;
-        public AIVoices Voices => health == null ? GetComponent<AIVoices>() : voices;
+        public AIMovement Movement => movement == null ? movement = GetComponent <AIMovement>() : movement;
+        public AIAnimations Animations => animations == null ? animations = GetComponent<AIAnimations>() : animations;
+        public AIVision Vision => vision == null ? vision = GetComponent<AIVision>() : vision;
+        public AIVoices Voices => voices == null ? voices = GetComponent<AIVoices>() : voices;
+        public CharacterHealth Health => health == null ? health = GetComponent<CharacterHealth>() : health;
+        public CharacterStats Stats => stats == null ? stats = GetComponent<CharacterStats>() : stats;
+        public CharacterFootsteps Footsteps => footsteps == null ? footsteps = GetComponent<CharacterFootsteps>() : footsteps;
+        public RagdollController Ragdoll => ragdoll == null ? ragdoll = GetComponent<RagdollController>() : ragdoll;
         public AIState State { get; protected set; }
         public bool IsInitialized { get; protected set; }
 
@@ -51,11 +62,15 @@ namespace AI.Agents
             movement = GetComponent<AIMovement>();
             animations = GetComponent<AIAnimations>();
             vision = GetComponent<AIVision>();
-            health = GetComponent<CharacterHealth>();
             voices = GetComponent<AIVoices>();
+            health = GetComponent<CharacterHealth>();
+            stats = GetComponent<CharacterStats>();
+            footsteps = GetComponent<CharacterFootsteps>();
+            ragdoll = GetComponent<RagdollController>();
 
             // Setup event handlers
             health.AddOnDeathHandler(OnDeathHandler);
+            health.AddOnDamageHandler(OnDamageHandler);
             vision.AddOnTargetsUpdateHandler(OnTargetsUpdateHandler);
 
             // Setup state variables 
@@ -92,7 +107,16 @@ namespace AI.Agents
         protected abstract void OnTargetsUpdateHandler(object sender, OnTargetsUpdateArgs args);
         protected virtual void OnDeathHandler(object sender, EventArgs args)
         {
+            voices.PlayDeathVoice();
+            ragdoll.Enable();
+            movement.Disable();
+            StopActionDecisionTask();
             CleanUp();
+        }
+
+        protected virtual void OnDamageHandler(object sender, OnHealthChangeArgs args)
+        {
+            voices.PlayDamageVoice();
         }
 
         protected void StopActionDecisionTask()

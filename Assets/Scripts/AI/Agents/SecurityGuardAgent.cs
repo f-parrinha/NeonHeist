@@ -59,6 +59,8 @@ namespace AI.Agents
             {
                 vision.ScanFactionFilter = factionsArray;
             }
+
+            // Setup health actions
         }
 
         /// <summary>
@@ -145,20 +147,29 @@ namespace AI.Agents
         /// </summary>
         protected override void DangerAction()
         {
-            if (goal.Evaluate() && !animations.IsAnimationPlaying(AIAnimations.COMBAT_LAYER, AIAnimations.ATTACK_ANIM))
-            {
-                animations.PlayAttackAnimation(0.1f);
-                voices.PlayAttackVoice();
-
-                // Setup damage collider for melee weapon
-                attackTask?.Stop();
-                attackTask = new TickTimer(TimeUtils.FracToMilli(attackDelay), UponAttackMelee);
-                attackTask.Start();
-            }
-
-            goal = new PositionGoal(this, currentTarget.Position);
-            movement.MoveTo(currentTarget.Position, AIMoveState.Run);
             animations.SetCombatLayerWeight(1);
+
+            Vector3 dirToTarget = (currentTarget.Position - transform.position).normalized;
+
+            goal = new PositionGoal(this, currentTarget.Position - dirToTarget);
+            movement.MoveTo(currentTarget.Position, AIMoveState.Run);
+
+            if (goal.Evaluate())
+            {
+                movement.Stop();
+
+                // Attack
+                if (!animations.IsAnimationPlaying(AIAnimations.COMBAT_LAYER, AIAnimations.ATTACK_ANIM))
+                {
+                    animations.PlayAttackAnimation(0.1f);
+                    voices.PlayAttackVoice();
+
+                    // Setup damage collider for melee weapon
+                    attackTask?.Stop();
+                    attackTask = new TickTimer(TimeUtils.FracToMilli(attackDelay), UponAttackMelee);
+                    attackTask.Start();
+                }
+            }   
         }
 
 
@@ -214,7 +225,7 @@ namespace AI.Agents
             
             Vector3 dir = currentTarget.Position - transform.position;
 
-            if (Physics.SphereCast(transform.position, attackRadius, dir, out var hit, attackDistance))
+            if (Physics.SphereCast(transform.position, attackRadius, dir, out var hit, attackDistance, ~0, QueryTriggerInteraction.Ignore))
             {
                 if (attackHitSounds.Length > 0)
                 {

@@ -42,7 +42,7 @@ namespace Character
         public void Heal(float health)
         {
             float oldHealth = Health;
-            Health = Mathf.Min(Health + health, MaxHealth);
+            Health = Mathf.Clamp(Health + health, 0, MaxHealth);
 
             RaiseOnHeal(health, oldHealth, Health);
         }
@@ -50,7 +50,7 @@ namespace Character
         public void Damage(float damage)
         {
             float oldHealth = Health;
-            Health = Mathf.Max(Health - damage, 0);
+            Health = Mathf.Clamp(Health - damage, 0, MaxHealth);
 
             RaiseOnDamage(damage, oldHealth, Health);
 

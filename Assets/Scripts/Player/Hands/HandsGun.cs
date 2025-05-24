@@ -36,7 +36,7 @@ namespace Player.Controller
         [SerializeField] private Vector3 idlePos;
         [SerializeField] private Vector3 zoomPos;
 
-        private BulletImpactPoolFinder bulletImpactPoolFinder;
+        private BulletImpactControllerFinder bulletImpactControllerFinder;
         private AudioSource audioSource;
         private TickTimer shootTimer;
         private Vector3 targetZoomPos;
@@ -62,7 +62,7 @@ namespace Player.Controller
 
             // Set State
             handsRecoil.SetHandsGun(this);
-            bulletImpactPoolFinder = new BulletImpactPoolFinder();
+            bulletImpactControllerFinder = new BulletImpactControllerFinder();
             shootTimer = gunData.GunType == GunType.Rifle ? 
                 new TickTimer(gunData.RateOfFireMILLI, () => UponAutoFire()) :
                 new TickTimer(gunData.RateOfFireMILLI);
@@ -136,16 +136,20 @@ namespace Player.Controller
                 Ray ray = new(pCamera.transform.position, dir);
                 bulletTracer.transform.rotation = Quaternion.LookRotation(dir);
                 bulletTracer.Play();
-                if (Physics.Raycast(ray, out var hit, MAX_SHOOT_DISTANCE, LayerUtils.IGNORE_PLAYER_LAYER, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(ray, out var hit, MAX_SHOOT_DISTANCE, ~LayerMask.GetMask("Player", "Ingore Raycast")))
                 {
 
                     // Create impact
-                    var impact = bulletImpactPoolFinder.Find().NextAt(hit.point, Quaternion.LookRotation(hit.normal));
+                    var impact = bulletImpactControllerFinder.Find().GetPool(hit.collider.tag).NextAt(hit.point, Quaternion.LookRotation(hit.normal));
                     impact.SetParent(hit.transform);
 
                     // Take health
                     hit.collider.TryGetComponent<IHealthHolder>(out var healthHolder);
                     healthHolder?.Damage(GunData.Damage);
+
+                    // Rigidbody
+                    hit.collider.TryGetComponent<Rigidbody>(out var rb);
+                    rb?.AddForceAtPosition(dir * gunData.ImpactForce, hit.point);
                 }
             }
 

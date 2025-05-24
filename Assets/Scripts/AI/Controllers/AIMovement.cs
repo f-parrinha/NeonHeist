@@ -11,7 +11,7 @@ namespace AI.Controllers
 {
 
     [RequireComponent(typeof(NavMeshAgent))]
-    public class AIMovement : MonoBehaviour, ICleanable
+    public class AIMovement : MonoBehaviour, ICleanable, IEnableable
     {
         /// <summary>
         /// The ammount of retries for searching a new random point
@@ -28,6 +28,7 @@ namespace AI.Controllers
         private event EventHandler<OnArriveArgs> onArrive;
 
         public float CurrentSpeed { get; private set; }
+        public bool IsEnabled { get; private set; }
 
         private void Start()
         {
@@ -61,6 +62,7 @@ namespace AI.Controllers
                 return;
             }
 
+            navMeshAgent.isStopped = false;    
             navMeshAgent.speed = SpeedByMoveState(moveState);
             if (!navMeshAgent.SetDestination(pos))
             {
@@ -68,12 +70,32 @@ namespace AI.Controllers
             }
         }
 
+
         public void Stop()
         {
             if (navMeshAgent.isActiveAndEnabled)
             {
                 navMeshAgent.isStopped = true;
             }
+        }
+        public void Resume()
+        {
+            if (navMeshAgent.isActiveAndEnabled)
+            {
+                navMeshAgent.isStopped = false;
+            }
+        }
+
+        public void Disable()
+        {
+            navMeshAgent.enabled = false;
+            IsEnabled = false;
+        }
+
+        public void Enable() 
+        { 
+            navMeshAgent.enabled = true;
+            IsEnabled = true;
         }
 
         /// <summary>

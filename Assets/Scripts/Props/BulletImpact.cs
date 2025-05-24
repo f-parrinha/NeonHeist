@@ -32,7 +32,8 @@ namespace Props
 
         public void SetParent(Transform parent)
         {
-            //transform.SetParent(parent);      FOR NOW, LEAVE THIS COMMENTED
+            // TODO: Add upon destroy handler for objects that can be Destroy(), to unset these parenting
+            transform.SetParent(parent);
             resetParentTask.Restart();
         }
 

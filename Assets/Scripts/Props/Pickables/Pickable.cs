@@ -1,6 +1,5 @@
 using Core.Interactions;
 using Core.Common.Interfaces;
-using Core.Common.Interfaces.Info;
 using UnityEngine;
 
 namespace Props.Pickables
