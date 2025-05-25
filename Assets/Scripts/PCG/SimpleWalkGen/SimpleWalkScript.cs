@@ -8,7 +8,7 @@ public class SimpleWalkScript : MonoBehaviour
 
     [SerializeField] private GameObject floorPrefab;
 
-    private int radius = 10;
+    private int radius = 15;
 
     void Start()
     {

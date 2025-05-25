@@ -52,11 +52,11 @@ public class SimplePathScript
 
             GameObject curr = startfloor;
 
-            for (int i = 0; i < 5; i++) //want to move left 2 times
+            for (int i = 0; i < 2; i++) //want to move left 2 times ??
             {
                 MoveLeft(ref curr);
             }
-
+           
             var safetyBreakX = 0;
 
             while (!hasReachedX)

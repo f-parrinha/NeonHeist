@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PathGen : MonoBehaviour
@@ -12,6 +13,17 @@ public class PathGen : MonoBehaviour
     [SerializeField]private List<TileScript> allTiles;
     private List<TileScript> entryPath = new List<TileScript>();
     private Vector3Int firstPathDir;
+
+    //rest
+    public GameObject gridCell;
+    [SerializeField] private Transform wallTransform;
+
+    public Vector3Int gridSize = new Vector3Int(5, 1, 5); //or 2int? x e z (y)??
+    private GridCellScript[,,] grid;
+    private Transform start;
+    private Queue<Vector3Int> propagationQueue; // A queue for propagation
+
+ 
 
     private void Awake()
     {
@@ -28,6 +40,7 @@ public class PathGen : MonoBehaviour
         }
 
     }
+
     void Start()
     {
         entryWall = GetRandomEntryWall();
@@ -35,7 +48,7 @@ public class PathGen : MonoBehaviour
         Vector3 wallPos = entryWall.getWallBlockPos();
         float wallDepth = entryWall.transform.localScale.x;
 
-        Instantiate(passage, wallPos, entryWall.transform.rotation);
+        GameObject startPos = Instantiate(passage, wallPos, entryWall.transform.rotation);
         Destroy(entryWall.gameObject );
 
 
@@ -49,9 +62,96 @@ public class PathGen : MonoBehaviour
         Vector3 firstPathPos = new Vector3(wallPos.x+ (firstPathDir.x*x), 0, wallPos.z +(firstPathDir.z*z));
         Instantiate(first.prefab, firstPathPos, Quaternion.identity);
 
+        //GenerateGrid(firstPathPos);
+      //  InitializeGrid();
+       // RunWCFAlgorithm();
+        //InstantiateTiles();
+      
 
     }
 
+    private void InitializeGrid()
+    {
+        grid = new GridCellScript[gridSize.x, gridSize.y, gridSize.z];
+
+
+        for (int x = 0; x < gridSize.x; x++)
+        {
+            for (int y = 0; y < gridSize.y; y++)
+            {
+                for (int z = 0; z < gridSize.z; z++)
+                {
+                    grid[x, y, z] = new GridCellScript(new Vector3Int(x, y, z), allTiles);
+
+                }
+            }
+        }
+
+    }
+
+    private void RunWCFAlgorithm()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    private void InstantiateTiles()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    //WRONG!
+    private void GenerateGrid(Vector3 firstPathPos)
+    {
+      
+        for (int x = 0; x < 10; x++)
+        {
+            for (int z = 0; z < 5; z++) 
+            {
+                
+                Vector3 cellWorldPosition = firstPathPos + new Vector3(x, 0f, z);
+                
+                GameObject newCell = Instantiate(gridCell, cellWorldPosition,Quaternion.identity);
+
+            }
+        }
+    }
+
+    private void GeneratePath()
+    {
+        //startTile = topFloor[xIndex];
+
+        for (int i= 0;  i< 10;i++)
+        {
+            foreach (TileScript tileScript in allTiles)
+            {
+                if (tileScript.getFace(-firstPathDir) == "path")
+                {
+                    Debug.Log("Added Tile - " + tileScript.name);
+                    entryPath.Add(tileScript);
+                }
+            }
+
+            float totalWeight = entryPath.Sum(t => t.weight);
+
+            // Randomly select a tile based on weights
+            float randomValue = Random.Range(0f, totalWeight);
+            float currentWeight = 0f;
+
+            TileScript selectedTile = null;
+
+            foreach (TileScript tile in entryPath)
+            {
+                Debug.Log("entered entryPaths, to select start tile");
+                currentWeight += tile.weight;
+                if (randomValue <= currentWeight)
+                {
+                    selectedTile = tile;
+                    Debug.Log("inside loop -> selected tile " + selectedTile.name);
+                    break;
+                }
+            }
+        }
+    }
 
     private TileScript getFirstTile()
     {
