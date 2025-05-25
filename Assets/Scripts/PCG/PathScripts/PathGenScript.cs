@@ -56,14 +56,18 @@ public class PathGen : MonoBehaviour
     private TileScript getFirstTile()
     {
         Vector3 wallX = entryWall.transform.right;
-        Debug.LogWarning("wall local x! " + wallX);
+        Debug.Log("wall local x! " + wallX);
 
-        firstPathDir = firstWallDir(wallX);
+        firstPathDir = new Vector3Int(
+                Mathf.RoundToInt(wallX.x),
+                Mathf.RoundToInt(wallX.y),
+                Mathf.RoundToInt(wallX.z)
+            );
 
-
+       
         foreach (TileScript tileScript in allTiles)
         {
-            if (tileScript.getFace(firstPathDir) == "path")
+            if (tileScript.getFace(-firstPathDir) == "path")
             {
                 Debug.Log("Added Tile - " + tileScript.name);
                 entryPath.Add(tileScript);
@@ -103,61 +107,7 @@ public class PathGen : MonoBehaviour
        
     }
 
-    private Vector3Int firstWallDir (Vector3 wallX)
-    {
-        Vector3Int closestDir = Vector3Int.zero;
-        float maxDot = -1.0f;
-
-        float dotRight = Vector3.Dot(wallX, Vector3.right);
-        if (Mathf.Abs(dotRight) > maxDot)
-        {
-            maxDot = Mathf.Abs(dotRight);
-            closestDir = (dotRight > 0) ? Vector3Int.right : Vector3Int.left;
-        }
-
-        float dotForward = Vector3.Dot(wallX, Vector3.forward);
-        if (Mathf.Abs(dotForward) > maxDot)
-        {
-            maxDot = Mathf.Abs(dotForward);
-            closestDir = (dotForward > 0) ? Vector3Int.forward : Vector3Int.back;
-        }
-
-        // Add a threshold to avoid returning a direction if it's very ambiguous
-        if (maxDot < 0.8f) // Adjust this threshold if needed
-        {
-            Debug.LogWarning($"GetClosestCardinalDirection: Input direction ({wallX}) is not strongly aligned with any cardinal X/Z axis. Max Dot: {maxDot}. Returning Vector3Int.zero.");
-            return Vector3Int.zero;
-        }
-
-        return closestDir;
-
-
-        if (wallX == Vector3.right)
-        {
-            Debug.LogWarning("wall world x! " + Vector3Int.right);
-            return Vector3Int.right;
-        }
-        else if (wallX == Vector3.left)
-        {
-            Debug.LogWarning("wall world x! " + Vector3Int.left);
-            return Vector3Int.left;
-        }
-        else if (wallX == Vector3.back)
-        {
-            Debug.LogWarning("wall world x! " + Vector3Int.back);
-            return Vector3Int.back;
-        }
-        else if (wallX == Vector3.forward)
-        {
-            Debug.LogWarning("wall world x! " + Vector3Int.forward);
-            return Vector3Int.forward;
-        }
-        else
-        {
-            Debug.LogWarning("wall world x! " + Vector3Int.zero);
-            return Vector3Int.zero;
-        }
-    }
+   
 
     
 
