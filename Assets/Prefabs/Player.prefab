@@ -557,7 +557,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0f794c67e9233d468a38d165590d253, type: 3}
   - {fileID: 8300000, guid: 314d37dfb74502a4094b835d0e0d6c23, type: 3}
   - {fileID: 8300000, guid: e3cfcb32689b274419ac73380ea96888, type: 3}
-  frequency: 3
+  frequency: 3.5
   referenceSpeed: 3.5
   speedBoost: 0.5
   groundCheckHeightOffset: 0

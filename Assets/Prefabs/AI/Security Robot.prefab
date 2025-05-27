@@ -3853,9 +3853,9 @@ MonoBehaviour:
   refreshRate: 200
   enemyFactions: 00000000
   friendlyFactions: 01000000
-  detectionFactor: 8
-  alertDetectionFactor: 10
-  maxPatrolRadius: 5
+  detectionFactor: 10
+  alertDetectionFactor: 15
+  maxPatrolRadius: 3
   maxWaitTime: 5
   minWaitTime: 2
   attackDelay: 0.5

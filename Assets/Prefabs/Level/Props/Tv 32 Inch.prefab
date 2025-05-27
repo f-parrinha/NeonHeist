@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 9078226796216982427}
   - component: {fileID: 1430959798918203292}
   - component: {fileID: 2424088974316012427}
+  - component: {fileID: 2959224738257696182}
   m_Layer: 0
   m_Name: Tv 32 Inch
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +44,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035407178779815865}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -83,6 +84,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5, y: 0.76, z: 0.28}
   m_Center: {x: 0, y: 0.39, z: 0}
+--- !u!208 &2959224738257696182
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035407178779815865}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.75, y: 0.38, z: 0.14}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.39, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6298427763862085981
 GameObject:
   m_ObjectHideFlags: 0

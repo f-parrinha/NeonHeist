@@ -18,3 +18,5 @@
 - Sci-Fi Construction Kit (Modular): https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-construction-kit-modular-159280
 -【Low Poly】Stair Light (Lite): https://assetstore.unity.com/packages/vfx/shaders/low-poly-stair-light-lite-187530
 - Free Sci-Fi Office Pack: https://assetstore.unity.com/packages/3d/environments/sci-fi/free-sci-fi-office-pack-195067
+- Ammo Box: https://assetstore.unity.com/packages/3d/props/weapons/ammo-box-7701
+- First aid jar: https://assetstore.unity.com/packages/3d/props/first-aid-jar-285565

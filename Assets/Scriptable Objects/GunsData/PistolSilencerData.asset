@@ -17,7 +17,7 @@ MonoBehaviour:
   verticalRecoil: 1.5
   horizontalRecoil: 1
   offset: 1
-  zoomSpeed: 10
+  zoomSpeed: 15
   impactForce: 1000
   rateOfFireRPM: 500
   pickable: {fileID: 21018533785295962, guid: 0628f71d189c6e34fa79a516024e24af, type: 3}
