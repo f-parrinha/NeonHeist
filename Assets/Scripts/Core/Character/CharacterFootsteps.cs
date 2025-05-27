@@ -44,11 +44,11 @@ namespace Core.Character
             if (currentSpeed < MIN_SPEED) return;
 
             time += Time.deltaTime;
+            timeMax = CalculateTimeMax();
 
             if (time > timeMax)
             {
                 PlayFootstep();
-                timeMax = CalculateTimeMax();
                 time = 0;
             }
         }
