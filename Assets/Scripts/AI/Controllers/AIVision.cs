@@ -33,7 +33,6 @@ namespace AI.Controllers
         [SerializeField] private float lookAtSpeed = 3f;
         [SerializeField] private float lookAtHeight = 1f;
 
-
         private event EventHandler<OnTargetsUpdateArgs> onTargetsUpdate;
         private event EventHandler<OnTargetFoundArgs> onTargetFound;
         private event EventHandler<OnTargetLostArgs> onTargetLost;

@@ -12,7 +12,7 @@ namespace Core.Character
 
         public bool IsEnabled { get; private set; }
 
-        private void Start() 
+        private void Awake() 
         {
             rb = GetComponent<Rigidbody>();
             col = GetComponent<Collider>();
