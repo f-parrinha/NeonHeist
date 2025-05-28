@@ -136,7 +136,7 @@ namespace Player.Controller
                 Ray ray = new(pCamera.transform.position, dir);
                 bulletTracer.transform.rotation = Quaternion.LookRotation(dir);
                 bulletTracer.Play();
-                if (Physics.Raycast(ray, out var hit, MAX_SHOOT_DISTANCE, ~LayerMask.GetMask("Player", "Ingore Raycast")))
+                if (Physics.Raycast(ray, out var hit, MAX_SHOOT_DISTANCE, ~LayerMask.GetMask("Player", "Ingore Raycast", "Sound")))
                 {
 
                     // Create impact

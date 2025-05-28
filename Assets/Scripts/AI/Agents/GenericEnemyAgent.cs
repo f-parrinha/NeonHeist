@@ -19,6 +19,7 @@ namespace AI.Agents
     [RequireComponent(typeof(AIAnimations))]
     [RequireComponent(typeof(AIVision))]
     [RequireComponent(typeof(AIVoices))]
+    [RequireComponent(typeof(AIEars))]
     [RequireComponent(typeof(CharacterHealth))]
     [RequireComponent(typeof(CharacterStats))]
     [RequireComponent(typeof(CharacterFootsteps))]
@@ -31,6 +32,7 @@ namespace AI.Agents
         protected AIAnimations animations;
         protected AIVision vision;
         protected AIVoices voices;
+        protected AIEars ears;
         protected CharacterHealth health;
         protected CharacterStats stats;
         protected CharacterFootsteps footsteps;
@@ -48,6 +50,7 @@ namespace AI.Agents
         public AIAnimations Animations => animations == null ? animations = GetComponent<AIAnimations>() : animations;
         public AIVision Vision => vision == null ? vision = GetComponent<AIVision>() : vision;
         public AIVoices Voices => voices == null ? voices = GetComponent<AIVoices>() : voices;
+        public AIEars Ears => ears == null ? ears = GetComponent<AIEars>() : ears;
         public CharacterHealth Health => health == null ? health = GetComponent<CharacterHealth>() : health;
         public CharacterStats Stats => stats == null ? stats = GetComponent<CharacterStats>() : stats;
         public CharacterFootsteps Footsteps => footsteps == null ? footsteps = GetComponent<CharacterFootsteps>() : footsteps;
@@ -63,6 +66,7 @@ namespace AI.Agents
             animations = GetComponent<AIAnimations>();
             vision = GetComponent<AIVision>();
             voices = GetComponent<AIVoices>();
+            ears = GetComponent<AIEars>();
             health = GetComponent<CharacterHealth>();
             stats = GetComponent<CharacterStats>();
             footsteps = GetComponent<CharacterFootsteps>();

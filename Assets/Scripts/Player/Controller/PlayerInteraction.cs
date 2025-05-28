@@ -51,7 +51,7 @@ namespace Player.Controller
         {
             var ray = new Ray(pCamera.transform.position, pCamera.transform.forward);
 
-            if (Physics.Raycast(ray, out var hit, scannerDistance, LayerUtils.Ignore(LayerUtils.PLAYER, LayerUtils.IGNORE_RAYCAST)))
+            if (Physics.Raycast(ray, out var hit, scannerDistance, LayerNames.Ignore(LayerNames.PLAYER, LayerNames.IGNORE_RAYCAST)))
             {
                 return hit.collider.gameObject;
             }

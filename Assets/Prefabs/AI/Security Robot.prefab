@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9089230045413005876}
   m_Layer: 0
   m_Name: RightCalf
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 0.8
 --- !u!1 &966935392749135128
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +626,7 @@ GameObject:
   - component: {fileID: 774062514460483392}
   m_Layer: 0
   m_Name: LeftUpperArm
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -767,6 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 0.8
 --- !u!1 &2262086756407601077
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +879,7 @@ GameObject:
   - component: {fileID: 2638033249503652896}
   m_Layer: 0
   m_Name: Hips
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -973,6 +975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 1.1
 --- !u!1 &3010174252313401050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +1024,7 @@ GameObject:
   - component: {fileID: 9213572255793784997}
   m_Layer: 0
   m_Name: RightLeg
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1163,6 +1166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 0.9
 --- !u!1 &3139860510262388335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1215,7 @@ GameObject:
   - component: {fileID: 622640914943006685}
   m_Layer: 0
   m_Name: Spine2
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1353,6 +1357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 1
 --- !u!1 &3338408116349883107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1432,7 +1437,7 @@ GameObject:
   - component: {fileID: 9055149391946512436}
   m_Layer: 0
   m_Name: RightArm
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1574,6 +1579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 0.6
 --- !u!1 &3706364328033887858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1596,7 @@ GameObject:
   - component: {fileID: 1692755214684091283}
   m_Layer: 0
   m_Name: LeftLeg
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1732,6 +1738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 0.9
 --- !u!1 &3710195955501845463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,7 +1914,7 @@ GameObject:
   - component: {fileID: 5788251591931905615}
   m_Layer: 0
   m_Name: LeftArm
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2049,6 +2056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 0.6
 --- !u!1 &4647815912044047273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,7 +2232,7 @@ GameObject:
   - component: {fileID: 8896297237855224571}
   m_Layer: 0
   m_Name: LeftCalf
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2366,6 +2374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 0.8
 --- !u!1 &5254148956037684984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2557,7 +2566,7 @@ GameObject:
   - component: {fileID: 6000840010344198827}
   m_Layer: 0
   m_Name: RightUpperArm
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2699,6 +2708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 0.8
 --- !u!1 &5711541090275204540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,7 +2990,7 @@ GameObject:
   - component: {fileID: 4456948953776274769}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3119,6 +3129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainHealth: {fileID: 8422456562503459452}
+  damageBoost: 2.5
 --- !u!1 &6346922811445702568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3656,7 +3667,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3838,18 +3849,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa516ce3f47a6445be1bc6750f377e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: 0
+  faction: 1
   refreshRate: 200
   enemyFactions: 00000000
   friendlyFactions: 01000000
-  detectionFactor: 5
-  alertDetectionFactor: 7
-  maxPatrolRadius: 5
+  detectionFactor: 10
+  alertDetectionFactor: 15
+  maxPatrolRadius: 3
   maxWaitTime: 5
   minWaitTime: 2
   attackDelay: 0.5
   attackRadius: 0.5
-  attackDistance: 1
+  attackDistance: 1.5
   attackStartPivot: {fileID: 8219699125826504153}
   damage: 20
   calmSoundProbability: 0.2
@@ -3918,7 +3929,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchInterval: 0.1
   pitch: 0.8
-  damageVoices: []
+  damageVoices:
+  - {fileID: 8300000, guid: 6857c17d0b39a594298d2c0ebc09f389, type: 3}
+  - {fileID: 8300000, guid: 9ac9e455e130968459fc7ff35a33428c, type: 3}
+  - {fileID: 8300000, guid: 2befdd9e638fca240b795c5cffb7aed2, type: 3}
+  - {fileID: 8300000, guid: 750dad2c35d71a44fb6d408b4d245bf8, type: 3}
+  - {fileID: 8300000, guid: b1def8c35ba07fb49bccee81e6bbfb92, type: 3}
+  deathVoices:
+  - {fileID: 8300000, guid: c302c20ebf79ed14d88d8d07ce9f7c3e, type: 3}
+  - {fileID: 8300000, guid: 37670623b2aa89a4589af3d795088c80, type: 3}
+  - {fileID: 8300000, guid: b0ffcf6cc5c93b942a7482cd6470415a, type: 3}
+  - {fileID: 8300000, guid: 34c6c2a5121658d41883db4354057833, type: 3}
   calmVoices:
   - {fileID: 8300000, guid: 2957cb8495b09468198706cfb1952d1e, type: 3}
   - {fileID: 8300000, guid: 2a7c3a00d7db0451caab0c673737213f, type: 3}

@@ -13,7 +13,7 @@ namespace Character
         [SerializeField] private AudioClip[] deathVoices;
 
 
-        public AudioSource Source { get; private set; }
+        public AudioSource Source { get; protected set; }
 
         protected virtual void Start()
         {

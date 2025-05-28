@@ -14,3 +14,10 @@
 - Sci-fi Guns SFX Pack: https://assetstore.unity.com/packages/audio/sound-fx/sci-fi-guns-sfx-pack-181144
 - Regular Impact Sounds - Sound Effects: https://assetstore.unity.com/packages/audio/sound-fx/regular-impact-sounds-sound-effects-278024
 - Selected U3D Japanese Font: https://assetstore.unity.com/packages/2d/fonts/selected-u3d-japanese-font-337
+- Footsteps - Essentials: https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-189879?srsltid=AfmBOoqX44P7uprfi2U8qjGiijS_68waa9nLcBEwegdWETEi8Zj83MxG
+- Sci-Fi Construction Kit (Modular): https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-construction-kit-modular-159280
+-【Low Poly】Stair Light (Lite): https://assetstore.unity.com/packages/vfx/shaders/low-poly-stair-light-lite-187530
+- Free Sci-Fi Office Pack: https://assetstore.unity.com/packages/3d/environments/sci-fi/free-sci-fi-office-pack-195067
+- Ammo Box: https://assetstore.unity.com/packages/3d/props/weapons/ammo-box-7701
+- First aid jar: https://assetstore.unity.com/packages/3d/props/first-aid-jar-285565
+- Sci-Fi Alarm SFX: https://assetstore.unity.com/packages/audio/ambient/sci-fi/sci-fi-alarm-sfx-238043
