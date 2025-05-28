@@ -54,20 +54,17 @@ namespace AI.Controllers
         /// </summary>
         /// <param name="pos"> position to move to </param>
         /// <param name="moveState"> state of the current AI agent </param>
-        public void MoveTo(Vector3 pos, AIMoveState moveState)
+        public Vector3 MoveTo(Vector3 pos, AIMoveState moveState)
         {
             if (!navMeshAgent.isActiveAndEnabled)
             {
                 Log.Warning(this, "MoveTo", "NavMeshAgent is not active or enabled");
-                return;
+                return transform.position;
             }
 
             navMeshAgent.isStopped = false;    
             navMeshAgent.speed = SpeedByMoveState(moveState);
-            if (!navMeshAgent.SetDestination(pos))
-            {
-                Log.Warning(this, "MoveTo", "SetDestination was called for an impossible position!");
-            }
+            return navMeshAgent.SetDestination(pos) ? navMeshAgent.destination : transform.position; 
         }
 
 

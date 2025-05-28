@@ -38,10 +38,11 @@ namespace AI.Agents
         [SerializeField] private float maxWaitTime = 5f;
         [SerializeField] private float minWaitTime = 2f;
         [Header("Attack Settings")]
+        [SerializeField] private Transform attackStartPivot;
         [SerializeField] private float attackDelay = 0.5f;
         [SerializeField] private float attackRadius = 0.5f;
         [SerializeField] private float attackDistance = 0.5f;
-        [SerializeField] private Transform attackStartPivot;
+        [SerializeField] private float attackStopDistance = 1.5f;
         [SerializeField] private float damage = 20f;
         [Header("Sound Settings")]
         [SerializeField][Range(0f, 1f)] private float calmSoundProbability = 0.2f;
@@ -76,11 +77,20 @@ namespace AI.Agents
             // State transition on detection
             if (closestTarget != null && closestTarget.DetectionLevel >= TO_ALERT_THRESHOLD)
             {
-                voices.PlayAlertVoice();
                 State = AIState.Alert;
+                voices.PlayAlertVoice();
                 currentTarget = closestTarget;
-                movement.MoveTo(currentTarget.Position, AIMoveState.Walk);
-                goal = new PositionGoal(this, currentTarget.Position);
+                goal = new PositionGoal(this, movement.MoveTo(currentTarget.Position, AIMoveState.Walk));
+                return;
+            }
+
+            // State transition on new sound heard
+            if (ears.HasTargets)
+            {
+                Vector3 soundPos = ears.ClosestTarget.transform.position;
+                State = AIState.Alert;
+                Voices.PlayAlertVoice();
+                goal = new PositionGoal(this, movement.MoveTo(soundPos, AIMoveState.Run));
                 return;
             }
 
@@ -118,16 +128,26 @@ namespace AI.Agents
             ScannedTarget closestTarget = LookAtClosestTarget();
             InvestigateTarget(closestTarget, alertDetectionFactor);
 
-            // State transition on detection
+            // Move to visible target
             if (closestTarget != null && closestTarget.DetectionLevel >= TO_DANGER_THRESHOLD)
             {
-                Voices.PlayDangerVoice();
                 currentTarget = closestTarget;
-                State = AIState.Danger;
-                movement.MoveTo(currentTarget.Position, AIMoveState.Run);
-                goal = new PositionGoal(this, currentTarget.Position);
-                return;
+                goal = new PositionGoal(this, movement.MoveTo(currentTarget.Position, AIMoveState.Run));
+
+                // State transition on detection
+                if (closestTarget.DetectionLevel >= TO_DANGER_THRESHOLD)
+                {
+
+                    Voices.PlayDangerVoice();
+                    State = AIState.Danger;
+                    return;
+                }
             }
+
+            if (closestTarget == null && ears.HasTargets)
+            {
+                goal = new PositionGoal(this, movement.MoveTo(ears.ClosestTarget.transform.position, AIMoveState.Run));
+            } 
 
             // Main goal execution
             if (goal.Evaluate()) 
@@ -149,10 +169,10 @@ namespace AI.Agents
         {
             animations.SetCombatLayerWeight(1);
 
-            Vector3 dirToTarget = (currentTarget.Position - transform.position).normalized;
+            Vector3 dirToTarget = (currentTarget.Position - transform.position).normalized * attackStopDistance;
 
-            goal = new PositionGoal(this, currentTarget.Position - dirToTarget);
-            movement.MoveTo(currentTarget.Position, AIMoveState.Run);
+            // Always move to current target
+            goal = new PositionGoal(this, movement.MoveTo(currentTarget.Position - dirToTarget, AIMoveState.Run));
 
             if (goal.Evaluate())
             {
@@ -178,10 +198,9 @@ namespace AI.Agents
             // Change to Alert state and lose track of the current target
             if (currentTarget != null && args.LostTargets.Contains(currentTarget))
             {
-                State = AIState.Alert;
-                goal = new PositionGoal(this, currentTarget.Position);
-                movement.MoveTo(currentTarget.Position, AIMoveState.Walk);
+                goal = new PositionGoal(this, movement.MoveTo(currentTarget.Position, State == AIState.Danger ? AIMoveState.Run : AIMoveState.Walk));
                 currentTarget = null;
+                State = AIState.Alert;
             }
         }
 

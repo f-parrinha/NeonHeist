@@ -20,3 +20,4 @@
 - Free Sci-Fi Office Pack: https://assetstore.unity.com/packages/3d/environments/sci-fi/free-sci-fi-office-pack-195067
 - Ammo Box: https://assetstore.unity.com/packages/3d/props/weapons/ammo-box-7701
 - First aid jar: https://assetstore.unity.com/packages/3d/props/first-aid-jar-285565
+- Sci-Fi Alarm SFX: https://assetstore.unity.com/packages/audio/ambient/sci-fi/sci-fi-alarm-sfx-238043
