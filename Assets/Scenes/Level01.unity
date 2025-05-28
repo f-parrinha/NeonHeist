@@ -1134,6 +1134,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2106937310572857391, guid: 239cdc5e78d13e941a18877ccb4645c5, type: 3}
   m_PrefabInstance: {fileID: 340881009}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &155348241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5248021673879268734, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+  m_PrefabInstance: {fileID: 197450563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &155348242 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5046494128003534350, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+  m_PrefabInstance: {fileID: 197450563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &155348244
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155348241}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &161460645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1225,6 +1256,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5046494128003534350, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046494128003534350, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      propertyPath: rolloffMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046494128003534350, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
+      value: -2.5006037
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046494128003534350, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: -2.5006037
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046494128003534350, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.07317073
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248021673879268734, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6091184952300048149, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8384782
@@ -1268,7 +1323,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1099974823909867691, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1225558137}
+    - targetCorrespondingSourceObject: {fileID: 5248021673879268734, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 155348244}
   m_SourcePrefab: {fileID: 100100000, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
 --- !u!1 &198874222
 GameObject:
@@ -9692,6 +9753,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5323ac9596144a45b61a17ac1fecf84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1225558137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225558113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f857068bf2fcd5242be51f025fd33d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeCollider: {fileID: 155348244}
+  source: {fileID: 155348242}
+  rangeOffset: 0
+  range: 7
+  startOnAwake: 1
+  useSpeed: 1
+  baseSpeed: 3.5
+  checkIsGrounded: 1
+  isGroundedRayLength: 1
 --- !u!1001 &1229209762
 PrefabInstance:
   m_ObjectHideFlags: 0
