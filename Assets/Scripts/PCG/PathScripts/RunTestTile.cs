@@ -25,8 +25,19 @@ public class RunTestTile : MonoBehaviour
     private void Generate()
     {
 
-      
-        Vector3 tileOffset = startTile.transform.position - startTile.getEntryPoint().position;
+        Transform entryPoint; // = startTile.getEntryPoint();
+
+        List<Transform> entryPointList = startTile.getEntryPoints();
+
+        if (entryPointList.Count == 1)
+            entryPoint = entryPointList[0];
+        else
+        {
+            int randomEntry = Random.Range(0, entryPointList.Count);
+            entryPoint = entryPointList[randomEntry];
+        }
+
+        Vector3 tileOffset = startTile.transform.position - entryPoint.position;
         Vector3 rotationToPosition = startPoint.rotation * tileOffset;
         
         Vector3 pos = startPoint.position + rotationToPosition;
@@ -50,11 +61,41 @@ public class RunTestTile : MonoBehaviour
             GameObject nextTileObj = currentTile.getTile(randomTile);
             Tile nextTileScript = nextTileObj.GetComponent<Tile>();
 
-            Quaternion rotation = currentTile.getExitPoint().rotation; 
-            // td bem ate aqui
-            Debug.Log("current Tile exit pos " + currentTile.getExitPoint().position);
 
-            Vector3 scaledPoint = Vector3.Scale(nextTileScript.getEntryPoint().localPosition, nextTileObj.transform.localScale);
+
+            Transform exitPoint; // = currentTile.getExitPoint();
+
+            List<Transform> exitPointList = currentTile.getExitPoints();
+
+            if (exitPointList.Count == 1)
+                exitPoint = exitPointList[0];
+            else
+            {
+                int randomEntry = Random.Range(0, exitPointList.Count);
+                exitPoint = exitPointList[randomEntry];
+            }
+
+
+            Quaternion rotation = exitPoint.rotation; 
+            // td bem ate aqui
+            Debug.Log("current Tile exit pos " + exitPoint.position);
+
+
+
+            Transform entryPoint; // = nextTileScript.getEntryPoint();
+
+            List<Transform> entryPointList = nextTileScript.getEntryPoints();
+
+            if (entryPointList.Count == 1)
+                entryPoint = entryPointList[0];
+            else
+            {
+                int randomEntry = Random.Range(0, entryPointList.Count);
+                entryPoint = entryPointList[randomEntry];
+            }
+
+
+            Vector3 scaledPoint = Vector3.Scale(entryPoint.localPosition, nextTileObj.transform.localScale);
             Debug.Log("actual value of entry " + scaledPoint);
             
             Vector3 tileOffset = -scaledPoint;
@@ -62,7 +103,7 @@ public class RunTestTile : MonoBehaviour
             
             Vector3 offsetRotation = rotation * tileOffset;
             
-            Vector3 pos = currentTile.getExitPoint().position + offsetRotation;
+            Vector3 pos = exitPoint.position + offsetRotation;
 
 
             //Check overlap before instantiate

@@ -8,8 +8,8 @@ public class Tile : MonoBehaviour
     //model and its name
     //private string tileName;
 
-    [SerializeField] private Transform entryPoint;
-    [SerializeField] private Transform exitPoint;
+    [SerializeField] private List<Transform> entryPoint;
+    [SerializeField] private List<Transform> exitPoint;
     [SerializeField] private BoxCollider boxCollider;
 
     [SerializeField] private List<GameObject>exitTiles;
@@ -29,11 +29,11 @@ public class Tile : MonoBehaviour
         return exitTiles[index];
     }
 
-    public Transform getEntryPoint()
+    public List<Transform> getEntryPoints()
     {
         return entryPoint;
     }
-    public Transform getExitPoint()
+    public List<Transform> getExitPoints()
     {
         return exitPoint;
     }

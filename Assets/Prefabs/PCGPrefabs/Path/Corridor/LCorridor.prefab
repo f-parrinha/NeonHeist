@@ -284,8 +284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b257de118ce6174a9b44cc6f3314bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entryPoint: {fileID: 2738246988199356740}
-  exitPoint: {fileID: 7694859979732204282}
+  entryPoint:
+  - {fileID: 2738246988199356740}
+  exitPoint:
+  - {fileID: 7694859979732204282}
   boxCollider: {fileID: 5764383769522497665}
   exitTiles:
   - {fileID: 999928391282133213, guid: 35e6eb970a67e7a48a16c0ca6296a497, type: 3}
