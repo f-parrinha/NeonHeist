@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 44281703795834017}
   - component: {fileID: 2164340635174032942}
   - component: {fileID: 6171655727891539375}
+  - component: {fileID: 190824336639059900}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -535,9 +536,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmoTable: {fileID: 11400000, guid: 65a8624a7a70e7b418c6ae1435bf5f2a, type: 2}
-  startingRifleAmmo: 50
-  stargingShotgunAmmo: 30
-  startingPistolAmmo: 10
+  startingRifleAmmo: 0
+  stargingShotgunAmmo: 0
+  startingPistolAmmo: 0
 --- !u!114 &2164340635174032942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,6 +579,27 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &190824336639059900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099974823909867691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f857068bf2fcd5242be51f025fd33d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeCollider: {fileID: 1432682888775221274}
+  source: {fileID: 5046494128003534350}
+  rangeOffset: 0
+  range: 7
+  startOnAwake: 1
+  useSpeed: 1
+  baseSpeed: 3.5
+  checkIsGrounded: 1
+  isGroundedRayLength: 1
 --- !u!1 &1601935636725809942
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,7 +874,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7602165756159993538}
   - component: {fileID: 5046494128003534350}
-  m_Layer: 6
+  - component: {fileID: 1432682888775221274}
+  m_Layer: 9
   m_Name: Footstep AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,3 +994,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &1432682888775221274
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248021673879268734}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

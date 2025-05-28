@@ -17,12 +17,24 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 3c5ecca38b8a52643ac5b38d00d57155, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 3c5ecca38b8a52643ac5b38d00d57155, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 3c5ecca38b8a52643ac5b38d00d57155, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 3c5ecca38b8a52643ac5b38d00d57155, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 3c5ecca38b8a52643ac5b38d00d57155, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 100012, guid: 3c5ecca38b8a52643ac5b38d00d57155, type: 3}
       propertyPath: m_StaticEditorFlags

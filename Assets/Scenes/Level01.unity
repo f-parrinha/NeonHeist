@@ -1209,17 +1209,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 44281703795834017, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
-      propertyPath: startingRifleAmmo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 44281703795834017, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
-      propertyPath: startingPistolAmmo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 44281703795834017, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
-      propertyPath: stargingShotgunAmmo
-      value: 0
+    - target: {fileID: 190824336639059900, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
+      propertyPath: range
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1099974823909867691, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
       propertyPath: m_Name
@@ -3108,21 +3100,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5824966631281250904, guid: cf0b1eda6b8037041be3a482ad329b32, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 5824966631281250906, guid: cf0b1eda6b8037041be3a482ad329b32, type: 3}
       propertyPath: m_Name
       value: Shelves (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5824966631281250906, guid: cf0b1eda6b8037041be3a482ad329b32, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
-    - target: {fileID: 5824966631281250908, guid: cf0b1eda6b8037041be3a482ad329b32, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
