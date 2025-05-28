@@ -27,7 +27,7 @@ public class PathGen : MonoBehaviour
 
     private void Awake()
     {
-        EntryWallScript[] childWallScripts = GetComponentsInChildren<EntryWallScript>();
+       /* EntryWallScript[] childWallScripts = GetComponentsInChildren<EntryWallScript>();
 
         foreach (EntryWallScript wallScript in childWallScripts)
         {
@@ -37,7 +37,7 @@ public class PathGen : MonoBehaviour
                 entrances.Add(wallScript);
                 Debug.Log($"Found entry wall at position: {wallScript.getWallBlockPos()}");
             }
-        }
+        }*/
 
     }
 
