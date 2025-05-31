@@ -1,21 +1,25 @@
 using Core.Common.Queue;
 using Core.UserInput;
-using Player.Controller;
 using UnityEngine;
 
 namespace Player.Controller
 {
+    /// <summary>
+    /// Class <c> HandsSway </c> creates a procedural animation, that gives the effect of "handling" the gun. 
+    ///     Rotates and moves the player's hands according to its motion
+    /// </summary>
     public class HandsSway : MonoBehaviour
     {
         private const float RotToPosRescaler = 0.02f;
 
         [Header("General Settings")]
         [SerializeField] private Transform swayPivot;
-        [SerializeField] private Player player; 
+        [SerializeField] private Player player;
         [Header("Move Sway Settings")]
         [SerializeField] private float moveSway;
         [SerializeField] private float moveSwaySpeed;
         [SerializeField] private float maxSpeedFactor = 1.5f;
+        [SerializeField] [Range(0f, 1f)] private float zoomFactor = 0.2f;
         [Header("Mouse Sway Settings")]
         [SerializeField] private float mouseSway;
         [SerializeField] private float mouseSwayZ;
@@ -65,8 +69,9 @@ namespace Player.Controller
             var x = InputSystem.Instance.MoveAxis.x;
             var z = InputSystem.Instance.MoveAxis.z; z *= InputSystem.Instance.MoveAxis.z < 0 ? 0.5f : 1;   // Add more sway when moving forward
             var y = InputSystem.Instance.MoveAxis.z; y *= y > 0 ? 0.5f : 0;
+            var zoomFactor = player.GunController.IsZooming ? this.zoomFactor : 1f;
             var factor = Mathf.Min(pPhysics.Speed / pMovement.MoveSpeed, maxSpeedFactor);
-            var sway = pPhysics.IsGrounded ? factor * moveSway * RotToPosRescaler *  new Vector3(x, -y, -z) : Vector3.zero;
+            var sway = pPhysics.IsGrounded ? zoomFactor * factor * moveSway * RotToPosRescaler *  new Vector3(x, -y, -z) : Vector3.zero;
 
             currentMoveSway = Vector3.Lerp(currentMoveSway, sway, moveSwaySpeed * Time.deltaTime);
             return currentMoveSway;
@@ -77,7 +82,8 @@ namespace Player.Controller
         {
             var x = InputSystem.Instance.MoveAxis.x;
             var factor = pPhysics.Speed / pMovement.MoveSpeed;
-            var rotationMoveSway = pPhysics.IsGrounded ? factor * moveSway * new Vector3(0, x, -2 * x) : Vector3.zero;
+            var zoomFactor = player.GunController.IsZooming ? this.zoomFactor : 1f;
+            var rotationMoveSway = pPhysics.IsGrounded ? zoomFactor * factor * moveSway * new Vector3(0, x, -2 * x) : Vector3.zero;
 
             currentRotationMoveSway = Vector3.Lerp(currentRotationMoveSway, rotationMoveSway, moveSwaySpeed * Time.deltaTime);
             return currentRotationMoveSway;

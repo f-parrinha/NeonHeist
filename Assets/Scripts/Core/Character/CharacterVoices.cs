@@ -1,70 +1,52 @@
-using Core.Character;
-using Core.Character.Events;
 using Core.Common.Interfaces;
-using Core.Health.Events;
 using UnityEngine;
 
 
 namespace Character
 { 
     [RequireComponent(typeof(AudioSource))]
-    [RequireComponent(typeof(CharacterHealth))]
-    [RequireComponent(typeof(CharacterStats))]
     public class CharacterVoices : MonoBehaviour, ICleanable
     {
         [SerializeField] private float pitchInterval = 0.1f;
         [SerializeField] private float pitch = 1f;
         [SerializeField] private AudioClip[] damageVoices;
-        [SerializeField] private AudioClip[] healVoices;
-        [SerializeField] private AudioClip[] modifierVoices;
+        [SerializeField] private AudioClip[] deathVoices;
 
-        private CharacterHealth charLife;
-        private CharacterStats charStats;
 
-        public AudioSource AudioSource { get; private set; }
+        public AudioSource Source { get; protected set; }
 
-        void Start()
+        protected virtual void Start()
         {
-            AudioSource = GetComponent<AudioSource>();
-            AudioSource.pitch = pitch;
-
-            charLife = GetComponent<CharacterHealth>();
-            charStats = GetComponent<CharacterStats>();
-
-
-            // Setup event handlers
-            charLife.AddOnDamageHandler((object sender, OnHealthChangeArgs args) =>
-            {
-                if (damageVoices.Length == 0) return;
-
-                int index = Random.Range(0, damageVoices.Length);
-                AudioSource.pitch = pitch + Random.Range(-pitchInterval, pitchInterval);
-                AudioSource.PlayOneShot(damageVoices[index]);
-            });
-
-            charLife.AddOnHealHandler((object sender, OnHealthChangeArgs args) =>
-            {
-                if (healVoices.Length == 0) return;
-
-                int index = Random.Range(0, healVoices.Length);
-                AudioSource.pitch = pitch + Random.Range(-pitchInterval, pitchInterval);
-                AudioSource.PlayOneShot(healVoices[index]);
-            });
-
-            charStats.AddOnSpeedModifiedHandler((object sender, OnSpeedModifiedArgs args) =>
-            {
-                if (modifierVoices.Length == 0) return;
-
-                int index = Random.Range(0, modifierVoices.Length);
-                AudioSource.pitch = pitch + Random.Range(-pitchInterval, pitchInterval);
-                AudioSource.PlayOneShot(modifierVoices[index]);
-            });
+            Source = GetComponent<AudioSource>();
+            Source.pitch = pitch;
         }
 
+        public void PlayDamageVoice()
+        {
+            PlayRandomSound(damageVoices);
+        }
+        public void PlayDeathVoice()
+        {
+            PlayRandomSound(deathVoices);
+        }
 
         public void CleanUp()
         {
-            AudioSource.Stop();
+            Source.Stop();
+        }
+
+        protected void PlaySound(AudioClip sound)
+        {
+            Source.pitch = pitch + Random.Range(-pitchInterval, pitchInterval);
+            Source.clip = sound;
+            Source.Play();
+        }
+
+        protected void PlayRandomSound(AudioClip[] voices)
+        {
+            if (voices.Length == 0) return;
+
+            PlaySound(voices[Random.Range(0, voices.Length)]);
         }
     }
 }

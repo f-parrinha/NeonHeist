@@ -1,0 +1,23 @@
+# Used Assets
+- Gridbox Prototype Materials:https://assetstore.unity.com/packages/2d/textures-materials/gridbox-prototype-materials-129127
+- Robot Kyle URP: https://assetstore.unity.com/packages/3d/characters/robots/robot-kyle-urp-4696
+- Human Basic Motions FREE: https://assetstore.unity.com/packages/3d/animations/human-basic-motions-free-154271
+- Human Melee Animations FREE: https://assetstore.unity.com/packages/3d/animations/human-melee-animations-free-165785?srsltid=AfmBOop-BdQDSsrfRJ1vWdBEIDrHzMMt4isnayrdiSq9Yyt4LTeCj-Wi
+- FPS Icons Pack: https://assetstore.unity.com/packages/2d/gui/icons/fps-icons-pack-45240
+- Easy FPS: https://assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/easy-fps-73776#content
+- Stylized Sci-Fi Pistol: https://assetstore.unity.com/packages/3d/props/weapons/stylized-sci-fi-battle-pistol-286349
+- Particle Pack: https://assetstore.unity.com/packages/vfx/particles/particle-pack-127325
+- Small Sound Kit: https://assetstore.unity.com/packages/audio/sound-fx/small-sound-kit-300582
+- Weapons Of Choice FREE: https://assetstore.unity.com/packages/audio/sound-fx/weapons/weapons-of-choice-free-101807
+- Voices Essentials: https://assetstore.unity.com/packages/audio/sound-fx/voices/voices-essentials-214441
+- Radio Soldier Announcer Audio: https://assetstore.unity.com/packages/audio/sound-fx/voices/radio-soldier-announcer-audio-pack-283337
+- Sci-fi Guns SFX Pack: https://assetstore.unity.com/packages/audio/sound-fx/sci-fi-guns-sfx-pack-181144
+- Regular Impact Sounds - Sound Effects: https://assetstore.unity.com/packages/audio/sound-fx/regular-impact-sounds-sound-effects-278024
+- Selected U3D Japanese Font: https://assetstore.unity.com/packages/2d/fonts/selected-u3d-japanese-font-337
+- Footsteps - Essentials: https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-189879?srsltid=AfmBOoqX44P7uprfi2U8qjGiijS_68waa9nLcBEwegdWETEi8Zj83MxG
+- Sci-Fi Construction Kit (Modular): https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-construction-kit-modular-159280
+-【Low Poly】Stair Light (Lite): https://assetstore.unity.com/packages/vfx/shaders/low-poly-stair-light-lite-187530
+- Free Sci-Fi Office Pack: https://assetstore.unity.com/packages/3d/environments/sci-fi/free-sci-fi-office-pack-195067
+- Ammo Box: https://assetstore.unity.com/packages/3d/props/weapons/ammo-box-7701
+- First aid jar: https://assetstore.unity.com/packages/3d/props/first-aid-jar-285565
+- Sci-Fi Alarm SFX: https://assetstore.unity.com/packages/audio/ambient/sci-fi/sci-fi-alarm-sfx-238043

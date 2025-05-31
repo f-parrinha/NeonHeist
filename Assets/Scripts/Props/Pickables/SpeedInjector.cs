@@ -1,4 +1,5 @@
 using Core.Character;
+using Core.Interactions;
 using Core.Utilities;
 using Props.Pickables;
 using UnityEngine;
@@ -10,8 +11,16 @@ namespace Props
         [SerializeField] [Range(1f, 3f)] private float speedModifier = 1.5f;
         [SerializeField] [Range(0f, 20f)] private float modifierTimeout = 10f;
 
+        public override void Initialize()
+        {
+            if (IsInitialized) return;
 
-        public override void Interact(Transform interactor)
+            SetInteractions(new Interaction("Pick Up", UponPickUp));
+
+            IsInitialized = true;
+        }
+
+        private void UponPickUp(Transform interactor)
         {
             interactor.TryGetComponent<CharacterStats>(out var charStats);
 

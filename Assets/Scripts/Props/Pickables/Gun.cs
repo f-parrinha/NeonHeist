@@ -1,5 +1,6 @@
 using Core.Guns.Data;
 using Core.Guns.Interfaces;
+using Core.Interactions;
 using Core.Utilities;
 using UnityEngine;
 
@@ -9,7 +10,17 @@ namespace Props.Pickables
     {
         [SerializeField] private GunData gunData;
 
-        public override void Interact(Transform interactor)
+        public override void Initialize()
+        {
+            if (IsInitialized) return;
+
+            SetInteractions(new Interaction("Pick Up", UponPickUp));
+
+            IsInitialized = true;
+        }
+
+
+        private void UponPickUp(Transform interactor)
         {
             interactor.TryGetComponent<IGunHolder>(out var gunHolder);
 
