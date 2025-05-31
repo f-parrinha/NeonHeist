@@ -838,6 +838,16 @@ MonoBehaviour:
   pcg_Layer:
     serializedVersion: 2
     m_Bits: 128
+  tileTypePrefabs:
+  - type: 0
+    prefabs:
+    - {fileID: 999928391282133213, guid: 35e6eb970a67e7a48a16c0ca6296a497, type: 3}
+  - type: 1
+    prefabs:
+    - {fileID: 3184115213090623415, guid: ad2ee8be08e609545a2290b16340ef71, type: 3}
+  - type: 2
+    prefabs:
+    - {fileID: 9152546334435265748, guid: 79e9e26ea2f0b4748bd4e9a989ef77f6, type: 3}
 --- !u!1 &631030609
 GameObject:
   m_ObjectHideFlags: 0
