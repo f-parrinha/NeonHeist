@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2789890e46fcf44993f7c753b70f0c, type: 3}
+  m_Name: NX_NZTurnTileScript
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7743625903675239804, guid: dca4b253021de5c48839060f1d37e01d, type: 3}
+  tileName: NX_NZTurn_corridor
+  negativeX: path
+  negativeZ: path
+  positiveX: wall
+  positiveZ: wall
+  weight: 0.25
