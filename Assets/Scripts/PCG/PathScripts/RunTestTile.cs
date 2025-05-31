@@ -1,8 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 public class RunTestTile : MonoBehaviour
@@ -13,7 +14,8 @@ public class RunTestTile : MonoBehaviour
     [SerializeField] private Transform startPoint;
     //private Transform exitPoint;
     
-    //[SerializeField] private LayerMask pcg_Layer;
+    //ju
+    [SerializeField] private LayerMask pcg_Layer;
 
 
     void Start()
@@ -105,7 +107,28 @@ public class RunTestTile : MonoBehaviour
             
             Vector3 pos = exitPoint.position + offsetRotation;
 
+            //ju
+            Vector3 boxCenter = pos + rotation * Vector3.Scale(nextTileScript.getBoxCollider().center, nextTileObj.transform.localScale);
+            Vector3 boxHalfExtents = Vector3.Scale(nextTileScript.getBoxCollider().size, nextTileObj.transform.localScale) * 0.5f * 0.99f;
 
+          
+            Collider[] hitColliders = Physics.OverlapBox(
+                boxCenter,
+                boxHalfExtents,
+                rotation,
+                pcg_Layer
+            );
+
+         if (hitColliders.Length > 0)
+            {
+               /* foreach (var hit in hitColliders)
+                {
+                    Debug.Log($"[Colisão] Com: {hit.gameObject.name} ({hit.transform.position})");
+                }
+                // Já tem algo nesse espaço → cancela esse tile e tenta o próximo
+               // Debug.Log("Tile sobreposto, pulando...");*/
+                continue;
+            }
             //Check overlap before instantiate
             /*Collider[] hitColliders = Physics.OverlapBox(
                 pos +(rotation * nextTileScript.getBoxCollider().center),
@@ -120,10 +143,14 @@ public class RunTestTile : MonoBehaviour
                     return;
             }*/
             //after check
-           
+
             GameObject nextTile = Instantiate(nextTileObj, pos, rotation);
 
-                       
+            //ju
+            nextTile.layer = LayerMask.NameToLayer("PCG");
+
+
+
             currentTile = nextTile.GetComponent<Tile>(); 
 
         }
