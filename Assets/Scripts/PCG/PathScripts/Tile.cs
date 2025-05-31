@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 public class Tile : MonoBehaviour
 {
     //model and its name
@@ -12,21 +12,25 @@ public class Tile : MonoBehaviour
     [SerializeField] private List<Transform> exitPoint;
     [SerializeField] private BoxCollider boxCollider;
 
-    [SerializeField] private List<GameObject>exitTiles;
+    //ju
+    //[SerializeField] private List<GameObject>exitTiles;
+    [SerializeField] private List<TileType> exitTileTypes;
    
-    public List<GameObject> getTiles()
+    public List<TileType> getTiles()
     {
-        return exitTiles;
+
+        return exitTileTypes;
     }
 
     public int getTilesCount()
     {
-        return exitTiles.Count;
+        return exitTileTypes.Count;
     }
 
-    public GameObject getTile(int index)
+    public TileType getTile(int index)
     {
-        return exitTiles[index];
+
+        return exitTileTypes[index];
     }
 
     public List<Transform> getEntryPoints()
@@ -41,6 +45,11 @@ public class Tile : MonoBehaviour
     public BoxCollider getBoxCollider()
     {
         return boxCollider;
+    }
+
+    public TileType randomTileType()
+    {
+        return exitTileTypes[Random.Range(0, exitTileTypes.Count)];
     }
 
 

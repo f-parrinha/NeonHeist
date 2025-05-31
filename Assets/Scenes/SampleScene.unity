@@ -835,6 +835,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTile: {fileID: 1034442159288087311, guid: 35e6eb970a67e7a48a16c0ca6296a497, type: 3}
   startPoint: {fileID: 586170855}
+  pcg_Layer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &631030609
 GameObject:
   m_ObjectHideFlags: 0

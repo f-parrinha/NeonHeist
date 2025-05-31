@@ -322,5 +322,4 @@ MonoBehaviour:
   - {fileID: 1341003171263243277}
   - {fileID: 1617983699542151064}
   boxCollider: {fileID: 1636095103556951583}
-  exitTiles:
-  - {fileID: 999928391282133213, guid: 35e6eb970a67e7a48a16c0ca6296a497, type: 3}
+  exitTileTypes: 00000000

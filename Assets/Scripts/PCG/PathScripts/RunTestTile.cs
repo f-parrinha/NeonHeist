@@ -6,6 +6,13 @@ using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
+
+[Serializable]
+public class TileTypePrefabList
+{
+    public TileType type;
+    public List<GameObject> prefabs;
+}
 public class RunTestTile : MonoBehaviour
 {
 
@@ -16,10 +23,18 @@ public class RunTestTile : MonoBehaviour
     
     //ju
     [SerializeField] private LayerMask pcg_Layer;
+   
+
+    [SerializeField] private List<TileTypePrefabList> tileTypePrefabs;
+
+    private Dictionary<TileType, List<GameObject>> tilePrefabsByType;
+
 
 
     void Start()
     {
+        tilePrefabsByType = tileTypePrefabs.ToDictionary(t => t.type, t => t.prefabs);
+
         Generate();
 
     }
@@ -35,6 +50,7 @@ public class RunTestTile : MonoBehaviour
             entryPoint = entryPointList[0];
         else
         {
+            //ju
             int randomEntry = Random.Range(0, entryPointList.Count);
             entryPoint = entryPointList[randomEntry];
         }
@@ -59,9 +75,15 @@ public class RunTestTile : MonoBehaviour
 
         for (int i = 0; i < 15; i++) // how many iteration
         {
-            int randomTile = Random.Range(0, currentTile.getTilesCount());
-            GameObject nextTileObj = currentTile.getTile(randomTile);
+            //ju
+            TileType randomType = currentTile.randomTileType();
+           
+            List<GameObject> possiblePrefabs = tilePrefabsByType[randomType];
+            GameObject nextTileObj = possiblePrefabs[Random.Range(0, possiblePrefabs.Count)];
             Tile nextTileScript = nextTileObj.GetComponent<Tile>();
+            //int randomTile = Random.Range(0, currentTile.getTilesCount());
+            //GameObject nextTileObj = currentTile.getTile(randomTile);
+            //Tile nextTileScript = nextTileObj.GetComponent<Tile>();
 
 
 
@@ -121,12 +143,6 @@ public class RunTestTile : MonoBehaviour
 
          if (hitColliders.Length > 0)
             {
-               /* foreach (var hit in hitColliders)
-                {
-                    Debug.Log($"[Colisão] Com: {hit.gameObject.name} ({hit.transform.position})");
-                }
-                // Já tem algo nesse espaço → cancela esse tile e tenta o próximo
-               // Debug.Log("Tile sobreposto, pulando...");*/
                 continue;
             }
             //Check overlap before instantiate

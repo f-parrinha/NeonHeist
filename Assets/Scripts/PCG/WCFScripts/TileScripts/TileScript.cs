@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class TileScript : ScriptableObject
@@ -6,6 +7,8 @@ public abstract class TileScript : ScriptableObject
     //model and its name
     public GameObject prefab; //???
     public string tileName;
+
+
 
     //model faces
     public string negativeX;
