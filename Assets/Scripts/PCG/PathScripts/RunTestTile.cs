@@ -21,8 +21,6 @@ public class RunTestTile : MonoBehaviour
     [SerializeField] private Transform startPoint;
     //private Transform exitPoint;
     
-    //ju
-    [SerializeField] private LayerMask pcg_Layer;
    
 
     [SerializeField] private List<TileTypePrefabList> tileTypePrefabs;
@@ -133,12 +131,12 @@ public class RunTestTile : MonoBehaviour
             Vector3 boxCenter = pos + rotation * Vector3.Scale(nextTileScript.getBoxCollider().center, nextTileObj.transform.localScale);
             Vector3 boxHalfExtents = Vector3.Scale(nextTileScript.getBoxCollider().size, nextTileObj.transform.localScale) * 0.5f * 0.99f;
 
-          
+
             Collider[] hitColliders = Physics.OverlapBox(
                 boxCenter,
                 boxHalfExtents,
                 rotation,
-                pcg_Layer
+                LayerMask.GetMask("PCG")
             );
 
          if (hitColliders.Length > 0)
