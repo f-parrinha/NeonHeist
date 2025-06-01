@@ -289,7 +289,7 @@ MonoBehaviour:
   exitPoint:
   - {fileID: 7694859979732204282}
   boxCollider: {fileID: 5764383769522497665}
-  exitTileTypes: 0000000002000000
+  exitTileTypes: 00000000
 --- !u!65 &5764383769522497665
 BoxCollider:
   m_ObjectHideFlags: 0

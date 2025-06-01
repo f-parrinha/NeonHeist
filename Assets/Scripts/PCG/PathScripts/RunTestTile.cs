@@ -13,25 +13,18 @@ public class TileTypePrefabList
     public TileType type;
     public List<GameObject> prefabs;
 }
+
 public class RunTestTile : MonoBehaviour
 {
 
-    //[SerializeField] private GameObject startEntry;
-    [SerializeField] private Tile startTile;
-    [SerializeField] private Transform startPoint;
-    //private Transform exitPoint;
-    
-   
-
-    [SerializeField] private List<TileTypePrefabList> tileTypePrefabs;
+    [SerializeField] private Transform _startPoint;
+    [SerializeField] private List<TileTypePrefabList> _tileTypePrefabs;
 
     private Dictionary<TileType, List<GameObject>> tilePrefabsByType;
-
-
-
+    
     void Start()
     {
-        tilePrefabsByType = tileTypePrefabs.ToDictionary(t => t.type, t => t.prefabs);
+        tilePrefabsByType = _tileTypePrefabs.ToDictionary(t => t.type, t => t.prefabs);
 
         Generate();
 
@@ -40,30 +33,22 @@ public class RunTestTile : MonoBehaviour
     private void Generate()
     {
 
-        Transform entryPoint; // = startTile.getEntryPoint();
+        List<GameObject> possibleIntroPrefabs = tilePrefabsByType[TileType.Straight];
+        GameObject startTileObj = possibleIntroPrefabs[Random.Range(0, possibleIntroPrefabs.Count)];
+
+        Tile startTile = startTileObj.GetComponent<Tile>();
 
         List<Transform> entryPointList = startTile.getEntryPoints();
-
-        if (entryPointList.Count == 1)
-            entryPoint = entryPointList[0];
-        else
-        {
-            //ju
-            int randomEntry = Random.Range(0, entryPointList.Count);
-            entryPoint = entryPointList[randomEntry];
-        }
-
+      
+        Transform entryPoint = entryPointList[0]; //smmpre começa com o straight
+        
         Vector3 tileOffset = startTile.transform.position - entryPoint.position;
-        Vector3 rotationToPosition = startPoint.rotation * tileOffset;
-        
-        Vector3 pos = startPoint.position + rotationToPosition;
+        Vector3 pos = _startPoint.position + (_startPoint.rotation * tileOffset);
 
-        GameObject tile = Instantiate(startTile.gameObject, pos, startPoint.rotation); //review rotation
-        
+        GameObject tile = Instantiate(startTileObj, pos, _startPoint.rotation); 
         
         GenerateTiles(tile);
-       
-       
+      
     }
 
     private void GenerateTiles(GameObject firstTile)
@@ -71,40 +56,31 @@ public class RunTestTile : MonoBehaviour
         
         Tile currentTile = firstTile.GetComponent<Tile>();
 
-        for (int i = 0; i < 15; i++) // how many iteration
+        for (int rep = 0; rep < 15; rep++) // how many iteration
         {
-            //ju
+            //Get Random Type
             TileType randomType = currentTile.randomTileType();
-           
+            Debug.Log("Type ->" + randomType);
+
             List<GameObject> possiblePrefabs = tilePrefabsByType[randomType];
             GameObject nextTileObj = possiblePrefabs[Random.Range(0, possiblePrefabs.Count)];
             Tile nextTileScript = nextTileObj.GetComponent<Tile>();
-            //int randomTile = Random.Range(0, currentTile.getTilesCount());
-            //GameObject nextTileObj = currentTile.getTile(randomTile);
-            //Tile nextTileScript = nextTileObj.GetComponent<Tile>();
-
-
-
-            Transform exitPoint; // = currentTile.getExitPoint();
-
+           
+            //Get exit points
+            Transform exitPoint; 
             List<Transform> exitPointList = currentTile.getExitPoints();
 
             if (exitPointList.Count == 1)
                 exitPoint = exitPointList[0];
             else
             {
-                int randomEntry = Random.Range(0, exitPointList.Count);
-                exitPoint = exitPointList[randomEntry];
+                int randomExit = Random.Range(0, exitPointList.Count);
+                exitPoint = exitPointList[randomExit];
             }
 
-
-            Quaternion rotation = exitPoint.rotation; 
-            // td bem ate aqui
-            Debug.Log("current Tile exit pos " + exitPoint.position);
-
-
-
-            Transform entryPoint; // = nextTileScript.getEntryPoint();
+            //Get entry points
+            List<int> entryIndexToFix = new List<int>();
+            Transform entryPoint; 
 
             List<Transform> entryPointList = nextTileScript.getEntryPoints();
 
@@ -114,118 +90,118 @@ public class RunTestTile : MonoBehaviour
             {
                 int randomEntry = Random.Range(0, entryPointList.Count);
                 entryPoint = entryPointList[randomEntry];
+
+                for(int i = 0; i < entryPointList.Count; i++)
+                {
+                    if(i != randomEntry)
+                        entryIndexToFix.Add(i);
+                }
             }
 
+            //generate location and rotation
+            Quaternion targetRotation = exitPoint.rotation; 
+            Vector3 tileOffset = -Vector3.Scale(entryPoint.localPosition, nextTileObj.transform.localScale);
+            Vector3 targetPosition = exitPoint.position +  (targetRotation * tileOffset);
 
-            Vector3 scaledPoint = Vector3.Scale(entryPoint.localPosition, nextTileObj.transform.localScale);
-            Debug.Log("actual value of entry " + scaledPoint);
-            
-            Vector3 tileOffset = -scaledPoint;
-            Debug.Log("next tile entry point " + tileOffset);
-            
-            Vector3 offsetRotation = rotation * tileOffset;
-            
-            Vector3 pos = exitPoint.position + offsetRotation;
-
-            //ju
-            Vector3 boxCenter = pos + rotation * Vector3.Scale(nextTileScript.getBoxCollider().center, nextTileObj.transform.localScale);
+            //check overlap
+            Vector3 boxCenter = targetPosition + targetRotation * Vector3.Scale(nextTileScript.getBoxCollider().center, nextTileObj.transform.localScale);
             Vector3 boxHalfExtents = Vector3.Scale(nextTileScript.getBoxCollider().size, nextTileObj.transform.localScale) * 0.5f * 0.99f;
 
+            if (checkOverlap(boxCenter, boxHalfExtents, targetRotation))
+                continue;
 
-            Collider[] hitColliders = Physics.OverlapBox(
+
+            GameObject nextTile = Instantiate(nextTileObj, targetPosition, targetRotation);
+
+            InstantiateEntryFiller(entryIndexToFix, entryPointList, nextTile);
+            /*for (int i = 0; i < entryIndexToFix.Count ; i++)
+            {
+                int index = entryIndexToFix[i];
+                List<GameObject> possibleWallsPrefabs = tilePrefabsByType[TileType.Wall];
+                GameObject wallTileObj = possibleWallsPrefabs[Random.Range(0, possibleWallsPrefabs.Count)];
+
+                GameObject wall = Instantiate(wallTileObj, nextTile.transform);
+                wall.transform.localPosition = entryPointList[index].localPosition + new Vector3(0,0.45f,1.8f); //??
+                wall.transform.localRotation = entryPointList[index].localRotation;
+
+              
+                
+            }
+            */
+
+            nextTile.layer = LayerMask.NameToLayer("PCG");
+
+            currentTile = nextTile.GetComponent<Tile>();
+        }
+
+        InstantiateLastWall(currentTile);
+
+        /*for (int i = 0; i < currentTile.getExitPoints().Count; i++)
+        {
+            GameObject lastTile = currentTile.gameObject;
+            List<GameObject> possibleEndPrefabs = tilePrefabsByType[TileType.End];
+            GameObject wallTileObj = possibleEndPrefabs[Random.Range(0, possibleEndPrefabs.Count)];
+
+            GameObject lastWall = Instantiate(wallTileObj, lastTile.transform);
+            lastWall.transform.localPosition = currentTile.getExitPoints()[i].transform.localPosition + (currentTile.getExitPoints()[i].transform.localRotation * new Vector3(0, 0.45f,-1.8f) ) ; //?? * rotation?
+            lastWall.transform.localRotation = currentTile.getExitPoints()[i].transform.localRotation; 
+            Debug.Log("instantiated last wall");
+
+        }*/
+
+    }
+
+    private bool checkOverlap(Vector3 boxCenter, Vector3 boxHalfExtents, Quaternion targetRotation)
+    {
+        Collider[] hitColliders = Physics.OverlapBox(
                 boxCenter,
                 boxHalfExtents,
-                rotation,
+                targetRotation,
                 LayerMask.GetMask("PCG")
             );
 
-         if (hitColliders.Length > 0)
-            {
-                continue;
-            }
-            //Check overlap before instantiate
-            /*Collider[] hitColliders = Physics.OverlapBox(
-                pos +(rotation * nextTileScript.getBoxCollider().center),
-                nextTileScript.getBoxCollider().size/2,
-                rotation,
-                pcg_Layer
-            );
-            
-            foreach( Collider hitCollider in hitColliders )
-            {
-                if(hitCollider.gameObject != currentTile.gameObject)
-                    return;
-            }*/
-            //after check
-
-            GameObject nextTile = Instantiate(nextTileObj, pos, rotation);
-
-            //ju
-            nextTile.layer = LayerMask.NameToLayer("PCG");
-
-
-
-            currentTile = nextTile.GetComponent<Tile>(); 
-
+        if (hitColliders.Length > 0)
+        {
+            Debug.Log("Stopped!");
+            return true;
+            //nao instancia, continua o loop sem instanciar os que fazem colide
         }
 
-          
-           /* List<Transform> exitPointList = FindChildByName(current.transform, "Exit");
-           
-
-            if (exitPointList.Count == 1)
-                entryPoint = exitPointList[0];
-            else
-            {
-                int randomEntry = Random.Range(0, exitPointList.Count);
-                entryPoint = exitPointList[randomEntry];
-            }
-           
-            
-            //Tile tileScript = entryPoint.GetComponent<Tile>();
-
-            Debug.Log("current tile entry pos " + entryPoint.position);
-
-            int randomTile = Random.Range(0, tile.getTilesCount());
-            GameObject nextTtile = tileScript.getTile(randomTile);
-
-
-            List<Transform> exitPointList = FindChildByName(nextTtile.transform, "Exit");
-
-            if (exitPointList.Count == 1)
-                exitPoint = exitPointList[0];
-            else
-            {
-                int randomEntry = Random.Range(0, exitPointList.Count);
-                exitPoint = exitPointList[randomEntry];
-            }
-            Debug.Log("next tile exit pos (merge) " + exitPoint.position);
-
-            Vector3 pos = newPos+ entryPoint.position  - exitPoint.position; // tile.transform.position + entryPoint.position; // - mergePoint.position;
-            Debug.Log("tile pos (received) " + newPos);
-            
-            Instantiate(nextTtile, pos,Quaternion.identity);
-            Debug.Log("instantiate pos sum " + pos);
-
-            current = nextTtile;
-            newPos = pos;
-            Debug.Log("changed current to next");
-
-
-        }*/
+        return false;
     }
 
-    private List<Transform> FindChildByName(Transform parent,string name )
+    private void InstantiateEntryFiller(List<int> entryIndexToFix, List<Transform> entryPointList, GameObject nextTile )
     {
-        List<Transform> entryChildren = new List<Transform>();
-        foreach (Transform child in parent)
+        for (int i = 0; i < entryIndexToFix.Count; i++)
         {
-            if (child.name == name)
-            {
-              entryChildren.Add(child);
-            }
-        }
+            int index = entryIndexToFix[i];
+            List<GameObject> possibleWallsPrefabs = tilePrefabsByType[TileType.Wall];
+            GameObject wallTileObj = possibleWallsPrefabs[Random.Range(0, possibleWallsPrefabs.Count)];
 
-        return entryChildren;
-      }
+            GameObject wall = Instantiate(wallTileObj, nextTile.transform);
+            wall.transform.localPosition = entryPointList[index].localPosition + new Vector3(0, 0.45f, 1.8f); //??
+            wall.transform.localRotation = entryPointList[index].localRotation;
+
+
+
+        }
+    }
+
+    private void InstantiateLastWall(Tile currentTile)
+    {
+        for (int i = 0; i < currentTile.getExitPoints().Count; i++)
+        {
+            GameObject lastTile = currentTile.gameObject;
+            List<GameObject> possibleEndPrefabs = tilePrefabsByType[TileType.End];
+            GameObject wallTileObj = possibleEndPrefabs[Random.Range(0, possibleEndPrefabs.Count)];
+
+            GameObject lastWall = Instantiate(wallTileObj, lastTile.transform);
+            lastWall.transform.localPosition = currentTile.getExitPoints()[i].transform.localPosition + (currentTile.getExitPoints()[i].transform.localRotation * new Vector3(0, 0.45f, -1.8f)); //?? * rotation?
+            lastWall.transform.localRotation = currentTile.getExitPoints()[i].transform.localRotation;
+            Debug.Log("instantiated last wall");
+
+        }
+    }
+
+   
 }
