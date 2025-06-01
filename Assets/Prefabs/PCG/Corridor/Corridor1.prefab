@@ -99,7 +99,7 @@ MonoBehaviour:
   exitPoints:
   - {fileID: 2794728801319238246}
   boxCollider: {fileID: 9189334980458230437}
-  exitTileTypes: 000000000100000002000000
+  exitTileTypes: 0000000001000000
 --- !u!65 &9189334980458230437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -115,11 +115,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7.2, y: 6, z: 3.6}
+  m_Size: {x: 7.1, y: 6, z: 3.5}
   m_Center: {x: 0, y: 3, z: 1.8}
 --- !u!1 &8966216843719669788
 GameObject:
@@ -145,13 +145,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8966216843719669788}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -3.6, y: 0, z: 1.8000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9071005448333172701}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1057856679664855418
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class RunTestTile : MonoBehaviour
 
     [SerializeField] private Transform _startPoint;
     [SerializeField] private List<TileTypePrefabList> _tileTypePrefabs;
-    [SerializeField] private NavMeshSurface playerNavMesh;
+    //[SerializeField] private NavMeshSurface playerNavMesh;
 
     private Dictionary<TileType, List<GameObject>> tilePrefabsByType;
     
@@ -60,7 +60,7 @@ public class RunTestTile : MonoBehaviour
 
     private void GenerateTiles(Tile firstTile)
     {
-        //ERRO COM 1º TILE DEPOIS DO STARTILE
+        //quando faz turn acaba logo
         
         Tile currentTile = firstTile;
 
@@ -107,14 +107,27 @@ public class RunTestTile : MonoBehaviour
             }
 
             //generate location and rotation
-            Quaternion targetRotation = exitPoint.rotation; 
+            Quaternion targetRotation = exitPoint.rotation;
+
+
+            //Quaternion rotationToMatch = Quaternion.FromToRotation(entryPoint.right, -exitPoint.right);
+            //Quaternion rotationTMatch = Quaternion.FromToRotation(entryPoint.right, nextTileObj.transform.right);
+
+
+
+            //Debug.Log("rotation to match " + rotationToMatch);
+
+           // Quaternion targetRotation = (rotationToMatch * rotationTMatch) * exitPoint.rotation;// nextTileObj.transform.rotation;
+            Debug.Log("rotation target " + targetRotation);
+
             Vector3 tileOffset = -Vector3.Scale(entryPoint.localPosition, nextTileObj.transform.localScale);
             Vector3 targetPosition = exitPoint.position +  (targetRotation * tileOffset);
+            Debug.Log("position target " + targetPosition);
 
             //check overlap
             Vector3 boxCenter = targetPosition + targetRotation * Vector3.Scale(nextTileScript.getBoxCollider().center, nextTileObj.transform.localScale);
-            Vector3 boxHalfExtents = Vector3.Scale(nextTileScript.getBoxCollider().size, nextTileObj.transform.localScale) * 0.5f * 0.99f;
-
+            Vector3 boxHalfExtents = Vector3.Scale(nextTileScript.getBoxCollider().size, nextTileObj.transform.localScale) * 0.5f;// * 0.99f;
+            DebugDrawBox(boxCenter, boxHalfExtents, targetRotation, Color.red, 1000f);
             if (checkOverlap(boxCenter, boxHalfExtents, targetRotation))
                 continue;
 
@@ -127,16 +140,19 @@ public class RunTestTile : MonoBehaviour
             nextTile.layer = LayerMask.NameToLayer("PCG");
 
             currentTile = nextTile.GetComponent<Tile>();
+
         }
 
         InstantiateLastWall(currentTile);
 
-       
+        
 
     }
 
     private bool checkOverlap(Vector3 boxCenter, Vector3 boxHalfExtents, Quaternion targetRotation)
     {
+       
+
         Collider[] hitColliders = Physics.OverlapBox(
                 boxCenter,
                 boxHalfExtents,
@@ -187,5 +203,36 @@ public class RunTestTile : MonoBehaviour
         }
     }
 
-   
+    void DebugDrawBox(Vector3 center, Vector3 halfExtents, Quaternion orientation, Color color, float duration = 0f)
+    {
+        Matrix4x4 cubeTransform = Matrix4x4.TRS(center, orientation, halfExtents * 2f);
+        Vector3[] verts = new Vector3[8]
+        {
+        cubeTransform.MultiplyPoint3x4(new Vector3(-0.5f, -0.5f, -0.5f)),
+        cubeTransform.MultiplyPoint3x4(new Vector3(0.5f, -0.5f, -0.5f)),
+        cubeTransform.MultiplyPoint3x4(new Vector3(0.5f, -0.5f, 0.5f)),
+        cubeTransform.MultiplyPoint3x4(new Vector3(-0.5f, -0.5f, 0.5f)),
+        cubeTransform.MultiplyPoint3x4(new Vector3(-0.5f, 0.5f, -0.5f)),
+        cubeTransform.MultiplyPoint3x4(new Vector3(0.5f, 0.5f, -0.5f)),
+        cubeTransform.MultiplyPoint3x4(new Vector3(0.5f, 0.5f, 0.5f)),
+        cubeTransform.MultiplyPoint3x4(new Vector3(-0.5f, 0.5f, 0.5f)),
+        };
+
+        Debug.DrawLine(verts[0], verts[1], color, duration);
+        Debug.DrawLine(verts[1], verts[2], color, duration);
+        Debug.DrawLine(verts[2], verts[3], color, duration);
+        Debug.DrawLine(verts[3], verts[0], color, duration);
+
+        Debug.DrawLine(verts[4], verts[5], color, duration);
+        Debug.DrawLine(verts[5], verts[6], color, duration);
+        Debug.DrawLine(verts[6], verts[7], color, duration);
+        Debug.DrawLine(verts[7], verts[4], color, duration);
+
+        Debug.DrawLine(verts[0], verts[4], color, duration);
+        Debug.DrawLine(verts[1], verts[5], color, duration);
+        Debug.DrawLine(verts[2], verts[6], color, duration);
+        Debug.DrawLine(verts[3], verts[7], color, duration);
+    }
+
+
 }
