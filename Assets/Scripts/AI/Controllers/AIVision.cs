@@ -2,7 +2,6 @@ using AI.Agents;
 using AI.Common;
 using AI.Enums;
 using AI.Events;
-using Codice.Client.BaseCommands;
 using Core.Common.Interfaces;
 using Core.Utilities;
 using Core.Utilities.Timing;
@@ -88,8 +87,8 @@ namespace AI.Controllers
 
                 // Extract SimAgent and faction
                 Debug.DrawRay(head.position, dir * distance, Color.red, 2f);
-                bool canSee = Physics.Raycast(head.position, dir, out var hit, distance, ~LayerMask.GetMask("Sound"));
-                bool isSimAgent = hit.collider.TryGetComponent(out SimulationAgent agent);
+                bool canSee = Physics.Raycast(head.position, dir, out var hit, distance, ~LayerMask.GetMask("Sound", "PCG"));
+                bool isSimAgent = hit.collider.TryGetComponent<SimulationAgent>(out SimulationAgent agent);
                 if (!canSee || !isSimAgent || angle >= fieldOfView || !scanFactionFilter.Contains(agent.Faction)) continue;
 
                 // Aldready scanned the target...

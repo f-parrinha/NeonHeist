@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2deaea9c1bfc8f24db2a2f686408f39d, type: 3}
+  m_Name: ShotgunData
+  m_EditorClassIdentifier: 
+  ammoType: 2
+  damage: 20
+  verticalRecoil: 5
+  horizontalRecoil: 2
+  offset: 2.5
+  zoomSpeed: 0
+  impactForce: 600
+  rateOfFireRPM: 100
+  pickable: {fileID: 7617581879054852682, guid: 307f38a6fbaeb8945905cac2ecb7e907, type: 3}
+  handsObject: {fileID: 8542883825057751822, guid: aaf69d0e22fbcf2499b4c4b9544211d4, type: 3}

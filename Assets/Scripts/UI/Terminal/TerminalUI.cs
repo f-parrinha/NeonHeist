@@ -15,11 +15,12 @@ namespace UI.Terminal
     /// </summary>
     public class TerminalUI : MonoBehaviour, IHackSystem, IInitializable, IRefreshable
     {
+        private const int STADARD_MAZE_SIZE = 11;
+
         [Header("General Settings")]        
         [SerializeField] private RectTransform mazeArea;
         [SerializeField] private TextMeshProUGUI moveCounter;
         [SerializeField] private PauseController pauseController;
-        [SerializeField] private int gridSize = 11;
         [Header("Maze Prefabs")]
         [SerializeField] private GameObject wallPrefab;
         [SerializeField] private GameObject playerPrefab;
@@ -37,6 +38,7 @@ namespace UI.Terminal
         public bool IsInitialized { get; private set; }
         public int MovesLeft { get; private set; }
         public bool CheatMode { get; set; }
+        public int HackDifficulty { get; set; } = STADARD_MAZE_SIZE;
 
 
         /* --------- UNITY METHODS --------- */
@@ -63,7 +65,7 @@ namespace UI.Terminal
             mazeArea.sizeDelta = new Vector2(mazeWorldSize, mazeWorldSize);
 
             // Setup state
-            mazeGrid = new MazeGrid(gridSize, mazeWorldSize);
+            mazeGrid = new MazeGrid(HackDifficulty, mazeWorldSize);
 
             IsInitialized = true;
         }

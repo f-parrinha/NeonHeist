@@ -62,6 +62,7 @@ namespace Player.Controller
 
             // Set State
             handsRecoil.SetHandsGun(this);
+            ShotOffset = gunData.Offset;
             bulletImpactControllerFinder = new BulletImpactControllerFinder();
             shootTimer = gunData.GunType == GunType.Rifle ? 
                 new TickTimer(gunData.RateOfFireMILLI, () => UponAutoFire()) :
@@ -136,7 +137,7 @@ namespace Player.Controller
                 Ray ray = new(pCamera.transform.position, dir);
                 bulletTracer.transform.rotation = Quaternion.LookRotation(dir);
                 bulletTracer.Play();
-                if (Physics.Raycast(ray, out var hit, MAX_SHOOT_DISTANCE, ~LayerMask.GetMask("Player", "Ingore Raycast", "Sound")))
+                if (Physics.Raycast(ray, out var hit, MAX_SHOOT_DISTANCE, ~LayerMask.GetMask("Player", "Ingore Raycast", "Sound", "PCG")))
                 {
 
                     // Create impact

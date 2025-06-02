@@ -17,6 +17,7 @@ namespace Player.Hands
         [SerializeField] private float springRestitution = 250f;
         [SerializeField] private float springSmoothness = 20f;
         [SerializeField] private float springResizer = 1f;
+        [SerializeField] private float pullbackResizer = 1f;
 
         private Spring spring;
         private HandsGun handsGun;
@@ -49,7 +50,7 @@ namespace Player.Hands
 
             // Add pullback
             Vector3 pivotPos = transform.localPosition;
-            pivotPos.z -= vRecoil / PULLBACK_RECOIL_RESIZER;
+            pivotPos.z -= vRecoil / PULLBACK_RECOIL_RESIZER * pullbackResizer;
 
             // Animate
             transform.localPosition = pivotPos;
