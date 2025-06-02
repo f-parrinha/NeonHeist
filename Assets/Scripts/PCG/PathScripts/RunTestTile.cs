@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.AI.Navigation;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -21,50 +22,59 @@ public class RunTestTile : MonoBehaviour
 
     [SerializeField] private Transform _startPoint;
     [SerializeField] private List<TileTypePrefabList> _tileTypePrefabs;
-    //[SerializeField] private NavMeshSurface playerNavMesh;
+    [SerializeField] private NavMeshSurface playerNavMesh;
 
     private Dictionary<TileType, List<GameObject>> tilePrefabsByType;
-    
+    //List<NavMeshAgent> agents;
+
     void Start()
     {
         tilePrefabsByType = _tileTypePrefabs.ToDictionary(t => t.type, t => t.prefabs);
-
+        //agents = new List<NavMeshAgent>();
         Generate();
+      
+        playerNavMesh.BuildNavMesh();
 
-        //playerNavMesh.BuildNavMesh();
+        //EnableAgents(agents);
 
     }
 
     private void Generate()
     {
 
+        Tile currentTile = GenerateFirstTile();
+        
+        GenerateTiles(currentTile);
+      
+    }
+
+    private Tile GenerateFirstTile()
+    {
         List<GameObject> possibleIntroPrefabs = tilePrefabsByType[TileType.Straight];
         GameObject startTileObj = possibleIntroPrefabs[Random.Range(0, possibleIntroPrefabs.Count)];
 
         Tile startTile = startTileObj.GetComponent<Tile>();
 
         List<Transform> entryPointList = startTile.getEntryPoints();
-      
+
         Transform entryPoint = entryPointList[0]; //smmpre começa com o straight
-        
+
         Vector3 tileOffset = startTile.transform.position - entryPoint.position;
         Vector3 pos = _startPoint.position + (_startPoint.rotation * tileOffset);
 
         GameObject tile = Instantiate(startTileObj, pos, _startPoint.rotation);
-        
-        Tile currentTile = tile.GetComponent<Tile>();
-        
-        GenerateTiles(currentTile);
-      
+
+        return tile.GetComponent<Tile>();
+
     }
 
     private void GenerateTiles(Tile firstTile)
     {
-        //quando faz turn acaba logo
         
+       
         Tile currentTile = firstTile;
 
-        for (int rep = 0; rep < 10; rep++) // how many iteration
+        for (int rep = 0; rep < 15; rep++) // how many iteration
         {
             //Get Random Type
             TileType randomType = currentTile.randomTileType();
@@ -106,23 +116,16 @@ public class RunTestTile : MonoBehaviour
                 }
             }
 
-            //generate location and rotation
+           
             Quaternion targetRotation = exitPoint.rotation;
 
 
-            //Quaternion rotationToMatch = Quaternion.FromToRotation(entryPoint.right, -exitPoint.right);
-            //Quaternion rotationTMatch = Quaternion.FromToRotation(entryPoint.right, nextTileObj.transform.right);
-
-
-
-            //Debug.Log("rotation to match " + rotationToMatch);
-
-           // Quaternion targetRotation = (rotationToMatch * rotationTMatch) * exitPoint.rotation;// nextTileObj.transform.rotation;
             Debug.Log("rotation target " + targetRotation);
 
             Vector3 tileOffset = -Vector3.Scale(entryPoint.localPosition, nextTileObj.transform.localScale);
             Vector3 targetPosition = exitPoint.position +  (targetRotation * tileOffset);
             Debug.Log("position target " + targetPosition);
+
 
             //check overlap
             Vector3 boxCenter = targetPosition + targetRotation * Vector3.Scale(nextTileScript.getBoxCollider().center, nextTileObj.transform.localScale);
@@ -134,7 +137,20 @@ public class RunTestTile : MonoBehaviour
 
             GameObject nextTile = Instantiate(nextTileObj, targetPosition, targetRotation);
 
-            InstantiateEntryFiller(entryIndexToFix, entryPointList, nextTile);
+
+            if (entryIndexToFix.Count > 0) {
+                InstantiateEntryFiller(entryIndexToFix, entryPointList, nextTile);
+            }
+            
+            
+           /* if(randomType == TileType.Room)
+            {
+                var agent = nextTile.GetComponentInChildren<NavMeshAgent>();
+
+                agents.Add(agent);
+
+               
+            }*/
             
 
             nextTile.layer = LayerMask.NameToLayer("PCG");
@@ -145,8 +161,26 @@ public class RunTestTile : MonoBehaviour
 
         InstantiateLastWall(currentTile);
 
-        
+       
+    }
 
+    private void EnableAgents(List <NavMeshAgent> agents)
+    {
+        foreach( NavMeshAgent agent in agents)
+        {
+
+        if (NavMesh.SamplePosition(agent.transform.position, out NavMeshHit hit, 2f, NavMesh.AllAreas))
+        {
+            agent.transform.position = hit.position;
+            agent.enabled = true; // only enable it when you're sure it's on a valid surface
+        }
+        else
+        {
+            Debug.LogWarning("Agent too far from NavMesh!");
+        }
+
+        }
+        // Snap it to NavMesh
     }
 
     private bool checkOverlap(Vector3 boxCenter, Vector3 boxHalfExtents, Quaternion targetRotation)

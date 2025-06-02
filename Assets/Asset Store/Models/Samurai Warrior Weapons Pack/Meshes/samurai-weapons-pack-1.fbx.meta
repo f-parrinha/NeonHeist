@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: fb5aa37cb0d7a1247bf151d4669710c0
+AssetOrigin:
+  serializedVersion: 1
+  productId: 310630
+  packageName: Low Poly Samurai Warrior Weapons Pack
+  packageVersion: 1.0
+  assetPath: Assets/PolyRonin/Samurai Warrior Weapons Pack/Meshes/samurai-weapons-pack-1.fbx
+  uploadId: 734848
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -35,7 +42,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -110,10 +117,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 310630
-  packageName: Low Poly Samurai Warrior Weapons Pack
-  packageVersion: 1.0
-  assetPath: Assets/PolyRonin/Samurai Warrior Weapons Pack/Meshes/samurai-weapons-pack-1.fbx
-  uploadId: 734848
