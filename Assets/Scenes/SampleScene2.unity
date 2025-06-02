@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3327644602583264940, guid: bdd330cc2b4511b418c72ca8a6ffd16d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.953717
       objectReference: {fileID: 0}
     - target: {fileID: 3327644602583264940, guid: bdd330cc2b4511b418c72ca8a6ffd16d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3327644602583264940, guid: bdd330cc2b4511b418c72ca8a6ffd16d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.30070576
       objectReference: {fileID: 0}
     - target: {fileID: 3327644602583264940, guid: bdd330cc2b4511b418c72ca8a6ffd16d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -165,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3327644602583264940, guid: bdd330cc2b4511b418c72ca8a6ffd16d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3327644602583264940, guid: bdd330cc2b4511b418c72ca8a6ffd16d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -208,11 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bfc7fe284e6c44ab1756711cbec69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTile: {fileID: 1034442159288087311, guid: 35e6eb970a67e7a48a16c0ca6296a497, type: 3}
   startPoint: {fileID: 32504249}
-  pcg_Layer:
-    serializedVersion: 2
-    m_Bits: 128
   tileTypePrefabs:
   - type: 0
     prefabs:
@@ -222,7 +218,7 @@ MonoBehaviour:
     - {fileID: 3184115213090623415, guid: ad2ee8be08e609545a2290b16340ef71, type: 3}
   - type: 2
     prefabs:
-    - {fileID: 9152546334435265748, guid: 79e9e26ea2f0b4748bd4e9a989ef77f6, type: 3}
+    - {fileID: 7494284653570200613, guid: 51ee6bd081c6f2f4090baaacf3358820, type: 3}
 --- !u!1 &151612338
 GameObject:
   m_ObjectHideFlags: 0

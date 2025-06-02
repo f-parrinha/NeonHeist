@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: a6abfc8000ddc814d953d6e2476f717e
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286349
+  packageName: Stylized Sci-Fi Battle Pistol
+  packageVersion: 1.0
+  assetPath: Assets/HolyPoly/Pistols/Meshes/Pistol 5.fbx
+  uploadId: 689062
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -16,8 +23,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -32,7 +37,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -107,10 +112,3 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 286349
-  packageName: Stylized Sci-Fi Battle Pistol
-  packageVersion: 1.0
-  assetPath: Assets/HolyPoly/Pistols/Meshes/Pistol 5.fbx
-  uploadId: 689062
