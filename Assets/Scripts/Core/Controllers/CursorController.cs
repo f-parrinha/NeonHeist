@@ -1,18 +1,23 @@
 using Core.Common.Interfaces;
+using Core.Common.Queue;
 using UnityEngine;
 
 namespace Core.Controllers
 {
     public class CursorController : MonoBehaviour, IRefreshable
     {
+        private BoolQueue activeQueue;
+
         [SerializeField] private bool startEnabled = false;
 
-        public bool IsEnabled { get; private set; }
+        public bool IsEnabled => activeQueue.Evaluate();
 
 
         private void Awake()
         {
-            IsEnabled = startEnabled;
+            activeQueue = new BoolQueue();
+
+            SetEnabled(this, startEnabled);
         }
 
         private void Start()
@@ -21,12 +26,17 @@ namespace Core.Controllers
         }
 
 
-        public void SetEnabled(bool enabled) 
+        public void SetEnabled(object setter, bool enabled) 
         {
-            IsEnabled = enabled;
+            activeQueue.Set(setter, enabled);
             Refresh();
         }
 
+        public void UnsetEnabler(object setter)
+        {
+            activeQueue.Unset(setter);
+            Refresh();
+        }
 
         public void Refresh()
         {
