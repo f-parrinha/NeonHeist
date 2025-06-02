@@ -8,6 +8,7 @@ TagManager:
   - Metal
   - PGStart
   - Door
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Gun
   - Sound
   - PCG
-  - 
+  - Text
   - 
   - 
   - 

@@ -781,6 +781,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7168349702391586929, guid: f43d42fed1e2d6142bf3ebeb412a7ae4, type: 3}
   m_PrefabInstance: {fileID: 1017845195}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &80653498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80653500}
+  - component: {fileID: 80653499}
+  m_Layer: 10
+  m_Name: PGCStart (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &80653499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80653498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bfc7fe284e6c44ab1756711cbec69a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startPoint: {fileID: 80653500}
+  _tileTypePrefabs:
+  - type: 4
+    prefabs:
+    - {fileID: 5835833826925765467, guid: 7d05e80b49c3ed54288285011ce5e494, type: 3}
+  - type: 0
+    prefabs:
+    - {fileID: 7139018217092238063, guid: 5eefa09df4724de4b9037c68855b37bc, type: 3}
+    - {fileID: 8616033597830495179, guid: c855f541219f5ca43a3553f607beb6c5, type: 3}
+  - type: 1
+    prefabs:
+    - {fileID: 7218371178267013901, guid: 4f7ac73ebdd3930448a21ce6b380aaf6, type: 3}
+    - {fileID: 6129287818773040849, guid: 350220673be45ee4badc5a5c3f2ab9da, type: 3}
+    - {fileID: 8308794222457442567, guid: 6cd8abd960bfcd2408eeef89d73c6eb6, type: 3}
+  - type: 2
+    prefabs:
+    - {fileID: 5536786787531401672, guid: 87f2f45a35b86b04d9f37f96c4d477ba, type: 3}
+  - type: 3
+    prefabs:
+    - {fileID: 9161883292133542891, guid: 4a08c87d1d7d2074b9a9a384cb3d197c, type: 3}
+    - {fileID: 3196496354799210725, guid: 7ff837b7891368a4eb255b4c3281f716, type: 3}
+    - {fileID: 7680732414504761667, guid: d9feedaa28e093e4b94a3970d2667f00, type: 3}
+  playerNavMesh: {fileID: 1448431026}
+--- !u!4 &80653500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80653498}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 34.199997, y: -0.100000024, z: 18.000002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &88817811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3420,7 +3487,7 @@ GameObject:
   - component: {fileID: 363642406}
   - component: {fileID: 363642408}
   - component: {fileID: 363642407}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6642,7 +6709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 768310954}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11022,7 +11089,7 @@ GameObject:
   - component: {fileID: 1354281317}
   - component: {fileID: 1354281319}
   - component: {fileID: 1354281318}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11608,7 +11675,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2039
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -13002,9 +13069,9 @@ GameObject:
   - component: {fileID: 1649390499}
   - component: {fileID: 1649390500}
   m_Layer: 10
-  m_Name: Add PCG Here
+  m_Name: PGCStart
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -13051,7 +13118,7 @@ MonoBehaviour:
     - {fileID: 8308794222457442567, guid: 6cd8abd960bfcd2408eeef89d73c6eb6, type: 3}
   - type: 2
     prefabs:
-    - {fileID: 7139018217092238063, guid: 5eefa09df4724de4b9037c68855b37bc, type: 3}
+    - {fileID: 5536786787531401672, guid: 87f2f45a35b86b04d9f37f96c4d477ba, type: 3}
   - type: 3
     prefabs:
     - {fileID: 9161883292133542891, guid: 4a08c87d1d7d2074b9a9a384cb3d197c, type: 3}
@@ -20081,4 +20148,5 @@ SceneRoots:
   - {fileID: 768310954}
   - {fileID: 288539868}
   - {fileID: 1649390499}
+  - {fileID: 80653500}
   - {fileID: 563507380}
