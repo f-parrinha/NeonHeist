@@ -4123,7 +4123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   head: {fileID: 560818666834161874}
   refreshRate: 500
-  visionRange: 50
+  visionRange: 30
   fieldOfView: 100
   lookAtAim: {fileID: 8453184848862937559}
   lookAtSpeed: 3
