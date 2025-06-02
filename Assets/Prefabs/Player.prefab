@@ -537,9 +537,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAmmoTable: {fileID: 11400000, guid: 65a8624a7a70e7b418c6ae1435bf5f2a, type: 2}
-  startingRifleAmmo: 0
-  stargingShotgunAmmo: 0
-  startingPistolAmmo: 0
+  startingRifleAmmo: 100
+  stargingShotgunAmmo: 30
+  startingPistolAmmo: 40
 --- !u!114 &2164340635174032942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +783,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 183
+    m_Bits: 2231
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

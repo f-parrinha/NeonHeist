@@ -10,6 +10,7 @@ namespace Props.Common
     {
         [SerializeField] private SecurityCamera hackableCamera;
         [SerializeField] private GameObject hackSystemObject;       // Terminal or smth
+        [SerializeField] private int hackDifficulty = 15;
 
         private IHackSystem hackSystem;
         public IHackSystem HackSystem => hackSystem;
@@ -26,7 +27,6 @@ namespace Props.Common
             }
 
             SetInteractions(new Interaction("Hack", StartHack));
-
             hackSystem.AddUponHackHandler((sender, args) => UponHack(args.Successful));
         }
 
@@ -38,6 +38,7 @@ namespace Props.Common
                 hackSystem.CheatMode = cheatBearer.CanCheat;
             }
 
+            hackSystem.HackDifficulty = hackDifficulty;
             hackSystem.Open();
         }
 

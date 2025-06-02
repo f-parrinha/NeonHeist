@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b35362a8cc5174880908bf1718f8d3, type: 3}
   m_Name: MaxAmmoTable
   m_EditorClassIdentifier: 
-  maxRifleAmmo: 300
-  maxPistolAmmo: 50
-  maxShotgunAmmo: 40
+  maxRifleAmmo: 900
+  maxPistolAmmo: 200
+  maxShotgunAmmo: 300

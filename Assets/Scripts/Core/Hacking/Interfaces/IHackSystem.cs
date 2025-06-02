@@ -6,6 +6,7 @@ namespace Core.Hacking.Interfaces
 {
     public interface IHackSystem : IOpenable
     {
+        int HackDifficulty { get; set; }
         bool CheatMode { get; set; }
 
         void AddUponHackHandler(EventHandler<UponHackArgs> handler);

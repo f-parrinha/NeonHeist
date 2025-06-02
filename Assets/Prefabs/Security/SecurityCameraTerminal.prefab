@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6579330411291723339}
   - component: {fileID: 3173263109837894481}
   - component: {fileID: 8073526049713535230}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,15 +194,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ae64cb70d3f3fd244850e17178328d55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.390003
+      value: 30.112091
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ae64cb70d3f3fd244850e17178328d55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5872614
+      value: 2.2221413
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ae64cb70d3f3fd244850e17178328d55, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.418
+      value: -0.59000206
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ae64cb70d3f3fd244850e17178328d55, type: 3}
       propertyPath: m_LocalRotation.w
@@ -210,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ae64cb70d3f3fd244850e17178328d55, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ae64cb70d3f3fd244850e17178328d55, type: 3}
       propertyPath: m_LocalRotation.y
@@ -218,7 +218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ae64cb70d3f3fd244850e17178328d55, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ae64cb70d3f3fd244850e17178328d55, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -291,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hackableCamera: {fileID: 0}
   hackSystemObject: {fileID: 0}
+  hackDifficulty: 11
 --- !u!4 &4914288333900599386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ae64cb70d3f3fd244850e17178328d55, type: 3}
