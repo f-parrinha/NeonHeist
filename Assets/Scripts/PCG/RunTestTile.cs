@@ -63,7 +63,7 @@ public class RunTestTile : MonoBehaviour
         Vector3 pos = _startPoint.position + (_startPoint.rotation * tileOffset);
 
         GameObject tile = Instantiate(startTileObj, pos, _startPoint.rotation);
-
+        tile.layer = LayerMask.NameToLayer("PCG");
         return tile.GetComponent<Tile>();
 
     }
@@ -78,7 +78,7 @@ public class RunTestTile : MonoBehaviour
         {
             //Get Random Type
             TileType randomType = currentTile.randomTileType();
-            Debug.Log("Type ->" + randomType);
+            //Debug.Log("Type ->" + randomType);
 
             List<GameObject> possiblePrefabs = tilePrefabsByType[randomType];
             GameObject nextTileObj = possiblePrefabs[Random.Range(0, possiblePrefabs.Count)];
@@ -120,17 +120,17 @@ public class RunTestTile : MonoBehaviour
             Quaternion targetRotation = exitPoint.rotation;
 
 
-            Debug.Log("rotation target " + targetRotation);
+           // Debug.Log("rotation target " + targetRotation);
 
             Vector3 tileOffset = -Vector3.Scale(entryPoint.localPosition, nextTileObj.transform.localScale);
             Vector3 targetPosition = exitPoint.position +  (targetRotation * tileOffset);
-            Debug.Log("position target " + targetPosition);
+           // Debug.Log("position target " + targetPosition);
 
 
             //check overlap
             Vector3 boxCenter = targetPosition + targetRotation * Vector3.Scale(nextTileScript.getBoxCollider().center, nextTileObj.transform.localScale);
             Vector3 boxHalfExtents = Vector3.Scale(nextTileScript.getBoxCollider().size, nextTileObj.transform.localScale) * 0.5f;// * 0.99f;
-            DebugDrawBox(boxCenter, boxHalfExtents, targetRotation, Color.red, 1000f);
+            DebugDrawBox(boxCenter, boxHalfExtents, targetRotation, Color.blue, 1000f);
             if (checkOverlap(boxCenter, boxHalfExtents, targetRotation))
                 continue;
 
@@ -196,7 +196,7 @@ public class RunTestTile : MonoBehaviour
 
         if (hitColliders.Length > 0)
         {
-            Debug.Log("Stopped!");
+            //Debug.Log("Stopped!");
             return true;
             //nao instancia, continua o loop sem instanciar os que fazem colide
         }
@@ -232,7 +232,7 @@ public class RunTestTile : MonoBehaviour
             GameObject lastWall = Instantiate(wallTileObj, lastTile.transform);
             lastWall.transform.localPosition = currentTile.getExitPoints()[i].transform.localPosition + (currentTile.getExitPoints()[i].transform.localRotation * new Vector3(0, 0.45f, -1.8f)); //?? * rotation?
             lastWall.transform.localRotation = currentTile.getExitPoints()[i].transform.localRotation;
-            Debug.Log("instantiated last wall");
+            //Debug.Log("instantiated last wall");
 
         }
     }
