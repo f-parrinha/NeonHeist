@@ -1,6 +1,5 @@
 using Core.Common.Finders;
 using Core.Common.Interfaces;
-using Core.Controllers;
 using UnityEngine;
 
 namespace UI.Menus
@@ -9,7 +8,7 @@ namespace UI.Menus
     {
         private PauseControllerFinder pauseControllerFinder;
 
-        public bool IsOpened {  get; private set; }
+        public bool IsOpened => gameObject.activeSelf;
 
         public bool IsInitialized { get; private set; }
 
@@ -29,8 +28,8 @@ namespace UI.Menus
         }
 
         public bool Toggle()
-        {
-            IsOpened = !IsOpened;
+        {   
+            gameObject.SetActive(!gameObject.activeSelf);
             Refresh();
 
             return IsOpened;
@@ -46,13 +45,13 @@ namespace UI.Menus
 
         public void Open()
         {
-            IsOpened = true;
+            gameObject.SetActive(true);
             Refresh();
         }
 
         public void Close()
         {
-            IsOpened = false;
+            gameObject.SetActive(false);
             Refresh();
         }
     }

@@ -67,6 +67,26 @@ namespace AI.Controllers
             return navMeshAgent.SetDestination(pos) ? navMeshAgent.destination : transform.position; 
         }
 
+        /// <summary>
+        /// Moves the AI agent to a given point 
+        /// </summary>
+        /// <param name="pos"> position to move to </param>
+        /// <param name="moveState"> state of the current AI agent </param>
+        public Vector3 MoveTo(Vector3 pos, AIMoveState moveState, out bool success)
+        {
+            if (!navMeshAgent.isActiveAndEnabled)
+            {
+                success = false;
+                Log.Warning(this, "MoveTo", "NavMeshAgent is not active or enabled");
+                return transform.position;
+            }
+
+            navMeshAgent.isStopped = false;
+            navMeshAgent.speed = SpeedByMoveState(moveState);
+            success = navMeshAgent.SetDestination(pos);
+            return success ? navMeshAgent.destination : transform.position;
+        }
+
 
         public void Stop()
         {

@@ -44,6 +44,7 @@ namespace AI.Agents
         [SerializeField] private float attackDistance = 0.5f;
         [SerializeField] private float attackStopDistance = 1.5f;
         [SerializeField] private float damage = 20f;
+        [SerializeField] private float impactForce = 100f;
         [Header("Sound Settings")]
         [SerializeField][Range(0f, 1f)] private float calmSoundProbability = 0.2f;
         [SerializeField] private AudioClip[] attackHitSounds;
@@ -244,8 +245,14 @@ namespace AI.Agents
             
             Vector3 dir = currentTarget.Position - transform.position;
 
-            if (Physics.SphereCast(transform.position, attackRadius, dir, out var hit, attackDistance, ~0, QueryTriggerInteraction.Ignore))
+            Debug.DrawRay(attackStartPivot.position, dir * attackDistance, Color.green, 1f);
+            if (Physics.SphereCast(attackStartPivot.position, attackRadius, dir, out var hit, attackDistance, ~0, QueryTriggerInteraction.Ignore))
             {
+                if (hit.collider.TryGetComponent<Rigidbody>(out var rigidbody))
+                {
+                    rigidbody.AddForceAtPosition(dir * impactForce, hit.point);
+                }
+
                 if (attackHitSounds.Length > 0)
                 {
                     var audioSource = AudioUtils.CreateAudio(hit.point, attackHitSounds[Random.Range(0, attackHitSounds.Length)]);

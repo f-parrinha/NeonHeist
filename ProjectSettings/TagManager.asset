@@ -9,11 +9,12 @@ TagManager:
   - PGStart
   - Door
   - CinemachineTarget
+  - Flesh
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Body Part
   - Water
   - UI
   - Player

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RifleData
   m_EditorClassIdentifier: 
   ammoType: 0
-  damage: 20
+  damage: 24
   verticalRecoil: 2.5
   horizontalRecoil: 1
   offset: 1.5
