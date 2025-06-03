@@ -25,7 +25,6 @@ namespace Core.Controllers
         private void Start()
         {
             ResetPause();
-            inputActiveQueue.Clear();
         }
 
         public void SetInputActive(object setter, bool value)
@@ -60,7 +59,7 @@ namespace Core.Controllers
 
         public void Evaluate()
         {
-            InputSystem.Instance.SetActive(this, IsActive && IsInputActive);
+            InputSystem.Instance.SetActive(this, IsActive);
             Time.timeScale = IsPaused ? 0 : 1;
         }
     }

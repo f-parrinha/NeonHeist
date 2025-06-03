@@ -1,3 +1,4 @@
+using Core.UserInput;
 using UnityEngine;
 
 namespace Core.Controllers
@@ -8,6 +9,11 @@ namespace Core.Controllers
         [SerializeField] private UIController UIController;
         [SerializeField] private PauseController pauseController;
         [SerializeField] private CursorController cursorController;
+
+        private void Start()
+        {
+            InputSystem.Instance.ClearActive();
+        }
 
         public void Win()
         {

@@ -71,6 +71,7 @@ namespace Core.UserInput
         // State methods
         public void SetActive(object setter, bool value) => isActiveQueue.Set(setter, value);
         public void UnsetActive(object setter) => isActiveQueue.Unset(setter);
+        public void ClearActive() => isActiveQueue.Clear();
 
 
         private void OnEnable()
