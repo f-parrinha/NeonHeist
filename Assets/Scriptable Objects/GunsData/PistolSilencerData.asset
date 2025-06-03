@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PistolSilencerData
   m_EditorClassIdentifier: 
   ammoType: 1
-  damage: 20
+  damage: 18
   verticalRecoil: 1.5
   horizontalRecoil: 1
   offset: 1

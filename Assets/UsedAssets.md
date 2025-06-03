@@ -24,3 +24,4 @@
 - Compact Bullpup Rifle: https://assetstore.unity.com/packages/3d/props/guns/compact-bullpup-assault-rifle-111003
 - Shotgun: https://assetstore.unity.com/packages/3d/props/guns/shotgun-26685
 - Sci Fi Chip: https://assetstore.unity.com/packages/3d/props/electronics/sci-fi-chip-162878
+- Sci-Fi Warrior: https://assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/sci-fi-warrior-54774

@@ -167,7 +167,7 @@ namespace Props
                 if (Vector3.Angle(transform.forward, dir) > coneAngle / 2) continue;
 
                 // Check for obstruction - is there a wall blocking the view?
-                if (Physics.Raycast(transform.position, dir, out var hit, range, ~LayerMask.GetMask("Ignore Raycast")))
+                if (Physics.Raycast(transform.position, dir, out var hit, range, ~LayerMask.GetMask("Ignore Raycast"), QueryTriggerInteraction.Ignore))
                 {
                     Debug.DrawRay(transform.position, dir * range, Color.yellow, 1f);
                     if (hit.collider.TryGetComponent<SimulationAgent>(out var agent))

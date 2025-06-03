@@ -9,6 +9,7 @@ TagManager:
   - PGStart
   - Door
   - CinemachineTarget
+  - Flesh
   layers:
   - Default
   - TransparentFX

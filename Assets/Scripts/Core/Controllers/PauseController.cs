@@ -59,7 +59,6 @@ namespace Core.Controllers
 
         public void Evaluate()
         {
-            cursorController.SetEnabled(this, IsActive);
             InputSystem.Instance.SetActive(this, IsActive && IsInputActive);
             Time.timeScale = IsPaused ? 0 : 1;
         }

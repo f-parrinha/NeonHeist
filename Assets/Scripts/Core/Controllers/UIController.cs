@@ -24,7 +24,7 @@ namespace Core.Controllers
 
         private void Start()
         {
-            /*if (!IsMenu(deathMenuObject))
+            if (!IsMenu(deathMenuObject))
             {
                 Log.Error(this, "Start", "DeathMenu menu is not a plausible menu, as it is not IOpenable");
                 return;
@@ -33,7 +33,7 @@ namespace Core.Controllers
             {
                 Log.Error(this, "Start", "WinMenu menu is not a plausible menu, as it is not IOpenable");
                 return;
-            }*/
+            }
             if (!IsMenu(interactionMenuObject))
             {
                 Log.Error(this, "Start", "Interaction menu is not a plausible menu, as it is not IOpenable");
@@ -45,8 +45,8 @@ namespace Core.Controllers
                 return;
             }
 
-            //deathMenu = deathMenuObject.GetComponent<IOpenable>();
-            //winMenu = winMenuObject.GetComponent<IOpenable>();
+            deathMenu = deathMenuObject.GetComponent<IOpenable>();
+            winMenu = winMenuObject.GetComponent<IOpenable>();
             interactionMenu = interactionMenuObject.GetComponent<IOpenable>();
             cursor = cursorObject.GetComponent<IEnableable>();
         } 
