@@ -6,35 +6,19 @@ namespace Core.Controllers
 {
     public class CursorController : MonoBehaviour, IRefreshable
     {
-        private BoolQueue activeQueue;
-
         [SerializeField] private bool startEnabled = false;
 
-        public bool IsEnabled => activeQueue.Evaluate();
+        public bool IsEnabled { get; private set; }
 
 
         private void Awake()
         {
-            activeQueue = new BoolQueue();
-
-            SetEnabled(this, startEnabled);
+            SetEnabled(startEnabled);
         }
 
-        private void Start()
+        public void SetEnabled(bool enabled) 
         {
-            Refresh();
-        }
-
-
-        public void SetEnabled(object setter, bool enabled) 
-        {
-            activeQueue.Set(setter, enabled);
-            Refresh();
-        }
-
-        public void UnsetEnabler(object setter)
-        {
-            activeQueue.Unset(setter);
+            IsEnabled = enabled;
             Refresh();
         }
 

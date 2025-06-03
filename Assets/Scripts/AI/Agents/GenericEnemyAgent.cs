@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using AI.Common;
 using Core.Character;
 using Core.Health.Events;
+using Core.Common.Finders;
 
 namespace AI.Agents
 {
@@ -39,6 +40,7 @@ namespace AI.Agents
         protected RagdollController ragdoll;
 
         protected Goal goal;
+        protected PauseControllerFinder pauseControllerFinder; 
 
 
         [SerializeField][Range(100, 2000)] protected int refreshRate = 500;
@@ -85,7 +87,8 @@ namespace AI.Agents
             actionDecisionTask = new TickTask(refreshRate, OnActionDecision);
             actionDecisionTask.Start();
 
-            
+            pauseControllerFinder = new PauseControllerFinder();
+
             Initialize();
         }
 
@@ -163,6 +166,7 @@ namespace AI.Agents
 
         private void OnActionDecision()
         {
+            if (pauseControllerFinder.Find().IsPaused) return;
             if (!gameObject.activeSelf)
             {
                 CleanUp();

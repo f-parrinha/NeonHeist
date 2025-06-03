@@ -4,7 +4,9 @@ using AI.Enums;
 using AI.Events;
 using AI.Goals;
 using Character;
+using Core.Common.Finders.Pools;
 using Core.Common.Queue;
+using Core.Health.Events;
 using Core.Health.Interfaces;
 using Core.Utilities;
 using Core.Utilities.Timing;
@@ -38,7 +40,10 @@ namespace AI.Agents
         private int toShoot;
         private TickTimer shootTimer;
 
+        private BulletImpactControllerFinder bulletImpactControllerFinder;
+
         [SerializeField] private float alertDetectionFactor = 15f;
+        [SerializeField] private WinCollider winCollider;
         [Header("Patrolling Settings")]
         [SerializeField] private float maxPatrolRadius = 5;
         [SerializeField] private float maxWaitTime = 5f;
@@ -74,6 +79,7 @@ namespace AI.Agents
             initPos = transform.position;
             lastGoalPos = initPos;
             lastGoalPosDistance = 0;
+            bulletImpactControllerFinder = new BulletImpactControllerFinder();
             shootTimer = new TickTimer(TimeUtils.FracToMilli(RateOfFirePSec));
             shootWait = new TickTimer(TimeUtils.FracToMilli(shootCooldown));
 
@@ -83,6 +89,17 @@ namespace AI.Agents
             {
                 vision.ScanFactionFilter = factionsArray;
             }
+
+            winCollider.gameObject.SetActive(false);
+
+
+
+        }
+
+        protected override void OnDeathHandler(object sender, EventArgs args)
+        {
+            base.OnDeathHandler(sender, args);
+            winCollider.gameObject.SetActive(true);
         }
 
         /// <summary>
@@ -318,6 +335,9 @@ namespace AI.Agents
             if (Physics.Raycast(muzzleFlash.transform.position, shotDir, out var hit, Mathf.Infinity, 
                 ~LayerMask.GetMask("Ignore Raycast", "Sound", "PCG")))
             {
+                var impact = bulletImpactControllerFinder.Find().GetPool(hit.collider.tag).NextAt(hit.point, Quaternion.LookRotation(hit.normal));
+                impact.SetParent(hit.transform);
+
                 if (hit.collider.TryGetComponent<Rigidbody>(out var rigidbody))
                 {
                     rigidbody.AddForceAtPosition(shotDir * impactForce, hit.point);

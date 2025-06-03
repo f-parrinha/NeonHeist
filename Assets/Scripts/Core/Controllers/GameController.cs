@@ -1,6 +1,4 @@
-using Core.Common.Finders;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Core.Controllers
 {
@@ -8,15 +6,21 @@ namespace Core.Controllers
     {
 
         [SerializeField] private UIController UIController;
+        [SerializeField] private PauseController pauseController;
+        [SerializeField] private CursorController cursorController;
 
         public void Win()
         {
             UIController.WinMenu.Open();
+            pauseController.Pause(this, true);
+            cursorController.SetEnabled(true);
         }
 
         public void Lose()
         {
             UIController.DeathMenu.Open();
+            pauseController.Pause(this, true);
+            cursorController.SetEnabled(true);
         }
     }
 }
