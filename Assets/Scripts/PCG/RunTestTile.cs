@@ -5,8 +5,6 @@ using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
-using UnityEngine.AI;
-using static UnityEngine.EventSystems.EventTrigger;
 using Random = UnityEngine.Random;
 
 
@@ -20,9 +18,10 @@ public class TileTypePrefabList
 public class RunTestTile : MonoBehaviour
 {
 
+    [SerializeField] private NavMeshSurface playerNavMesh;
+    [SerializeField] private GameObject sceneChange;
     [SerializeField] private Transform _startPoint;
     [SerializeField] private List<TileTypePrefabList> _tileTypePrefabs;
-    [SerializeField] private NavMeshSurface playerNavMesh;
 
     private Dictionary<TileType, List<GameObject>> tilePrefabsByType;
     //List<NavMeshAgent> agents;
@@ -164,25 +163,6 @@ public class RunTestTile : MonoBehaviour
        
     }
 
-    private void EnableAgents(List <NavMeshAgent> agents)
-    {
-        foreach( NavMeshAgent agent in agents)
-        {
-
-        if (NavMesh.SamplePosition(agent.transform.position, out NavMeshHit hit, 2f, NavMesh.AllAreas))
-        {
-            agent.transform.position = hit.position;
-            agent.enabled = true; // only enable it when you're sure it's on a valid surface
-        }
-        else
-        {
-            Debug.LogWarning("Agent too far from NavMesh!");
-        }
-
-        }
-        // Snap it to NavMesh
-    }
-
     private bool checkOverlap(Vector3 boxCenter, Vector3 boxHalfExtents, Quaternion targetRotation)
     {
        
@@ -233,6 +213,11 @@ public class RunTestTile : MonoBehaviour
             lastWall.transform.localPosition = currentTile.getExitPoints()[i].transform.localPosition + (currentTile.getExitPoints()[i].transform.localRotation * new Vector3(0, 0.45f, -1.8f)); //?? * rotation?
             lastWall.transform.localRotation = currentTile.getExitPoints()[i].transform.localRotation;
             //Debug.Log("instantiated last wall");
+            
+            GameObject sceneChanger = Instantiate(sceneChange, lastTile.transform);
+            sceneChanger.transform.localPosition = lastWall.transform.localPosition + (lastWall.transform.localRotation * new Vector3(-0.65f, 1.10f, 1.80f)); //?? * rotation?
+            sceneChanger.transform.localRotation = lastWall.transform.localRotation;
+            
 
         }
     }

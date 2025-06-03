@@ -18,5 +18,7 @@ namespace Core.Controllers
         {
             UIController.DeathMenu.Open();
         }
+
+       
     }
 }
