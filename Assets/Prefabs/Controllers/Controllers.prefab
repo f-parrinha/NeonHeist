@@ -255,6 +255,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5948880081811286254, guid: df4c248e9cd769a40b4118488225b48c, type: 3}
   m_PrefabInstance: {fileID: 5241932629097923989}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8853127768472687612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3630944979584505449, guid: df4c248e9cd769a40b4118488225b48c, type: 3}
+  m_PrefabInstance: {fileID: 5241932629097923989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e7bb1649e87a82489c72c75ee1b8043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5346823655018652212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,6 +475,14 @@ PrefabInstance:
       propertyPath: UIController
       value: 
       objectReference: {fileID: 4768944286833301445}
+    - target: {fileID: 1264323933897223224, guid: 155e75968e582bf479b862db77304909, type: 3}
+      propertyPath: pauseController
+      value: 
+      objectReference: {fileID: 8853127768472687612}
+    - target: {fileID: 1264323933897223224, guid: 155e75968e582bf479b862db77304909, type: 3}
+      propertyPath: cursorController
+      value: 
+      objectReference: {fileID: 2317413236094652874}
     - target: {fileID: 1404252132770622124, guid: 155e75968e582bf479b862db77304909, type: 3}
       propertyPath: m_LocalPosition.x
       value: -70.21134

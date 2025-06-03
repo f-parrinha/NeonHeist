@@ -10674,6 +10674,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4050874881461457849, guid: 5d0190dee3c9b1044a4a6040f1ceedc7, type: 3}
   m_PrefabInstance: {fileID: 1117608824}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1169357174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5261464203122930503, guid: d23b812d1049bf342a7fd60ee800c6ea, type: 3}
+  m_PrefabInstance: {fileID: 78694957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1170124734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11206,6 +11211,14 @@ PrefabInstance:
       propertyPath: cursorObject
       value: 
       objectReference: {fileID: 78694958}
+    - target: {fileID: 4768944286833301445, guid: ec32b9729e69de04190eb0cf632a2372, type: 3}
+      propertyPath: winMenuObject
+      value: 
+      objectReference: {fileID: 1878617559}
+    - target: {fileID: 4768944286833301445, guid: ec32b9729e69de04190eb0cf632a2372, type: 3}
+      propertyPath: deathMenuObject
+      value: 
+      objectReference: {fileID: 1169357174}
     - target: {fileID: 4768944286833301445, guid: ec32b9729e69de04190eb0cf632a2372, type: 3}
       propertyPath: interactionMenuObject
       value: 
@@ -17512,6 +17525,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3196496354799307973, guid: 7ff837b7891368a4eb255b4c3281f716, type: 3}
   m_PrefabInstance: {fileID: 1861424631}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1878617559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6880315643789028919, guid: d23b812d1049bf342a7fd60ee800c6ea, type: 3}
+  m_PrefabInstance: {fileID: 78694957}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1885429085
 PrefabInstance:
