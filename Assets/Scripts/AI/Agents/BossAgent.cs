@@ -33,7 +33,7 @@ namespace AI.Agents
         private Vector3 lastGoalPos;
 
         // Only activates damage collider on the katana for some time. The task is used for that
-        private TickTask attackTask;
+        private TickTimer shootWait;
 
         private int toShoot;
         private TickTimer shootTimer;
@@ -43,11 +43,18 @@ namespace AI.Agents
         [SerializeField] private float maxPatrolRadius = 5;
         [SerializeField] private float maxWaitTime = 5f;
         [SerializeField] private float minWaitTime = 2f;
+        [Header("Attack Move Settings")]
+        [SerializeField] private float minAttMoveDist = 3f;
+        [SerializeField] private float maxAttMoveDist = 5f;
+        [SerializeField] private float minAttMoveWait = 1f;
+        [SerializeField] private float maxAttMoveWait = 2f;
         [Header("Shoot Settings")]
+        [SerializeField] private float shootOffset = 8f;
+        [SerializeField] private float shootCooldown = 10f;
         [SerializeField] private float rateOfFire = 200;
         [SerializeField] private float rifleDamage = 15f;
-        [SerializeField] private float minShootDist = 5f;
-        [SerializeField] private float maxShootDist = 15f;
+        [SerializeField] private float impactForce = 100f;
+        [SerializeField] private int shotCount = 10;
         [SerializeField] private ParticleSystem muzzleFlash;
         [SerializeField] private ParticleSystem bulletTracer;
         [SerializeField] private AudioSource gunAudioSource;
@@ -68,6 +75,7 @@ namespace AI.Agents
             lastGoalPos = initPos;
             lastGoalPosDistance = 0;
             shootTimer = new TickTimer(TimeUtils.FracToMilli(RateOfFirePSec));
+            shootWait = new TickTimer(TimeUtils.FracToMilli(shootCooldown));
 
             // Setup vision to scan enemies
             Faction[] factionsArray = enemyFactions.ToArray();
@@ -152,6 +160,7 @@ namespace AI.Agents
                 {
 
                     Voices.PlayDangerVoice();
+                    goal = null;
                     State = AIState.Danger;
                     return;
                 }
@@ -180,30 +189,33 @@ namespace AI.Agents
         /// </summary>
         protected override void DangerAction()
         {
-            Vector3 GetDesiredPos()
-            {
-                float rotation = Random.Range(0, 360f);
-                float distance = Random.Range(minShootDist, maxShootDist);
-                return Quaternion.Euler(0, rotation, 0) * Vector3.forward * distance + currentTarget.Position;
-            }
-
             animations.SetCombatLayerWeight(1);
 
-            Action attackEndAction = () => { goal = new PositionGoal(this, movement.MoveTo(GetDesiredPos(), AIMoveState.Run)); };
+            Action newMoveAction = () => {
+                float rotation = Random.Range(0, 360f);
+                float distance = Random.Range(minAttMoveDist, maxAttMoveDist);
+                Vector3 pos = Quaternion.Euler(0, rotation, 0) * Vector3.forward * distance + transform.position;
+                goal = new PositionGoal(this, movement.MoveTo(pos, AIMoveState.Run)); 
+            };
+
             Vector3 toTarget = currentTarget.Position - transform.position;
             float distToTarget = toTarget.magnitude;
 
-            if (distToTarget <= minShootDist)
+            if (goal == null)
             {
-                Shoot(attackEndAction);
+                newMoveAction();
             }
 
+            // Shoot
+            if (shootTimer.IsFinished && vision.HasTargets)
+            {
+                Shoot();
+                shootTimer.Restart();
+            }
+
+            // Move around
             if (goal.Evaluate())
             {
-                float rotation = Random.Range(0, 360f);
-                float distance = Random.Range(minShootDist, maxShootDist);
-                Vector3 desiredPos = Quaternion.Euler(0, rotation, 0) * Vector3.forward * distance + currentTarget.Position;
-               
                 // Heal action
                 if (!vision.HasTargets && health.Health < health.MaxHealth * minHealthPrctg)
                 {
@@ -211,8 +223,19 @@ namespace AI.Agents
                     return;
                 }
 
-                // Attack
-                Shoot(attackEndAction);
+                // Interval between wait and move
+                switch(goal)
+                {
+                    case PositionGoal _:
+                        goal = new TimeGoal(this, Random.Range(minAttMoveWait, maxAttMoveWait));
+                        break;
+                    case TimeGoal _:
+                        newMoveAction();
+                        break;
+                    default:
+
+                        break;
+                }
             }
         }
 
@@ -262,12 +285,7 @@ namespace AI.Agents
 
             // Define start behaviour
             if (toShoot == 0) {
-                toShoot = 10;
-
-                // Make it look at target
-                Vector3 pos = transform.position + toTarget;
-                movement.MoveTo(pos, AIMoveState.Walk);
-                vision.SetLookAtTarget(currentTarget.Agent.transform);
+                toShoot = shotCount;
             }
 
             if (shootTimer.IsRunning) return;
@@ -278,40 +296,44 @@ namespace AI.Agents
             if (toShoot == 0)
             {
                 onFinished?.Invoke();
+                return;
             }
-            else
+            
+            // Shoot
+            Quaternion aimRotation = Quaternion.LookRotation(toTarget);
+            Quaternion spreadRotation = Quaternion.Euler(Random.Range(-shootOffset, shootOffset),
+                Random.Range(-shootOffset, shootOffset), 0);
+
+            Vector3 shotDir = aimRotation * spreadRotation * Vector3.forward;
+            gunAudioSource.pitch = 1f + Random.Range(-0.05f, 0.05f);
+            gunAudioSource.PlayOneShot(gunAudioSource.clip);
+
+            bulletTracer.transform.rotation = Quaternion.LookRotation(shotDir);
+            bulletTracer.Play();
+            muzzleFlash.Play();
+
+            shootTimer = new TickTimer(TimeUtils.FracToMilli(RateOfFirePSec), () => Shoot(onFinished));
+            shootTimer.Start();
+
+            if (Physics.Raycast(muzzleFlash.transform.position, shotDir, out var hit, Mathf.Infinity, 
+                ~LayerMask.GetMask("Ignore Raycast", "Sound", "PCG")))
             {
-                // Shoot
-                Debug.Log("SHOT");
-                Quaternion aimRotation = Quaternion.LookRotation(toTarget);
-                Quaternion spreadRotation = Quaternion.Euler(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
-                Vector3 shotDir = aimRotation * spreadRotation * Vector3.forward;
-
-                gunAudioSource.pitch = 1f + Random.Range(-0.05f, 0.05f);
-                gunAudioSource.PlayOneShot(gunAudioSource.clip);
-                muzzleFlash.Play();
-
-                bulletTracer.transform.rotation = Quaternion.LookRotation(shotDir);
-                bulletTracer.Play();
-
-
-                if (Physics.Raycast(muzzleFlash.transform.position, shotDir, out var hit, Mathf.Infinity, 
-                   ~LayerMask.GetMask("Ignore Raycast", "Sound", "PCG")))
+                if (hit.collider.TryGetComponent<Rigidbody>(out var rigidbody))
                 {
-                    if (hit.collider.TryGetComponent<SimulationAgent>(out var agent) && agent.Faction == Faction)
-                    {
-                        return;
-                    }
-
-                    if (hit.collider.TryGetComponent<CharacterHealth>(out var health))
-                    {
-                        health.Damage(rifleDamage);
-                    }
+                    rigidbody.AddForceAtPosition(shotDir * impactForce, hit.point);
+                }
+                
+                if (!hit.collider.TryGetComponent<SimulationAgent>(out var agent) || agent.Faction == Faction)
+                {
+                    return;
                 }
 
-                // Auto fire...
-                shootTimer.Restart();
+                if (hit.collider.TryGetComponent<CharacterHealth>(out var health))
+                {
+                    health.Damage(rifleDamage);
+                }
             }
+           
         }
     }
 }

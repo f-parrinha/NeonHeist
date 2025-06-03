@@ -4076,6 +4076,7 @@ MonoBehaviour:
   attackDistance: 1.5
   attackStopDistance: 1.5
   damage: 20
+  impactForce: 1000
   calmSoundProbability: 0.2
   attackHitSounds:
   - {fileID: 8300000, guid: 64f41a12c92e82a4eb303e5daafc82f7, type: 3}
