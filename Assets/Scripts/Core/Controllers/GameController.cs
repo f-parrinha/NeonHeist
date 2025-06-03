@@ -28,5 +28,7 @@ namespace Core.Controllers
             pauseController.Pause(this, true);
             cursorController.SetEnabled(true);
         }
+
+       
     }
 }
