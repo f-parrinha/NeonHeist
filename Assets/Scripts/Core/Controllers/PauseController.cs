@@ -25,6 +25,7 @@ namespace Core.Controllers
         private void Start()
         {
             ResetPause();
+            inputActiveQueue.Clear();
         }
 
         public void SetInputActive(object setter, bool value)

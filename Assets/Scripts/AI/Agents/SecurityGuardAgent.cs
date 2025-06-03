@@ -245,7 +245,8 @@ namespace AI.Agents
             
             Vector3 dir = currentTarget.Position - transform.position;
 
-            if (Physics.SphereCast(transform.position, attackRadius, dir, out var hit, attackDistance, ~0, QueryTriggerInteraction.Ignore))
+            Debug.DrawRay(attackStartPivot.position, dir * attackDistance, Color.green, 1f);
+            if (Physics.SphereCast(attackStartPivot.position, attackRadius, dir, out var hit, attackDistance, ~0, QueryTriggerInteraction.Ignore))
             {
                 if (hit.collider.TryGetComponent<Rigidbody>(out var rigidbody))
                 {

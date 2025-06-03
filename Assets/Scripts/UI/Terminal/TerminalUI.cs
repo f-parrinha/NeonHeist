@@ -1,3 +1,4 @@
+using Core.Common.Finders;
 using Core.Common.Interfaces;
 using Core.Controllers;
 using Core.Hacking.Events;
@@ -33,6 +34,7 @@ namespace UI.Terminal
         private Vector2Int goalPos;
 
         private event EventHandler<UponHackArgs> uponHack;
+        private CursorControllerFinder cursorControllerFinder;
 
         public bool IsOpened => gameObject.activeSelf;
         public bool IsInitialized { get; private set; }
@@ -45,6 +47,7 @@ namespace UI.Terminal
 
         private void Start()
         {
+            cursorControllerFinder = new CursorControllerFinder();
             Close();
         }
 
@@ -74,6 +77,9 @@ namespace UI.Terminal
         {
             if (!IsOpened) return;
 
+            if (cursorControllerFinder == null) cursorControllerFinder = new CursorControllerFinder();
+            cursorControllerFinder.Find().SetEnabled(false);
+
             gameObject.SetActive(false);
             pauseController.UnsetPauser(this);
         }
@@ -81,6 +87,9 @@ namespace UI.Terminal
         public void Open()
         {
             if (IsOpened) return;
+
+            if (cursorControllerFinder == null) cursorControllerFinder = new CursorControllerFinder();
+            cursorControllerFinder.Find().SetEnabled(true);
 
             Refresh();
             pauseController.Pause(this, true);
