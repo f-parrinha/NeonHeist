@@ -7670,6 +7670,120 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5274698711602129322, guid: c7f43666631857e4bad19fb7707fea16, type: 3}
   m_PrefabInstance: {fileID: 697086057}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &698936254
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.865719
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557243
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.6354656
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+--- !u!1001 &715622130
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.933948
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557245
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.8815727
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &728331604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8843,6 +8957,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5274698711602129322, guid: c7f43666631857e4bad19fb7707fea16, type: 3}
   m_PrefabInstance: {fileID: 815772435}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &825533357
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.11625
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557245
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.8067265
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &829150032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10009,6 +10180,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2820408672845546497, guid: faed704abd2cb0745aa8f89dcb8a1a7b, type: 3}
   m_PrefabInstance: {fileID: 935732096}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &937847730
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.870724
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557241
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.524265
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &944564389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10491,6 +10719,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2820408672845546497, guid: faed704abd2cb0745aa8f89dcb8a1a7b, type: 3}
   m_PrefabInstance: {fileID: 972981391}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &976011699
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.6783984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557243
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.4683523
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &990164657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12684,6 +12969,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2915038567204738749, guid: 3df8b7b5a43ea2746b8910f2a2e630de, type: 3}
   m_PrefabInstance: {fileID: 1193330751}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1198038157
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.021192
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557241
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.818056
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &1198052563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15227,6 +15569,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5274698711602129322, guid: c7f43666631857e4bad19fb7707fea16, type: 3}
   m_PrefabInstance: {fileID: 1383351438}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1387966710
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.903591
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557247
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.24156
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &1394058772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15351,6 +15750,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5274698711602129322, guid: c7f43666631857e4bad19fb7707fea16, type: 3}
   m_PrefabInstance: {fileID: 1396129802}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1398105606
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.145941
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557243
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.172647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &1401459799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15561,6 +16017,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2754070110379991298, guid: d80c0ac40cb7a4b43b007baaff7f6215, type: 3}
   m_PrefabInstance: {fileID: 1408091201}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1412900240
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.58334875
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557247
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.762179
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &1414210270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16261,6 +16774,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5274698711602129322, guid: c7f43666631857e4bad19fb7707fea16, type: 3}
   m_PrefabInstance: {fileID: 1461499198}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1466580005
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.1802273
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557243
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.924045
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &1468808221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22150,6 +22720,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9034031599524186266, guid: 9943c3073507eeb4c8ce3e06af9a4624, type: 3}
   m_PrefabInstance: {fileID: 2094263861}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2096126359
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.131573
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557247
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.465609
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1001 &2104149945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22808,6 +23435,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5274698711602129322, guid: c7f43666631857e4bad19fb7707fea16, type: 3}
   m_PrefabInstance: {fileID: 2132999824}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2133361005
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.629174
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.557245
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.961969
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539076545378200393, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6002159412138526160, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
+      propertyPath: m_Name
+      value: Security Robot (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b04d2a6b3876d6469b5c9444429d545, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -22824,3 +23508,15 @@ SceneRoots:
   - {fileID: 785990147}
   - {fileID: 1329845258}
   - {fileID: 1259540045}
+  - {fileID: 976011699}
+  - {fileID: 1412900240}
+  - {fileID: 1387966710}
+  - {fileID: 715622130}
+  - {fileID: 698936254}
+  - {fileID: 1466580005}
+  - {fileID: 1398105606}
+  - {fileID: 1198038157}
+  - {fileID: 2096126359}
+  - {fileID: 937847730}
+  - {fileID: 825533357}
+  - {fileID: 2133361005}

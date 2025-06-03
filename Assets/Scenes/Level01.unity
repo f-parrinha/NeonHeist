@@ -1278,7 +1278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 44281703795834017, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
       propertyPath: startingPistolAmmo
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 44281703795834017, guid: f90bc4b84f9b7c5408d69ad965ae4995, type: 3}
       propertyPath: stargingShotgunAmmo

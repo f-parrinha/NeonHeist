@@ -4075,7 +4075,7 @@ MonoBehaviour:
   attackRadius: 0.5
   attackDistance: 1.5
   attackStopDistance: 1.5
-  damage: 20
+  damage: 5
   impactForce: 1000
   calmSoundProbability: 0.2
   attackHitSounds:
