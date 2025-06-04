@@ -7485,6 +7485,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3493865890354899749, guid: 6731d43b40778964187f42302c36a3d0, type: 3}
   m_PrefabInstance: {fileID: 917950931}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &931444232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 931444233}
+  m_Layer: 0
+  m_Name: StartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &931444233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931444232}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.9384785, y: 1.098, z: -2.4615226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &939031601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 5c2d005ed687988429365cfeae7acfed, type: 3}
@@ -19688,3 +19719,4 @@ SceneRoots:
   - {fileID: 21099024}
   - {fileID: 563507380}
   - {fileID: 1652993817}
+  - {fileID: 931444233}

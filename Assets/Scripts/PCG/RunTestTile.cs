@@ -5,6 +5,7 @@ using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 
@@ -201,6 +202,26 @@ public class RunTestTile : MonoBehaviour
         }
     }
 
+    /*  private void InstantiateLastWall(Tile currentTile)
+      {
+          for (int i = 0; i < currentTile.getExitPoints().Count; i++)
+          {
+              GameObject lastTile = currentTile.gameObject;
+              List<GameObject> possibleEndPrefabs = tilePrefabsByType[TileType.End];
+              GameObject wallTileObj = possibleEndPrefabs[Random.Range(0, possibleEndPrefabs.Count)];
+
+              GameObject lastWall = Instantiate(wallTileObj, lastTile.transform);
+              lastWall.transform.localPosition = currentTile.getExitPoints()[i].transform.localPosition + (currentTile.getExitPoints()[i].transform.localRotation * new Vector3(0, 0.45f, -1.8f)); //?? * rotation?
+              lastWall.transform.localRotation = currentTile.getExitPoints()[i].transform.localRotation;
+              //Debug.Log("instantiated last wall");
+
+              GameObject sceneChanger = Instantiate(sceneChange, lastTile.transform);
+              sceneChanger.transform.localPosition = lastWall.transform.localPosition + (lastWall.transform.localRotation * new Vector3(-0.65f, 1.10f, 1.80f)); //?? * rotation?
+              sceneChanger.transform.localRotation = lastWall.transform.localRotation;
+
+
+          }
+      }*/
     private void InstantiateLastWall(Tile currentTile)
     {
         for (int i = 0; i < currentTile.getExitPoints().Count; i++)
@@ -210,17 +231,30 @@ public class RunTestTile : MonoBehaviour
             GameObject wallTileObj = possibleEndPrefabs[Random.Range(0, possibleEndPrefabs.Count)];
 
             GameObject lastWall = Instantiate(wallTileObj, lastTile.transform);
-            lastWall.transform.localPosition = currentTile.getExitPoints()[i].transform.localPosition + (currentTile.getExitPoints()[i].transform.localRotation * new Vector3(0, 0.45f, -1.8f)); //?? * rotation?
+            lastWall.transform.localPosition = currentTile.getExitPoints()[i].transform.localPosition + (currentTile.getExitPoints()[i].transform.localRotation * new Vector3(0, 0.45f, -1.8f));
             lastWall.transform.localRotation = currentTile.getExitPoints()[i].transform.localRotation;
-            //Debug.Log("instantiated last wall");
-            
-            GameObject sceneChanger = Instantiate(sceneChange, lastTile.transform);
-            sceneChanger.transform.localPosition = lastWall.transform.localPosition + (lastWall.transform.localRotation * new Vector3(-0.65f, 1.10f, 1.80f)); //?? * rotation?
-            sceneChanger.transform.localRotation = lastWall.transform.localRotation;
-            
 
+            GameObject sceneChanger = Instantiate(sceneChange, lastTile.transform);
+            sceneChanger.transform.localPosition = lastWall.transform.localPosition + (lastWall.transform.localRotation * new Vector3(-0.65f, 1.10f, 1.80f));
+            sceneChanger.transform.localRotation = lastWall.transform.localRotation;
+
+         
+            // Atribui o transform ao CheatmodeManager
+            var cheatManager = FindAnyObjectByType<CheatmodeManager>();
+            if (cheatManager != null)
+            {
+                List<Transform> entries = currentTile.getEntryPoints();
+                if (entries != null && entries.Count > 0)
+                {
+                    cheatManager.SetPCGEndPoint(i + 1, entries[0]); // ou outro índice, ou aleatório
+                }
+                // i + 1 para termos PCGEnd1, PCGEnd2, PCGEnd3
+                // cheatManager.SetPCGEndPoint(i + 1, currentTile.getEntryPoints().transform);
+
+            }
         }
     }
+
 
     void DebugDrawBox(Vector3 center, Vector3 halfExtents, Quaternion orientation, Color color, float duration = 0f)
     {
