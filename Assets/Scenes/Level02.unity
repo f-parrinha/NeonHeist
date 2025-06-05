@@ -6457,7 +6457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 618146101}
   - component: {fileID: 618146102}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PCG Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8653,7 +8653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7544252959468529741, guid: c9acd9fb344f98d49a5e67738d929bfb, type: 3}
       propertyPath: hackDifficulty
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7544252959468529741, guid: c9acd9fb344f98d49a5e67738d929bfb, type: 3}
       propertyPath: hackableCamera
@@ -12193,7 +12193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1311281476}
   - component: {fileID: 1311281477}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PCG Collider (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
