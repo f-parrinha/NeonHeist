@@ -407,7 +407,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6592529322795959531}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5719520777260659313}
+        m_TargetAssemblyTypeName: UI.Terminal.TerminalUI, UI
+        m_MethodName: Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4819584586407543823
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +653,6 @@ MonoBehaviour:
   mazeArea: {fileID: 3751516088852428276}
   moveCounter: {fileID: 4910423833475246453}
   pauseController: {fileID: 0}
-  gridSize: 11
   wallPrefab: {fileID: 7472547066532392835, guid: 566cb34f570df0547a34519b9effd75d, type: 3}
   playerPrefab: {fileID: 2162512119841416804, guid: 3fb89c0ed67810b4d80fd3bcc82a99ae, type: 3}
   goalPrefab: {fileID: 3138038092654810615, guid: dde5958c1c4b88f4da2c3300498bcdce, type: 3}
